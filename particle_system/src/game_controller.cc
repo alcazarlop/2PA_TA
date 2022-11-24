@@ -48,14 +48,14 @@ Sint8 GameController::init(){
 									1.0f, -1.0f, -1.0f,
 								};
 
-	// for(Uint32 i = 0; i < 24; i+=3)
-	// 	test.add_vertices(points[i], points[i + 1], points[i + 2]);
+	for(Uint32 i = 0; i < 24; i+=3)
+		test.add_vertices(points[i], points[i + 1], points[i + 2]);
 	
-	// // test.show_raw_vertices();
-	// test.set_position(100.0f, 100.f, 10.0f);
-	// test.set_scale(20.0f, 20.0f, 20.0f);
+	// test.show_raw_vertices();
+	test.set_position(100.0f, 100.f, 1.0f);
+	test.set_scale(20.0f, 20.0f, 10.0f);
 
-	sp.loadFromFile("../data/melocoton.png", renderer_);
+	sp.loadFromFile("../data/melocoton.png", window_);
 	sp.set_position(100.0f, 100.0f);
 
 	return isRunning_ = 1;
@@ -82,8 +82,8 @@ void GameController::draw(){
 	SDL_SetRenderDrawColor(renderer_, 0x0, 0x0, 0x0, 0xFF);
 	SDL_RenderClear(renderer_);
 
-	// test.draw(renderer_);
-	sp.draw(renderer_);
+	test.draw(renderer_);
+	// sp.draw(window_);
 
 	SDL_RenderPresent(renderer_);
 }

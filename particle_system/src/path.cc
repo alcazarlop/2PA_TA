@@ -101,8 +101,26 @@ void Path::show_raw_vertices(){
 
 void Path::draw(SDL_Renderer* render){
 	if(enabled()){
+		Mat4 transform = Mat4::Identity();
+		transform = Mat4::Translate(position_.x, position_.y, 0.0f).Multiply(transform);
+		transform = Mat4::Scale(scale_).Multiply(transform);
+		transform = Mat4::ProjectionMatrix().Multiply(transform);
+		transform = Mat4::Translate(0.0f, 0.0f, position_.z).Multiply(transform);
 
+		Vec3 tr_points[8];
+		for(int i = 0; i < 8; ++i){
+			tr_points[i] = transform.Mat4TransformVec3(vertices_[i]);
+			// printf("X[%f] Y[%f] Z[%f]\n", tr_points[i].x, tr_points[i].y, tr_points[i].z);
+		}
 
-
+		SDL_SetRenderDrawColor(render, 0xFF, 0xFF, 0xFF, 0xFF);
+		for(int i = 0; i < 4; ++i){
+			SDL_RenderDrawLineF(render, tr_points[i].x, tr_points[i].y,
+																	tr_points[(i + 1) % 4].x, tr_points[(i + 1) % 4].y);
+			SDL_RenderDrawLineF(render, tr_points[i].x, tr_points[i].y,
+																	tr_points[(i + 4)].x, tr_points[(i + 4)].y);
+			SDL_RenderDrawLineF(render, tr_points[(i + 4)].x, tr_points[(i + 4)].y,
+																	tr_points[((i + 1) % 4) + 4].x, tr_points[((i + 1) % 4) + 4].y);
+		}
 	}
 }

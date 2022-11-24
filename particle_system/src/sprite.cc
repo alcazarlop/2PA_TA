@@ -7,7 +7,8 @@ Sprite::Sprite(){
 	rotation_ = 0.0f;
 	width_ = 0;
 	height_ = 0;
-	tex_ = NULL;
+	sprite_ = NULL;
+	screenSurface_ = NULL;
 }
 
 Sprite::Sprite(const Sprite& copy){
@@ -16,39 +17,37 @@ Sprite::Sprite(const Sprite& copy){
 	rotation_ = copy.rotation_;
 	width_ = copy.width_;
 	height_ = copy.height_;
-	tex_ = copy.tex_;
+	sprite_ = copy.sprite_;
 }
 
 Sprite::~Sprite(){}
 
-SDL_Texture* Sprite::loadFromFile(const char* path, SDL_Renderer* renderer){
-	if(NULL != tex_)
-		SDL_DestroyTexture(tex_);
+void Sprite::loadFromFile(const char* path, SDL_Window* window){
+	if(screenSurface_ == NULL)
+		screenSurface_ = SDL_GetWindowSurface(window);
 
-	SDL_Surface* new_texture = IMG_Load(path);
-	if(new_texture == NULL)
+	SDL_Surface* new_sprite = IMG_Load(path);
+	if(new_sprite == NULL){
 		SDL_Log("Failed to load new image: %s! Error: %s", path, IMG_GetError());
-
-	SDL_Texture* optimizedTexture = SDL_CreateTextureFromSurface(renderer, new_texture);
-
-	width_ = new_texture->w;
-	height_ = new_texture->h;
-
-	SDL_FreeSurface(new_texture);
-	tex_ = optimizedTexture;
-	return tex_;
+		return;
+	}
+	width_ = new_sprite->w;
+	height_ = new_sprite->h;
+	sprite_ = SDL_ConvertSurface(new_sprite, screenSurface_->format, 0);
+	SDL_FreeSurface(new_sprite);
 }
 
-void Sprite::draw(SDL_Renderer* render){
-	if(tex_ != NULL && enabled()){
-		SDL_FRect dstRect = { position_.x, position_.y, width_ * scale_.x, height_ * scale_.y };
-		SDL_RenderCopyExF(render, tex_, NULL, &dstRect, rotation_, NULL, SDL_FLIP_NONE);
+void Sprite::draw(SDL_Window* window){
+	if(sprite_ != NULL && enabled()){
+		SDL_Rect dstRect = { (Sint32)position_.x, (Sint32)position_.y, (Sint32)(width_ * scale_.x), (Sint32)(height_ * scale_.y) };
+		SDL_BlitSurface(sprite_, NULL, screenSurface_, &dstRect);
+		SDL_UpdateWindowSurface(window);
 	}
 }
 
 void Sprite::release(){
-	if(NULL != tex_)
-		SDL_DestroyTexture(tex_);
+	if(NULL != sprite_)
+		SDL_FreeSurface(sprite_);
 }
 
 Uint32 Sprite::width() const {

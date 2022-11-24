@@ -14,8 +14,8 @@ public:
 	Sprite(const Sprite& copy);
 	~Sprite();
 
-	SDL_Surface* loadFromFile(const char* path, SDL_Renderer* renderer);
-	void draw(SDL_Renderer* render);
+	void loadFromFile(const char* path, SDL_Window* window);
+	void draw(SDL_Window* window);
 	void release();
 
 	Uint32 width() const;
@@ -38,7 +38,8 @@ private:
 
 	Uint32 width_;
 	Uint32 height_;
-	SDL_Texture* tex_;
+	SDL_Surface* sprite_;
+	SDL_Surface* screenSurface_;
 };
 
 #endif
