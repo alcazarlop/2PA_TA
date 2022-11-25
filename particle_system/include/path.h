@@ -10,28 +10,13 @@
 #include "vector_3.h"
 #include "matrix_4.h"
 
+class WindowController;
+
 class Path : public Entity{
 public:
 	Path();
 	Path(const Path& copy);
-	~Path();
-
-	void set_position(const Vec3& pos);
-	void set_position(float x, float y, float z);
-
-	void set_scale(const Vec3& scale);
-	void set_scale(float x, float y, float z);
-
-	void set_rotation(const Vec3& rot);
-	void set_rotation(float x, float y, float z);
-
-	void rotateX(float x);
-	void rotateY(float y);
-	void rotateZ(float z);
-
-	Vec3 position() const;
-	Vec3 scale() const;
-	Vec3 rotation() const;
+	virtual ~Path();
 
 	void add_vertices(float* array);
 	void add_vertices(float x, float y, float z);
@@ -40,13 +25,9 @@ public:
 
 	void show_raw_vertices();
 
-	void draw(SDL_Renderer* render);
+	void draw(const WindowController& wc) override;
 
 private:
-	Vec3 position_;
-	Vec3 rotation_;
-	Vec3 scale_;
-
 	std::vector<Vec3> vertices_;
 
 };

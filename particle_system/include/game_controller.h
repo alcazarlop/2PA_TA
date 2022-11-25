@@ -4,8 +4,14 @@
 
 #include <SDL.h>
 #include "SDL_image.h"
+#include "window_controller.h"
 #include "path.h"
 #include "sprite.h"
+
+#include "imgui.h"
+#include "imgui_impl_sdl.h"
+#include "imgui_impl_sdlrenderer.h"
+#include "imgui_controller.h"
 
 class GameController {
 
@@ -24,8 +30,7 @@ public:
 
 private:
 	Sint8 isRunning_;
-	SDL_Window* window_;
-	SDL_Renderer* renderer_;
+	WindowController wc_;
 
 	Path test;
 	Sprite sp;

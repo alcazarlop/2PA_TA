@@ -3,74 +3,15 @@
 #include "matrix_3.h"
 
 Path::Path(){
-	position_ = Vec3();
-	scale_ = Vec3();
-	rotation_ = Vec3();
 	vertices_.clear();
 }
 
 Path::Path(const Path& copy){
-	position_ = copy.position_;
-	scale_ = copy.scale_;
-	rotation_ = copy.rotation_;
+	vertices_ = copy.vertices_;
 }
 
 Path::~Path(){
 	vertices_.clear();
-}
-
-void Path::set_position(const Vec3& pos){
-	position_ = pos;
-}
-
-void Path::set_position(float x, float y, float z){
-	position_.x = x;
-	position_.y = y;
-	position_.z = z;
-}
-
-void Path::set_scale(const Vec3& scale){
-	scale_ = scale;
-}
-
-void Path::set_scale(float x, float y, float z){
-	scale_.x = x;
-	scale_.y = y;
-	scale_.z = z;
-}
-
-void Path::set_rotation(const Vec3& rotation){
-	rotation_ = rotation;
-}
-
-void Path::set_rotation(float x, float y, float z){
-	rotation_.x = x;
-	rotation_.y = y;
-	rotation_.z = z;
-}
-
-void Path::rotateX(float x){
-	rotation_.x = x;
-}
-
-void Path::rotateY(float y){
-	rotation_.y = y;
-}
-
-void Path::rotateZ(float z){
-	rotation_.z = z;
-}
-
-Vec3 Path::position() const {
-	return position_;
-}
-
-Vec3 Path::scale() const {
-	return scale_;
-}
-
-Vec3 Path::rotation() const {
-	return rotation_;
 }
 
 void Path::add_vertices(float* array){
@@ -99,13 +40,16 @@ void Path::show_raw_vertices(){
 		printf("X[%f] Y[%f] Z[%f]\n", vertices_[i].x, vertices_[i].y, vertices_[i].z);
 }
 
-void Path::draw(SDL_Renderer* render){
+void Path::draw(const WindowController& wc){
 	if(enabled()){
 		Mat4 transform = Mat4::Identity();
 		transform = Mat4::Translate(position_.x, position_.y, 0.0f).Multiply(transform);
 		transform = Mat4::Scale(scale_).Multiply(transform);
 		transform = Mat4::ProjectionMatrix().Multiply(transform);
 		transform = Mat4::Translate(0.0f, 0.0f, position_.z).Multiply(transform);
+		transform = Mat4::RotateX(rotation_.x).Multiply(transform);
+		transform = Mat4::RotateY(rotation_.y).Multiply(transform);
+		transform = Mat4::RotateZ(rotation_.z).Multiply(transform);
 
 		Vec3 tr_points[8];
 		for(int i = 0; i < 8; ++i){
@@ -113,14 +57,14 @@ void Path::draw(SDL_Renderer* render){
 			// printf("X[%f] Y[%f] Z[%f]\n", tr_points[i].x, tr_points[i].y, tr_points[i].z);
 		}
 
-		SDL_SetRenderDrawColor(render, 0xFF, 0xFF, 0xFF, 0xFF);
+		SDL_SetRenderDrawColor(wc.renderer(), 0xFF, 0xFF, 0xFF, 0xFF);
 		for(int i = 0; i < 4; ++i){
-			SDL_RenderDrawLineF(render, tr_points[i].x, tr_points[i].y,
-																	tr_points[(i + 1) % 4].x, tr_points[(i + 1) % 4].y);
-			SDL_RenderDrawLineF(render, tr_points[i].x, tr_points[i].y,
-																	tr_points[(i + 4)].x, tr_points[(i + 4)].y);
-			SDL_RenderDrawLineF(render, tr_points[(i + 4)].x, tr_points[(i + 4)].y,
-																	tr_points[((i + 1) % 4) + 4].x, tr_points[((i + 1) % 4) + 4].y);
+			SDL_RenderDrawLineF(wc.renderer(), tr_points[i].x, tr_points[i].y,
+																				 tr_points[(i + 1) % 4].x, tr_points[(i + 1) % 4].y);
+			SDL_RenderDrawLineF(wc.renderer(), tr_points[i].x, tr_points[i].y,
+																				 tr_points[(i + 4)].x, tr_points[(i + 4)].y);
+			SDL_RenderDrawLineF(wc.renderer(), tr_points[(i + 4)].x, tr_points[(i + 4)].y,
+																				 tr_points[((i + 1) % 4) + 4].x, tr_points[((i + 1) % 4) + 4].y);
 		}
 	}
 }

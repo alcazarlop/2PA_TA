@@ -8,38 +8,27 @@
 #include "matrix_3.h"
 #include "vector_2.h"
 
+class WindowController;
+
 class Sprite : public Entity {
 public:
 	Sprite();
 	Sprite(const Sprite& copy);
-	~Sprite();
+	virtual ~Sprite();
 
 	void loadFromFile(const char* path, SDL_Window* window);
-	void draw(SDL_Window* window);
+	void draw(const WindowController& wc) override;
 	void release();
 
 	Uint32 width() const;
 	Uint32 height() const;
 
-	void set_position(const Vec2& pos);
-	void set_position(float x, float y);
-	void set_scale(const Vec2& scale);
-	void set_scale(float x, float y);
-	void set_rotation(float radians);
-
-	Vec2 position() const;
-	Vec2 scale() const;
-	float rotation() const;
-
 private:
-	Vec2 position_;
-	Vec2 scale_;
-	float rotation_;
-
-	Uint32 width_;
-	Uint32 height_;
 	SDL_Surface* sprite_;
 	SDL_Surface* screenSurface_;
+	
+	Uint32 width_;
+	Uint32 height_;
 };
 
 #endif

@@ -3,14 +3,12 @@
 
 GameController::GameController(){
 	isRunning_ = 0;
-	window_ = NULL;
-	renderer_ = NULL;
+	wc_ = WindowController();
 }
 
 GameController::GameController(const GameController& copy){
 	isRunning_ = copy.isRunning_;
-	window_ = copy.window_;
-	renderer_ = copy.renderer_;
+	wc_ = copy.wc_;
 }
 
 GameController::~GameController() {}
@@ -22,19 +20,13 @@ Sint8 GameController::init(){
 		return isRunning_ = -1;
 	}
 
-	window_ = SDL_CreateWindow("Particle System", SDL_WINDOWPOS_CENTERED,	SDL_WINDOWPOS_CENTERED, 1024, 720, SDL_WINDOW_RESIZABLE);
-	if(window_ == NULL){
-		SDL_Log("SDL_CreateWindow() Failed!: %s", SDL_GetError());
-		return isRunning_ = -1;
-	}
-
-	renderer_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
-	if(renderer_ == NULL){
-		SDL_Log("SDL_CreateRenderer() Failed!: %s", SDL_GetError());
-		return isRunning_ = -1;
-	}
+	isRunning_ = wc_.init();
 
 	IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
+
+	ImGui::CreateContext();
+  ImGui_ImplSDL2_InitForSDLRenderer(wc_.window());
+  ImGui_ImplSDLRenderer_Init(wc_.renderer());
 
 	float points[24] = {
 									-1.0f, -1.0f, 1.0f,
@@ -52,17 +44,18 @@ Sint8 GameController::init(){
 		test.add_vertices(points[i], points[i + 1], points[i + 2]);
 	
 	// test.show_raw_vertices();
-	test.set_position(100.0f, 100.f, 1.0f);
-	test.set_scale(20.0f, 20.0f, 10.0f);
+	test.set_position(100.0f, 100.f, -1.0f);
+	test.set_scale(20.0f, 20.0f, 20.0f);
 
-	sp.loadFromFile("../data/melocoton.png", window_);
-	sp.set_position(100.0f, 100.0f);
+	sp.loadFromFile("../data/melocoton.png", wc_.window());
+	sp.set_position(100.0f, 100.0f, 0.0f);
 
 	return isRunning_ = 1;
 }
 
 void GameController::input(SDL_Event* e){
 	while(SDL_PollEvent(e)){
+		ImGui_ImplSDL2_ProcessEvent(e);
 		switch(e->type){
 			case SDL_QUIT: isRunning_ = 0; break;
 			case SDL_KEYDOWN:
@@ -79,19 +72,27 @@ void GameController::update(){
 }
 
 void GameController::draw(){
-	SDL_SetRenderDrawColor(renderer_, 0x0, 0x0, 0x0, 0xFF);
-	SDL_RenderClear(renderer_);
+ ImGui_ImplSDLRenderer_NewFrame();
+  ImGui_ImplSDL2_NewFrame(wc_.window());
+  ImGui::NewFrame();
+	SDL_SetRenderDrawColor(wc_.renderer(), 0x0, 0x0, 0x0, 0xFF);
+	SDL_RenderClear(wc_.renderer());
 
-	test.draw(renderer_);
-	// sp.draw(window_);
+	test.draw(wc_);
+	ShowImgui(&test);
+	// sp.draw(wc_.window());
 
-	SDL_RenderPresent(renderer_);
+  ImGui::Render();
+  ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
+	SDL_RenderPresent(wc_.renderer());
 }
 
 void GameController::quit(){
 	sp.release();
-	SDL_DestroyRenderer(renderer_);
-	SDL_DestroyWindow(window_);
+  ImGui_ImplSDLRenderer_Shutdown();
+  ImGui_ImplSDL2_Shutdown();
+	SDL_DestroyRenderer(wc_.renderer());
+	SDL_DestroyWindow(wc_.window());
 	IMG_Quit();
 	SDL_Quit();
 }
