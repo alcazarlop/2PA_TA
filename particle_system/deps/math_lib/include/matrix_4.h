@@ -199,17 +199,17 @@ inline Mat4 Mat4::Adjoint() const {
                      this->m[1], this->m[5], this->m[9],
                      this->m[2], this->m[6], this->m[10] };
 
-  float array[16] = { Mat3(det_0).Determinant(), -Mat3(det_1).Determinant(), Mat3(det_2).Determinant(), -Mat3(det_3).Determinant(),
-                      -Mat3(det_4).Determinant(), Mat3(det_5).Determinant(), -Mat3(det_6).Determinant(), Mat3(det_7).Determinant(),
-                      Mat3(det_8).Determinant(), -Mat3(det_9).Determinant(), Mat3(det_10).Determinant(), -Mat3(det_11).Determinant(),
-                      -Mat3(det_12).Determinant(), Mat3(det_13).Determinant(),- Mat3(det_14).Determinant(), Mat3(det_15).Determinant() };  
+  float array[16] = { Mat3(det_0).Determinant(), -Mat3(det_4).Determinant(), Mat3(det_8).Determinant(), -Mat3(det_12).Determinant(),
+                      -Mat3(det_1).Determinant(), Mat3(det_5).Determinant(), -Mat3(det_9).Determinant(), Mat3(det_13).Determinant(),
+                      Mat3(det_2).Determinant(), -Mat3(det_6).Determinant(), Mat3(det_10).Determinant(), -Mat3(det_14).Determinant(),
+                      -Mat3(det_3).Determinant(), Mat3(det_7).Determinant(),- Mat3(det_11).Determinant(), Mat3(det_15).Determinant() };  
 
   return Mat4(array);
 }
 
 inline bool Mat4::Inverse() {
 	if(this->Determinant() != 0.0f){
-		*this = this->Adjoint().Transpose() / this->Determinant();	
+		*this = this->Adjoint() / this->Determinant();	
 		return true;
 	}
 	return false;
@@ -217,7 +217,7 @@ inline bool Mat4::Inverse() {
 
 inline bool Mat4::GetInverse(Mat4* out) const {
 	if(this->Determinant() != 0.0f){
-		*out = this->Adjoint().Transpose() / this->Determinant();	
+		*out = this->Adjoint() / this->Determinant();	
 		return true;
 	}
 	return false;
@@ -482,6 +482,7 @@ inline Vec3 Mat4::Mat4TransformVec3(const Vec3& vec){
 	result.z /= result.w;
 
 	return Vec3(result.x, result.y, result.z);
+
 }
 
 

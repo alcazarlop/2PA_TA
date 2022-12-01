@@ -1,11 +1,15 @@
 
 #include "entity.h"
 
+Uint32 Entity::next_id = 0;
+
 Entity::Entity(){
 	enabled_ = true;
 	position_ = Vec3();
 	scale_ = Vec3();
 	rotation_ = Vec3();
+	id_ = Entity::next_id;
+	Entity::next_id++;
 }
 
 Entity::Entity(const Entity& copy){
@@ -13,6 +17,8 @@ Entity::Entity(const Entity& copy){
 	position_ = copy.position_;
 	scale_ = copy.scale_;
 	rotation_ = copy.rotation_;
+	id_ = Entity::next_id;
+	Entity::next_id++;
 }
 
 Entity::~Entity() {}
@@ -77,4 +83,8 @@ Vec3 Entity::scale() const {
 
 Vec3 Entity::rotation() const {
 	return rotation_;
+}
+
+Uint32 Entity::id() const {
+	return id_;
 }

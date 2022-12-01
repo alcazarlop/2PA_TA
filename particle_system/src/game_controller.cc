@@ -28,27 +28,14 @@ Sint8 GameController::init(){
   ImGui_ImplSDL2_InitForSDLRenderer(wc_.window());
   ImGui_ImplSDLRenderer_Init(wc_.renderer());
 
-	float points[24] = {
-									-1.0f, -1.0f, 1.0f,
-									-1.0f, 1.0f, 1.0f,
-									1.0f, 1.0f, 1.0f,
-									1.0f, -1.0f, 1.0f,
+	gm_.init();
+	gm_.set_gravity(100.0f, 100.0f);
 
-									-1.0f, -1.0f, -1.0f,
-									-1.0f, 1.0f, -1.0f,
-									1.0f, 1.0f, -1.0f,
-									1.0f, -1.0f, -1.0f,
-								};
+	coll.initCircle(5.0f, 1.0f, gm_.space());
+	coll2.initCircle(10.0f, 1.0f, gm_.space());
 
-	for(Uint32 i = 0; i < 24; i+=3)
-		test.add_vertices(points[i], points[i + 1], points[i + 2]);
-	
-	// test.show_raw_vertices();
-	test.set_position(100.0f, 100.f, -1.0f);
-	test.set_scale(20.0f, 20.0f, 20.0f);
-
-	sp.loadFromFile("../data/melocoton.png", wc_.window());
-	sp.set_position(100.0f, 100.0f, 0.0f);
+	coll.set_position(100.f, 100.0f);
+	coll2.set_position(100.0f, 200.0f);
 
 	return isRunning_ = 1;
 }
@@ -69,6 +56,8 @@ void GameController::input(SDL_Event* e){
 
 void GameController::update(){
 
+	gm_.fixedTime();
+
 }
 
 void GameController::draw(){
@@ -78,9 +67,8 @@ void GameController::draw(){
 	SDL_SetRenderDrawColor(wc_.renderer(), 0x0, 0x0, 0x0, 0xFF);
 	SDL_RenderClear(wc_.renderer());
 
-	test.draw(wc_);
-	ShowImgui(&test);
-	// sp.draw(wc_.window());
+	coll.draw(wc_.renderer());
+	coll2.draw(wc_.renderer());
 
   ImGui::Render();
   ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
@@ -88,7 +76,10 @@ void GameController::draw(){
 }
 
 void GameController::quit(){
-	sp.release();
+	coll.release();
+	coll2.release();
+
+	gm_.release();
   ImGui_ImplSDLRenderer_Shutdown();
   ImGui_ImplSDL2_Shutdown();
 	SDL_DestroyRenderer(wc_.renderer());

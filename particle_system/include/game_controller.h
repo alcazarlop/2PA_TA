@@ -5,13 +5,15 @@
 #include <SDL.h>
 #include "SDL_image.h"
 #include "window_controller.h"
+#include "game_manager.h"
 #include "path.h"
 #include "sprite.h"
+#include "texture.h"
+#include "collider2D.h"
 
 #include "imgui.h"
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_sdlrenderer.h"
-#include "imgui_controller.h"
 
 class GameController {
 
@@ -31,9 +33,12 @@ public:
 private:
 	Sint8 isRunning_;
 	WindowController wc_;
+	GameManager& gm_ = GameManager::Instance();
 
 	Path test;
 	Sprite sp;
+	Collider2D coll, coll2;
+	Texture* tex;
 
 };
 

@@ -3,10 +3,18 @@
 #include "matrix_3.h"
 
 Path::Path(){
+	r = 0xFF;
+	g = 0xFF;
+	b = 0xFF;
+	a = 0xFF;
 	vertices_.clear();
 }
 
 Path::Path(const Path& copy){
+	r = copy.r;
+	g = copy.g;
+	b = copy.b;
+	a = copy.a;
 	vertices_ = copy.vertices_;
 }
 
@@ -14,30 +22,19 @@ Path::~Path(){
 	vertices_.clear();
 }
 
-void Path::add_vertices(float* array){
-	assert(array != NULL || ARRAYSIZE(array) % 3 == 0 || array != nullptr);
-	for(Uint32 i = 0; i < ARRAYSIZE(array); ++i)
-		vertices_.push_back(array[i]);
-}
-
 void Path::add_vertices(float x, float y, float z){
-	Vec3 temp = Vec3(x, y, z);
-	vertices_.push_back(temp);
+	vertices_.push_back(Vec3(x, y, z));
 }
 
 void Path::add_vertices(const Vec3& vert){
 	vertices_.push_back(vert);
 }
 
-void Path::add_vertices(Vec3* vert){
-	assert(vert != NULL || vert != nullptr);
-	for(Uint32 i = 0; i < ARRAYSIZE(vert); ++i)
-		vertices_.push_back(vert[i]);
-}
-
-void Path::show_raw_vertices(){
-	for(Uint32 i = 0; i < vertices_.size(); ++i)
-		printf("X[%f] Y[%f] Z[%f]\n", vertices_[i].x, vertices_[i].y, vertices_[i].z);
+void Path::set_color(Uint8 cr, Uint8 cg, Uint8 cb, Uint8 ca){
+	this->r = cr;
+	this->g = cg;
+	this->b = cb;
+	this->a = ca;
 }
 
 void Path::draw(const WindowController& wc){
@@ -57,7 +54,7 @@ void Path::draw(const WindowController& wc){
 			// printf("X[%f] Y[%f] Z[%f]\n", tr_points[i].x, tr_points[i].y, tr_points[i].z);
 		}
 
-		SDL_SetRenderDrawColor(wc.renderer(), 0xFF, 0xFF, 0xFF, 0xFF);
+		SDL_SetRenderDrawColor(wc.renderer(), r, g, b, a);
 		for(int i = 0; i < 4; ++i){
 			SDL_RenderDrawLineF(wc.renderer(), tr_points[i].x, tr_points[i].y,
 																				 tr_points[(i + 1) % 4].x, tr_points[(i + 1) % 4].y);

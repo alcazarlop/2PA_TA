@@ -35,12 +35,20 @@ public:
 	void set_enable(bool b);
 	bool enabled() const;
 
+	Uint32 id() const;
+
 protected:
 	bool enabled_;
 
 	Vec3 position_;
 	Vec3 scale_;
 	Vec3 rotation_;
+
+private:
+	Uint32 id_;
+	static Uint32 next_id;
+
+
 };
 
 #endif

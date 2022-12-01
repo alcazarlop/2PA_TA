@@ -55,6 +55,9 @@ public:
 	bool operator!=(const Mat3& other) const;
 	inline void operator=(const Mat3& other);
 
+	Vec3 Mat3TransformVec3(const Vec3& v);
+	Vec2 Mat3TransformVec2(const Vec2& v);
+
 	float m[9];
 };
 
@@ -230,17 +233,17 @@ inline Mat3 Mat3::Rotate(float radians){
 inline Mat3 Mat3::Multiply(const Mat3& other) const {
 	float multiply[9];
 
-	multiply[0] = (this->m[0] * other.m[0]) + (this->m[3] * other.m[1]) + (this->m[6] * other.m[2]);
-	multiply[1] = (this->m[1] * other.m[0]) + (this->m[4] * other.m[1]) + (this->m[7] * other.m[2]);
-	multiply[2] = (this->m[2] * other.m[0]) + (this->m[5] * other.m[1]) + (this->m[8] * other.m[2]);
+	multiply[0] = (this->m[0] * other.m[0]) + (this->m[1] * other.m[3]) + (this->m[2] * other.m[6]);
+	multiply[1] = (this->m[0] * other.m[1]) + (this->m[1] * other.m[4]) + (this->m[2] * other.m[7]);
+	multiply[2] = (this->m[0] * other.m[2]) + (this->m[1] * other.m[5]) + (this->m[2] * other.m[8]);
 
-	multiply[3] = (this->m[0] * other.m[3]) + (this->m[3] * other.m[4]) + (this->m[6] * other.m[5]);
-	multiply[4] = (this->m[1] * other.m[3]) + (this->m[4] * other.m[4]) + (this->m[7] * other.m[5]);
-	multiply[5] = (this->m[2] * other.m[3]) + (this->m[5] * other.m[4]) + (this->m[8] * other.m[5]);
+	multiply[3] = (this->m[3] * other.m[0]) + (this->m[4] * other.m[3]) + (this->m[5] * other.m[6]);
+	multiply[4] = (this->m[3] * other.m[1]) + (this->m[4] * other.m[4]) + (this->m[5] * other.m[7]);
+	multiply[5] = (this->m[3] * other.m[2]) + (this->m[4] * other.m[5]) + (this->m[5] * other.m[8]);
 
-	multiply[6] = (this->m[0] * other.m[6]) + (this->m[3] * other.m[7]) + (this->m[6] * other.m[8]);
-	multiply[7] = (this->m[1] * other.m[6]) + (this->m[4] * other.m[7]) + (this->m[7] * other.m[8]);
-	multiply[8] = (this->m[2] * other.m[6]) + (this->m[5] * other.m[7]) + (this->m[8] * other.m[8]);
+	multiply[6] = (this->m[6] * other.m[0]) + (this->m[7] * other.m[3]) + (this->m[8] * other.m[6]);
+	multiply[7] = (this->m[6] * other.m[1]) + (this->m[7] * other.m[4]) + (this->m[8] * other.m[7]);
+	multiply[8] = (this->m[6] * other.m[2]) + (this->m[7] * other.m[5]) + (this->m[8] * other.m[8]);
 
 	return Mat3(multiply);
 }
@@ -278,6 +281,27 @@ inline Vec3 Mat3::GetColum(int colum) const {
 
 inline Vec3 Mat3::GetLine(int line) const {
 	return Vec3(this->m[line * 3], this->m[line * 3 + 1], this->m[line * 3 + 2]);
+}
+
+inline Vec3 Mat3::Mat3TransformVec3(const Vec3& v) {
+	Vec3 tmp;
+	tmp.x = m[0] * v.x + m[3] * v.y + m[6] * v.z;
+	tmp.y = m[1] * v.x + m[4] * v.y + m[7] * v.z;
+	tmp.z = m[2] * v.x + m[5] * v.y + m[8] * v.z;
+	return tmp;
+}
+
+inline Vec2 Mat3::Mat3TransformVec2(const Vec2& v){
+	Vec3 tmp;
+	tmp.x = v.x;
+	tmp.y = v.y;
+	tmp.z = 1.0f;
+
+	// Vec3 result = Mat3TransformVec3(tmp);
+	// result.x /= result.x;
+	// result.y /= result.y;
+
+	return Vec2(result.x, result.y);
 }
 
 #endif 
