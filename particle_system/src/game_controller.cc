@@ -20,7 +20,7 @@ Sint8 GameController::init(){
 		return isRunning_ = -1;
 	}
 
-	isRunning_ = wc_.init();
+	isRunning_ = wc_.init(1024, 680);
 
 	IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
 
@@ -31,11 +31,18 @@ Sint8 GameController::init(){
 	gm_.init();
 	gm_.set_gravity(100.0f, 100.0f);
 
-	coll.initCircle(5.0f, 1.0f, gm_.space());
-	coll2.initCircle(10.0f, 1.0f, gm_.space());
+	// coll.initCircle(5.0f, 1.0f, gm_.space());
+	// coll2.initCircle(10.0f, 1.0f, gm_.space());
 
-	coll.set_position(100.f, 100.0f);
-	coll2.set_position(100.0f, 200.0f);
+	// coll.set_position(100.f, 100.0f);
+	// coll2.set_position(100.0f, 200.0f);
+
+	for(Uint32 i = 0; i < kParticlePool; ++i){
+		particle[i].init((float)(wc_.width() >> 1), (float)(wc_.height() >> 1));
+	}
+
+	//SDL_GetMouseState(int* x, int* y);
+
 
 	return isRunning_ = 1;
 }
@@ -48,6 +55,7 @@ void GameController::input(SDL_Event* e){
 			case SDL_KEYDOWN:
 				switch(e->key.keysym.sym){
 					case SDLK_ESCAPE: isRunning_ = 0; break; 
+					case SDLK_SPACE: break;
 				}
 			break;
 		}
@@ -58,17 +66,24 @@ void GameController::update(){
 
 	gm_.fixedTime();
 
+	for(Uint32 i = 0; i < kParticlePool; ++i)
+		particle[i].update();
+
 }
 
 void GameController::draw(){
- ImGui_ImplSDLRenderer_NewFrame();
+ 	ImGui_ImplSDLRenderer_NewFrame();
   ImGui_ImplSDL2_NewFrame(wc_.window());
   ImGui::NewFrame();
 	SDL_SetRenderDrawColor(wc_.renderer(), 0x0, 0x0, 0x0, 0xFF);
 	SDL_RenderClear(wc_.renderer());
 
-	coll.draw(wc_.renderer());
-	coll2.draw(wc_.renderer());
+	// coll.draw(wc_.renderer());
+	// coll2.draw(wc_.renderer());
+	// PathWindow(&test);
+
+	for(Uint32 i = 0; i < kParticlePool; ++i)
+		particle[i].draw(wc_);
 
   ImGui::Render();
   ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
@@ -76,8 +91,8 @@ void GameController::draw(){
 }
 
 void GameController::quit(){
-	coll.release();
-	coll2.release();
+	// coll.release();
+	// coll2.release();
 
 	gm_.release();
   ImGui_ImplSDLRenderer_Shutdown();
@@ -89,6 +104,8 @@ void GameController::quit(){
 }
 
 Sint8 GameController::loop(){
+
+	srand((unsigned int)time(NULL));
 
 	init();
 	SDL_Event eventHandler;

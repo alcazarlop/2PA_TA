@@ -10,15 +10,21 @@ public:
 	WindowController(const WindowController& copy);
 	~WindowController();
 
-	Sint8 init();
+	Sint8 init(Uint32 width, Uint32 height);
 	void quit();
 
 	SDL_Renderer* renderer() const;
 	SDL_Window* window() const;
 
+	Uint32 width() const;
+	Uint32 height() const;
+
 private:
 	SDL_Renderer* renderer_;
 	SDL_Window* window_;
+
+	Uint32 width_;
+	Uint32 height_;
 
 };
 

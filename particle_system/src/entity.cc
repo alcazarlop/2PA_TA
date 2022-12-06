@@ -5,9 +5,9 @@ Uint32 Entity::next_id = 0;
 
 Entity::Entity(){
 	enabled_ = true;
-	position_ = Vec3();
-	scale_ = Vec3();
-	rotation_ = Vec3();
+	position_ = Vec2();
+	scale_ = Vec2();
+	rotation_ = 0.0f;
 	id_ = Entity::next_id;
 	Entity::next_id++;
 }
@@ -31,57 +31,37 @@ bool Entity::enabled() const {
 	return enabled_;
 }
 
-void Entity::set_position(Vec3 pos){
+void Entity::set_position(Vec2 pos){
 	position_ = pos;
 }
 
-void Entity::set_position(float x, float y, float z){
+void Entity::set_position(float x, float y){
 	position_.x = x;
 	position_.y = y;
-	position_.z = z;
 }
 
-void Entity::set_scale(Vec3 scale){
+void Entity::set_scale(Vec2 scale){
 	scale_ = scale;
 }
 
-void Entity::set_scale(float x, float y, float z){
+void Entity::set_scale(float x, float y){
 	scale_.x = x;
 	scale_.y = y;
-	scale_.z = z;
 }
 
-void Entity::set_rotation(Vec3 rot){
-	rotation_ = rot;
+void Entity::set_rotation(float angle){
+	rotation_ = angle;
 }
 
-void Entity::set_rotation(float x, float y, float z){
-	rotation_.x = x;
-	rotation_.y = y;
-	rotation_.z = z;
-}
-
-void Entity::rotateX(float radians){
-	rotation_.x = radians;
-}
-
-void Entity::rotateY(float radians){
-	rotation_.y = radians;
-}
-
-void Entity::rotateZ(float radians){
-	rotation_.z = radians;
-}
-
-Vec3 Entity::position() const {
+Vec2 Entity::position() const {
 	return position_;
 }
 
-Vec3 Entity::scale() const {
+Vec2 Entity::scale() const {
 	return scale_;
 }
 
-Vec3 Entity::rotation() const {
+float Entity::rotation() const {
 	return rotation_;
 }
 

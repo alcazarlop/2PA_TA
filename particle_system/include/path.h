@@ -6,8 +6,8 @@
 #include <vector>
 #include "entity.h"
 
-class Vec3;
-class Mat4;
+class Vec2;
+class Mat3;
 class WindowController;
 
 class Path : public Entity {
@@ -16,15 +16,15 @@ public:
 	Path(const Path& copy);
 	virtual ~Path();
 
-	void add_vertices(float x, float y, float z);
-	void add_vertices(const Vec3& vert);
+	void add_vertices(float x, float y);
+	void add_vertices(const Vec2& vert);
 
-	void set_color(Uint8 cr, Uint8 cg, Uint8 cb, Uint8 ca);
+	void set_color(Uint8 cr, Uint8 cg, Uint8 cb);
 	void draw(const WindowController& wc) override;
 
 private:
-	std::vector<Vec3> vertices_;
-	Uint8 r, g, b, a;
+	std::vector<Vec2> vertices_;
+	Uint8 color[3];
 
 };
 

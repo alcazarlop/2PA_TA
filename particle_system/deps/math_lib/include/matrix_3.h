@@ -6,6 +6,7 @@
 #include "vector_2.h"
 #include "vector_3.h"
 #include "matrix_2.h"
+#include <stdio.h>
 
 class Mat3 {
 public:

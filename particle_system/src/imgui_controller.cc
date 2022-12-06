@@ -3,34 +3,44 @@
 
 void ShowImgui(Entity* entity){
 
-	static Vec3 position = entity->position();
-	static Vec3 scale = entity->scale();
-	static Vec3 rotation = entity->rotation();
-
 	ImGui::Begin("Demo", nullptr);
-
-	ImGui::DragFloat("Position X", &position.x); 
-	// ImGui::SameLine();
-	ImGui::DragFloat("Position Y", &position.y); 
-	// ImGui::SameLine();
-	ImGui::DragFloat("Position Z", &position.z);
-
-	ImGui::DragFloat("Rotation X", &rotation.x, 0.01f); 
-	// ImGui::SameLine();
-	ImGui::DragFloat("Rotation Y", &rotation.y, 0.01f); 
-	// ImGui::SameLine();
-	ImGui::DragFloat("Rotation Z", &rotation.z, 0.01f);
-
-	ImGui::DragFloat("Scale X", &scale.x); 
-	// ImGui::SameLine();
-	ImGui::DragFloat("Scale Y", &scale.y); 
-	// ImGui::SameLine();
-	ImGui::DragFloat("Scale Z", &scale.z);
-
-	entity->set_position(position);
-	entity->set_scale(scale);
-	entity->set_rotation(rotation);
+	entity = nullptr;
 
 	ImGui::End();
 
+}
+
+void PathWindow(Path* path){
+
+	static Vec2 position = path->position();
+	static Vec2 scale = path->scale();
+	static float rotation = path->rotation();
+	static int color[3] = {0xFF, 0xFF, 0xFF};
+
+	ImGui::Begin("Path Window", nullptr);
+
+	ImGui::Text("Position X"); ImGui::SameLine();
+	ImGui::DragFloat("##p1", &position.x);
+	ImGui::Text("Position Y"); ImGui::SameLine();
+	ImGui::DragFloat("##p1", &position.y);
+
+	ImGui::Text("Scale X"); ImGui::SameLine();
+	ImGui::DragFloat("##s1", &scale.x);
+	ImGui::Text("Scale Y"); ImGui::SameLine();
+	ImGui::DragFloat("##s1", &scale.y);
+
+	ImGui::Text("Rotation"); ImGui::SameLine();
+	ImGui::DragFloat("##r1", &rotation);
+
+	ImGui::DragInt("R##r1", &color[0], 1, 0, 255, NULL, ImGuiSliderFlags_AlwaysClamp); 
+	ImGui::DragInt("G##g1", &color[1], 1, 0, 255, NULL, ImGuiSliderFlags_AlwaysClamp); 
+	ImGui::DragInt("B##b1", &color[2], 1, 0, 255, NULL, ImGuiSliderFlags_AlwaysClamp); 
+
+	path->set_position(position);
+	path->set_scale(scale);
+	path->set_rotation(rotation);
+
+	path->set_color((Uint8)color[0], (Uint8)color[1], (Uint8)color[2]);
+
+	ImGui::End();
 }

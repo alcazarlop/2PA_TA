@@ -6,6 +6,7 @@
 #include "vector_2.h"
 #include "vector_3.h"
 #include "matrix_2.h"
+#include <stdio.h>
 
 class Mat3 {
 public:
@@ -297,9 +298,9 @@ inline Vec2 Mat3::Mat3TransformVec2(const Vec2& v){
 	tmp.y = v.y;
 	tmp.z = 1.0f;
 
-	// Vec3 result = Mat3TransformVec3(tmp);
-	// result.x /= result.x;
-	// result.y /= result.y;
+	Vec3 result = Mat3TransformVec3(tmp);
+	result.x /= result.x;
+	result.y /= result.y;
 
 	return Vec2(result.x, result.y);
 }
