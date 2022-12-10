@@ -6,9 +6,6 @@
 #include "vector_2.h"
 #include "window_controller.h"
 
-#define ARRAYSIZE(_ARR) ((int)(sizeof(_ARR) / sizeof(*(_ARR)))) 
-
-
 class Entity {
 public:
 	Entity();

@@ -19,12 +19,17 @@ public:
 	void add_vertices(float x, float y);
 	void add_vertices(const Vec2& vert);
 
-	void set_color(Uint8 cr, Uint8 cg, Uint8 cb);
+	void loadSquare();
+	void loadCircle();
+	void loadStar();
+
+	void set_color(SDL_Color color);
+	void lerpUnclampedColor(SDL_Color lerp, float time);
 	void draw(const WindowController& wc) override;
 
 private:
 	std::vector<Vec2> vertices_;
-	Uint8 color[3];
+	SDL_Color color_;
 
 };
 

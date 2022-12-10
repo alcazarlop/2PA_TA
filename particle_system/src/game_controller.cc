@@ -3,11 +3,13 @@
 
 GameController::GameController(){
 	isRunning_ = 0;
+	currentTime_ = 0;
 	wc_ = WindowController();
 }
 
 GameController::GameController(const GameController& copy){
 	isRunning_ = copy.isRunning_;
+	currentTime_ = copy.currentTime_;
 	wc_ = copy.wc_;
 }
 
@@ -31,18 +33,8 @@ Sint8 GameController::init(){
 	gm_.init();
 	gm_.set_gravity(100.0f, 100.0f);
 
-	// coll.initCircle(5.0f, 1.0f, gm_.space());
-	// coll2.initCircle(10.0f, 1.0f, gm_.space());
-
-	// coll.set_position(100.f, 100.0f);
-	// coll2.set_position(100.0f, 200.0f);
-
-	for(Uint32 i = 0; i < kParticlePool; ++i){
-		particle[i].init((float)(wc_.width() >> 1), (float)(wc_.height() >> 1));
-	}
-
-	//SDL_GetMouseState(int* x, int* y);
-
+	emitter.loadPool(10);
+	emitter.init(0, wc_);
 
 	return isRunning_ = 1;
 }
@@ -66,9 +58,11 @@ void GameController::update(){
 
 	gm_.fixedTime();
 
-	for(Uint32 i = 0; i < kParticlePool; ++i)
-		particle[i].update();
+	// float fps = currentTime_ / (gm_.lastTime() / 1000.0f);
 
+	emitter.update();
+
+	currentTime_++;
 }
 
 void GameController::draw(){
@@ -78,12 +72,7 @@ void GameController::draw(){
 	SDL_SetRenderDrawColor(wc_.renderer(), 0x0, 0x0, 0x0, 0xFF);
 	SDL_RenderClear(wc_.renderer());
 
-	// coll.draw(wc_.renderer());
-	// coll2.draw(wc_.renderer());
-	// PathWindow(&test);
-
-	for(Uint32 i = 0; i < kParticlePool; ++i)
-		particle[i].draw(wc_);
+	emitter.draw(wc_);
 
   ImGui::Render();
   ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
@@ -91,10 +80,10 @@ void GameController::draw(){
 }
 
 void GameController::quit(){
-	// coll.release();
-	// coll2.release();
-
 	gm_.release();
+
+	emitter.release();
+
   ImGui_ImplSDLRenderer_Shutdown();
   ImGui_ImplSDL2_Shutdown();
 	SDL_DestroyRenderer(wc_.renderer());
@@ -105,10 +94,11 @@ void GameController::quit(){
 
 Sint8 GameController::loop(){
 
+	SDL_Event eventHandler;
 	srand((unsigned int)time(NULL));
 
 	init();
-	SDL_Event eventHandler;
+	gm_.startTime();
 
 	while(isRunning_){
 		input(&eventHandler);

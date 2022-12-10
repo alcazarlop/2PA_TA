@@ -4,11 +4,13 @@
 GameManager::GameManager() {
 	space_ = NULL;
 	stepTime_ = 0.0;
+	startTime_ = 0;
 }
 
 GameManager::GameManager(const GameManager& copy) {
 	space_ = copy.space_; 				// Posible error al copiar punteros
 	stepTime_ = copy.stepTime_;
+	startTime_ = copy.startTime_;
 }
 
 GameManager::~GameManager() {}
@@ -32,4 +34,12 @@ void GameManager::release(){
 
 cpSpace* GameManager::space() const {
 	return space_;
+}
+
+void GameManager::startTime(){
+	startTime_ = SDL_GetTicks();
+}
+
+Uint32 GameManager::lastTime(){
+	return SDL_GetTicks() - startTime_;
 }

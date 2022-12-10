@@ -18,6 +18,9 @@ public:
 	void fixedTime();
 	void release();
 
+	void startTime();
+	Uint32 lastTime();
+
 	cpSpace* space() const;
 
 private:
@@ -26,6 +29,7 @@ private:
 
 	cpSpace* space_;
 	cpFloat stepTime_;
+	Uint32 startTime_;
 
 };
 

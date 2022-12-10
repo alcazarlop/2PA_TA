@@ -15,11 +15,15 @@ public:
 	Collider2D(const Collider2D& copy);
 	~Collider2D();
 
-	void initCircle(float radius, float mass, cpSpace* space);
+	void init(float radius, float mass, cpSpace* space);
 	void release();
 
-	void addVertices(Vec2 vec);
-	void addVertices(float x, float y);
+	void loadSquare();
+	void loadCircle();
+	void loadStar();
+
+	void add_vertices(Vec2 vec);
+	void add_vertices(float x, float y);
 
 	void set_position(float x, float y);
 	void set_position(cpVect pos);

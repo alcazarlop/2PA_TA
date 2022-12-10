@@ -40,7 +40,7 @@ void PathWindow(Path* path){
 	path->set_scale(scale);
 	path->set_rotation(rotation);
 
-	path->set_color((Uint8)color[0], (Uint8)color[1], (Uint8)color[2]);
+	// path->set_color((Uint8)color[0], (Uint8)color[1], (Uint8)color[2]);
 
 	ImGui::End();
 }

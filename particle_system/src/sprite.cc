@@ -33,9 +33,8 @@ void Sprite::loadFromFile(const char* path, SDL_Window* window){
 
 void Sprite::draw(const WindowController& wc){
 	if(sprite_ != NULL && enabled()){
-		SDL_Rect dstRect = { (Sint32)position_.x, (Sint32)position_.y, (Sint32)(width_ * scale_.x), (Sint32)(height_ * scale_.y) };
-		SDL_BlitSurface(sprite_, NULL, screenSurface_, &dstRect);
-		SDL_UpdateWindowSurface(wc.window());
+		SDL_Rect dstRect = { (Sint32)position_.x, (Sint32)position_.y, (Sint32)scale_.x, (Sint32)scale_.y };
+		SDL_BlitScaled(sprite_, NULL, screenSurface_, &dstRect);
 	}
 }
 

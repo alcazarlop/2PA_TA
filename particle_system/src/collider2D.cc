@@ -1,6 +1,5 @@
 
 #include "collider2D.h"
-#include <stdio.h>
 
 Collider2D::Collider2D() {
 	shape_ = NULL;
@@ -18,29 +17,49 @@ Collider2D::Collider2D(const Collider2D& copy) {
 
 Collider2D::~Collider2D() {}
 
-void Collider2D::initCircle(float radius, float mass, cpSpace* space){
+void Collider2D::init(float radius, float mass, cpSpace* space){
 	radius_ = radius;
 	cpFloat moment = cpMomentForCircle(mass, 0.0f, radius, cpvzero);
 	body_ = cpSpaceAddBody(space, cpBodyNew(mass , moment));
 	shape_ = cpSpaceAddShape(space, cpCircleShapeNew(body_, radius, cpvzero));
 	cpShapeSetFriction(shape_, 0.7f);
-
-	vertices_.push_back(Vec2(-1.0f, -1.0f));
-	vertices_.push_back(Vec2(-1.0f, 1.0f));
-	vertices_.push_back(Vec2(1.0f, 1.0f));
-	vertices_.push_back(Vec2(1.0f, -1.0f));
 }
 
 void Collider2D::release(){
-	cpShapeFree(shape_);
-	cpBodyFree(body_);
+	if(NULL != shape_) cpShapeFree(shape_);
+	if(NULL != body_) cpBodyFree(body_);
 }
 
-void Collider2D::addVertices(Vec2 vec){
+void Collider2D::loadSquare(){
+	add_vertices(-0.5f, -0.5f);
+	add_vertices(-0.5f, 0.5f);
+	add_vertices(0.5f, 0.5f);
+	add_vertices(0.5f, -0.5f);
+}
+
+void Collider2D::loadCircle(){
+	Uint32 total_points = 20;
+	for(Uint32 i = 0; i < total_points; ++i){
+		vertices_.push_back(Vec2(cosf((6.28f / total_points) * i), sinf((6.28f / total_points) * i)));
+	}
+}
+
+void Collider2D::loadStar(){
+Uint32 total_points = 10;
+	for(Uint32 i = 0; i < total_points; ++i){
+		if(i%2 == 0){
+			add_vertices(cosf((6.28f / total_points) * i) * 1.0f, sinf((6.28f / total_points) * i) * 1.0f);
+		} else {
+			add_vertices(cosf((6.28f / total_points) * i) * 0.5f, sinf((6.28f / total_points) * i) * 0.5f);
+		}
+	}
+}
+
+void Collider2D::add_vertices(Vec2 vec){
 	vertices_.push_back(vec);
 }
 
-void Collider2D::addVertices(float x, float y){
+void Collider2D::add_vertices(float x, float y){
 	vertices_.push_back(Vec2(x, y));
 }
 
