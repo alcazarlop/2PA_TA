@@ -453,11 +453,9 @@ inline void Mat4::operator=(const Mat4& other) {
 }
 
 inline Mat4 Mat4::ProjectionMatrix(){
-	float projection[16] = {	1.0f, 0.0f, 0.0f, 0.0f,
-														0.0f, 1.0f, 0.0f, 0.0f,
-														0.0f, 0.0f, 1.0f, 0.0f,
-														0.0f, 0.0f, 1.0f, 0.0f };
-	return Mat4(projection);
+	Mat4 result = Identity();
+	result.m[14] = 1.0f;
+	return result;
 }
 
 inline Vec4 Mat4::Mat4TransformVec4(const Vec4& v){
@@ -480,8 +478,8 @@ inline Vec3 Mat4::Mat4TransformVec3(const Vec3& vec){
 
 	Vec4 result = Mat4TransformVec4(temp);
 	result.x /= result.w;
-	result.y /= result.y;
-	result.z /= result.z;
+	result.y /= result.w;
+	result.z /= result.w;
 
 	return Vec3(result.x, result.y, result.z);
 

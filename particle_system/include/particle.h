@@ -26,7 +26,7 @@ public:
 		Uint8 type;
 	};
 
-	void init(ParticleParams& params, const WindowController& wc);
+	void init(ParticleParams& params);
 	void reset(ParticleParams& params);
 	void update();
 	void draw(const WindowController& wc);

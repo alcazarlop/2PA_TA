@@ -196,8 +196,8 @@ inline bool Mat3::Inverse() {
 
 inline Mat3 Mat3::Translate(const Vec2& mov_vector) {	
 	Mat3 result = Identity();
-	result.m[2] = mov_vector.x;
-	result.m[5] = mov_vector.y;
+	result.m[6] = mov_vector.x;
+	result.m[7] = mov_vector.y;
 	return result;
 }
 

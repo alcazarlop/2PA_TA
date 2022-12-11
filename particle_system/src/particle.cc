@@ -25,7 +25,7 @@ Particle::Particle(const Particle& copy){
 
 Particle::~Particle(){}
 
-void Particle::init(ParticleParams& params, const WindowController& wc){
+void Particle::init(ParticleParams& params){
 	this->params_.speed = params.speed;
 	this->params_.velocity = params.velocity;
 	this->params_.lifeTime = params.lifeTime;

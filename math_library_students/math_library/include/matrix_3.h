@@ -219,7 +219,7 @@ inline Mat3 Mat3::Scale(float x, float y){
 	Mat3 result = Identity();
 	result.m[0] = x;
 	result.m[4] = y;
-	return Mat3();
+	return result;
 }
 
 inline Mat3 Mat3::Rotate(float radians){
@@ -299,8 +299,8 @@ inline Vec2 Mat3::Mat3TransformVec2(const Vec2& v){
 	tmp.z = 1.0f;
 
 	Vec3 result = Mat3TransformVec3(tmp);
-	result.x /= result.x;
-	result.y /= result.y;
+	result.x /= result.z;
+	result.y /= result.z;
 
 	return Vec2(result.x, result.y);
 }
