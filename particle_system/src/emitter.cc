@@ -14,6 +14,9 @@ Emitter::Emitter(){
 	scale_x_ = 10.0f;
 	scale_y_ = 10.0f;
 	angle_ = 0.0f;
+	lifeTime_ = 0;
+	shape_ = 0;
+	physics_ = 0;
 }
 
 Emitter::Emitter(const Emitter& copy){
@@ -28,6 +31,9 @@ Emitter::Emitter(const Emitter& copy){
 	scale_x_ = copy.scale_x_;
 	scale_y_ = copy.scale_y_;
 	angle_ = copy.angle_;
+	lifeTime_ = copy.lifeTime_;
+	shape_ = copy.shape_;
+	physics_ = copy.physics_;
 }
 
 Emitter::~Emitter(){
@@ -45,12 +51,14 @@ void Emitter::init(Uint8 mode){
 	for(Uint32 i = 0; i < particle_pool_.size(); ++i){
 		switch(mode){
 			case 0: smoke(); break;			
-			case 1: burst(); break;			
-			case 2: firework(); break;			
-			default: smoke(); break;			
+			case 1: burst(i); break;			
+			case 2: firework(i); break;			
+			case 3: custom(); break;			
+			default: custom(); break;			
 		}
 		particle_pool_[i].init(emitter_params_);
 	}
+	emmiter_mode_ = mode;
 }
 
 void Emitter::update(){
@@ -58,7 +66,13 @@ void Emitter::update(){
 		if(particle_pool_[i].currentTime() < emitter_params_.lifeTime){
 			particle_pool_[i].update();
 		} else {
-			smoke();
+			switch(emmiter_mode_){
+				case 0: smoke(); break;
+				case 1: burst(i); break;
+				case 2: firework(i); break;
+				case 3: custom(); break;
+				default: custom(); break;
+			}
 			particle_pool_[i].reset(emitter_params_);
 		}
 	}
@@ -83,16 +97,40 @@ Particle::ParticleParams Emitter::params() const {
 void Emitter::smoke(){
 	emitter_params_.pos = position();
 	emitter_params_.scale = Vec2(scale_x_, scale_y_);
-	emitter_params_.velocity.x = MathUtils::RandomFloat(-1.0f, 1.0f);
-	emitter_params_.velocity.y = (float)(-5 + rand()%5);
+	emitter_params_.velocity.x = MathUtils::RandomFloat(-2.0f, 2.0f);
+	emitter_params_.velocity.y = MathUtils::RandomFloat(-5.0f, 0.0f);
 	emitter_params_.angle = MathUtils::RandomFloat(0.0f, 6.28f);
-	emitter_params_.speed = 1.0f;
-	emitter_params_.lifeTime = 40;
+	emitter_params_.speed = MathUtils::RandomFloat(1.0f, 3.0f);
+	emitter_params_.lifeTime = 50;
 	emitter_params_.shape = rand()%3;
-	emitter_params_.type = 0;
+	emitter_params_.type = physics_;
 }
 
-void Emitter::burst(){
+void Emitter::burst(Uint32 index){
+	emitter_params_.pos = position();
+	emitter_params_.scale = Vec2(scale_x_, scale_y_);
+	emitter_params_.velocity.x = cosf((6.28f / particle_pool_.size() * index));
+	emitter_params_.velocity.y = sinf((6.28f / particle_pool_.size() * index));
+	emitter_params_.angle =  MathUtils::RandomFloat(0.0f, 6.28f);
+	emitter_params_.speed = MathUtils::RandomFloat(2.0f, 3.0f);
+	emitter_params_.lifeTime = 50;
+	emitter_params_.shape = rand()%3;
+	emitter_params_.type = physics_;
+}
+
+void Emitter::firework(Uint32 index){
+	emitter_params_.pos = position();
+	emitter_params_.scale = Vec2(scale_x_, scale_y_);
+	emitter_params_.velocity.x = cosf((-3.14f / particle_pool_.size() * index));
+	emitter_params_.velocity.y = sinf((-3.14f / particle_pool_.size() * index));
+	emitter_params_.angle = MathUtils::RandomFloat(0.0f, 6.28f);
+	emitter_params_.speed = 5.0f;
+	emitter_params_.lifeTime = 50;
+	emitter_params_.shape = rand()%3;
+	emitter_params_.type = physics_;
+}
+
+void Emitter::custom(){
 	emitter_params_.pos = position();
 	emitter_params_.scale = Vec2(scale_x_, scale_y_);
 	emitter_params_.velocity.x = MathUtils::RandomFloat(min_vel_x_, max_vel_x_);
@@ -101,17 +139,7 @@ void Emitter::burst(){
 	emitter_params_.speed = MathUtils::RandomFloat(min_speed_, max_speed_);
 	emitter_params_.lifeTime = lifeTime_;
 	emitter_params_.shape = shape_;
-}
-
-void Emitter::firework(){
-	emitter_params_.pos = position();
-	emitter_params_.scale = Vec2(scale_x_, scale_y_);
-	emitter_params_.velocity.x = MathUtils::RandomFloat(min_vel_x_, max_vel_x_);
-	emitter_params_.velocity.y = MathUtils::RandomFloat(min_vel_y_, max_vel_y_);
-	emitter_params_.angle = angle_;
-	emitter_params_.speed = MathUtils::RandomFloat(min_speed_, max_speed_);
-	emitter_params_.lifeTime = lifeTime_;
-	emitter_params_.shape = shape_;
+	emitter_params_.type = physics_;
 }
 
 void Emitter::set_particle_scale(float sx, float sy){
@@ -147,7 +175,7 @@ void Emitter::set_particle_shape(Uint8 shape){
 }
 
 void Emitter::set_physics(Uint8 type){
- 	type_ = type;
+ 	physics_ = type;
 }
 
 void Emitter::set_random_shape(){
@@ -155,9 +183,9 @@ void Emitter::set_random_shape(){
 }
 
 void Emitter::set_random_lifetime(Uint32 r){
-	lifeTime_ = rand()%r;
+	lifeTime_ = (Uint8)MathUtils::Clamp(r, rand()%30, rand()%60);
 }
 
 void Emitter::set_random_angle(){
-
+	angle_ = MathUtils::RandomFloat(0.0f, 6.28f);
 }

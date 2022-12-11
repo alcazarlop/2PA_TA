@@ -33,8 +33,8 @@ Sint8 GameController::init(){
 	gm_.init();
 	gm_.set_gravity(100.0f, 100.0f);
 
-	emitter.loadPool(10);
-	emitter.init(0);
+	emitter.loadPool(20);
+	emitter.init(2);
 
 	return isRunning_ = 1;
 }

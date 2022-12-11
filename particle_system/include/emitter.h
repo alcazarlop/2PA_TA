@@ -24,8 +24,9 @@ public:
 	void release();
 
 	void smoke();
-	void burst();
-	void firework();
+	void burst(Uint32 index);
+	void firework(Uint32 index);
+	void custom();
 
 	Particle::ParticleParams params() const;
 
@@ -54,8 +55,7 @@ private:
 	float angle_;
 	Uint8 lifeTime_;
 	Uint8 shape_;
-	Uint8 type_;
-
+	Uint8 physics_;
 
 };
 

@@ -86,12 +86,12 @@ void Particle::reset(ParticleParams& params){
 void Particle::update(){
 	switch(params_.type){
 		case 0: 
-			path_.set_position(path_.position() + params_.velocity);
+			path_.set_position(path_.position() + params_.velocity * params_.speed);
 		break;
 		case 1: 
 		break;
 		default: 
-			path_.set_position(path_.position() + params_.velocity);
+			path_.set_position(path_.position() + params_.velocity * params_.speed);
 		break;
 	}
 	currentTime_++;

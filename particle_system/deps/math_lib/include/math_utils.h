@@ -34,7 +34,8 @@ inline int MathUtils::Clamp(int value, int minVal, int maxVal) {
 }
 
 inline float MathUtils::RandomFloat(float min, float max){
-	return ((max - min) * ((float)rand() / (float)RAND_MAX + min));
+	float scale = rand() / (float) RAND_MAX;
+  return min + scale * ( max - min );  
 }
 
 inline float MathUtils::SetRandomCos(float max, float min){
