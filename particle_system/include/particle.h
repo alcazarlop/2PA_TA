@@ -23,7 +23,9 @@ public:
 		float speed;
 		Uint8 lifeTime;
 		Uint8 shape;
-		Uint8 type;
+		Uint8 physics;
+		float friction;
+		float mass;
 	};
 
 	void init(ParticleParams& params);

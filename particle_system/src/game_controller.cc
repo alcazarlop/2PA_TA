@@ -34,7 +34,7 @@ Sint8 GameController::init(){
 	gm_.set_gravity(100.0f, 100.0f);
 
 	emitter.loadPool(20);
-	emitter.init(2);
+	emitter.init(1);
 
 	return isRunning_ = 1;
 }
@@ -47,7 +47,9 @@ void GameController::input(SDL_Event* e){
 			case SDL_KEYDOWN:
 				switch(e->key.keysym.sym){
 					case SDLK_ESCAPE: isRunning_ = 0; break; 
-					case SDLK_SPACE: break;
+					case SDLK_SPACE: emitter.set_physics(1); break;
+					case SDLK_F1: emitter.set_mass(10.0f); break;
+					case SDLK_F2: emitter.set_friction(5.0f); break;
 				}
 			break;
 		}

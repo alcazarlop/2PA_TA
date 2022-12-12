@@ -17,7 +17,7 @@ public:
 	Emitter(const Emitter& copy);
 	virtual ~Emitter();
 
-	void loadPool(Uint32 pool_size);
+	void loadPool(Uint32 size);
 	void init(Uint8 mode);
 	void update();
 	void draw(const WindowController& wc) override;
@@ -25,7 +25,6 @@ public:
 
 	void smoke();
 	void burst(Uint32 index);
-	void firework(Uint32 index);
 	void custom();
 
 	Particle::ParticleParams params() const;
@@ -37,15 +36,20 @@ public:
 	void set_particle_speed(float min, float max);
 	void set_particle_lifetime(Uint8 time);
 	void set_particle_shape(Uint8 shape);
+
 	void set_physics(Uint8 type);
+	void set_friction(float value);
+	void set_mass(float value);
 
 	void set_random_shape();
 	void set_random_lifetime(Uint32 rand);
 	void set_random_angle();
 
+	void set_pool_size(Uint32 new_size);
+
 private:
 	std::vector<Particle> particle_pool_;
-	Uint8 emmiter_mode_;
+	Uint8 emitter_mode_;
 	Particle::ParticleParams emitter_params_;
 
 	float min_speed_, max_speed_;
@@ -56,6 +60,8 @@ private:
 	Uint8 lifeTime_;
 	Uint8 shape_;
 	Uint8 physics_;
+	float friction_;
+	float mass_;
 
 };
 

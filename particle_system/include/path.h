@@ -27,6 +27,8 @@ public:
 	void lerpUnclampedColor(SDL_Color lerp, float time);
 	void draw(const WindowController& wc) override;
 
+	std::vector<Vec2> vertices() const;
+
 private:
 	std::vector<Vec2> vertices_;
 	SDL_Color color_;

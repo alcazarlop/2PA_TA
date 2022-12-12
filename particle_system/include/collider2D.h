@@ -18,26 +18,24 @@ public:
 	void init(float radius, float mass, cpSpace* space);
 	void release();
 
-	void loadSquare();
-	void loadCircle();
-	void loadStar();
-
-	void add_vertices(Vec2 vec);
-	void add_vertices(float x, float y);
-
 	void set_position(float x, float y);
 	void set_position(cpVect pos);
+	void set_velocity(float x, float y);
+
+	void apply_force(float x, float y);
+	void set_friction(float value);
+	void set_mass(float value);
 
 	cpVect position() const;
 
-	void draw(SDL_Renderer* render);
+	void draw(SDL_Renderer* render, std::vector<Vec2> vertices);
 
 private:
 	cpBody* body_;
 	cpShape* shape_;
+	cpShapeFilter filter_;
 
 	float radius_;
-	std::vector<Vec2> vertices_;
 
 };
 

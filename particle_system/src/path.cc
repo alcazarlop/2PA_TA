@@ -90,3 +90,7 @@ void Path::draw(const WindowController& wc){
 		}
 	}
 }
+
+std::vector<Vec2> Path::vertices() const {
+	return vertices_;
+}
