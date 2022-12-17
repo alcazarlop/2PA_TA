@@ -8,7 +8,7 @@
 #include "math_utils.h"
 
 void ShowImgui(Entity* entity);
-void PathWindow(Path* path);
+void PathWindow(Path* path, int tag);
 
 
 #endif
