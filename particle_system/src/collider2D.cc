@@ -45,6 +45,7 @@ void Collider2D::apply_force(float x, float y){
 	cpBodyApplyImpulseAtWorldPoint(body_, cpv(x, y), position());
 }
 
+
 void Collider2D::set_friction(float value){
 	cpShapeSetFriction(shape_, (cpFloat)value);
 }

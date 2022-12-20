@@ -2,19 +2,14 @@
 #include "path.h"
 
 Path::Path(){
-	color_.r = 0xFF;
-	color_.g = 0xFF;
-	color_.b = 0xFF;
-	color_.a = 0xFF;
+	color_ = Vec4(255.0f, 255.0f, 255.0f, 255.0f);
 	vertices_.clear();
 }
 
 Path::Path(const Path& copy){
-	color_.r = copy.color_.r;
-	color_.g = copy.color_.g;
-	color_.b = copy.color_.b;
-	color_.a = copy.color_.a;
+	color_ = copy.color_;
 	vertices_ = copy.vertices_;
+	position_ = copy.position_;
 }
 
 Path::~Path(){
@@ -54,20 +49,8 @@ void Path::loadStar(){
 	}
 }
 
-void Path::set_color(SDL_Color color){
-	color_.r = color.r;
-	color_.g = color.g;
-	color_.b = color.b;
-	color_.a = color.a;
-}
-
-void Path::lerpUnclampedColor(SDL_Color lerp, float time){
-	SDL_Color final_color;
-	final_color.r = (Uint8)(color_.r + (lerp.r - color_.r) * time);
-	final_color.g = (Uint8)(color_.g + (lerp.g - color_.g) * time);
-	final_color.b = (Uint8)(color_.b + (lerp.b - color_.b) * time);
-	final_color.a = (Uint8)(color_.a + (lerp.a - color_.a) * time);
-	color_ = final_color;
+void Path::set_color(Vec4 color){
+	color_ = color;
 }
 
 void Path::draw(const WindowController& wc){
@@ -82,7 +65,7 @@ void Path::draw(const WindowController& wc){
 			tr_points.push_back(transform.Mat3TransformVec2(vertices_[i]));
 		}
 
-		SDL_SetRenderDrawColor(wc.renderer(), color_.r, color_.g, color_.b, color_.a);
+		SDL_SetRenderDrawColor(wc.renderer(), (Uint8)color_.x, (Uint8)color_.y, (Uint8)color_.z, (Uint8)color_.w);
 		for(Uint32 i = 0; i < tr_points.size(); ++i){
 			SDL_RenderDrawLineF(wc.renderer(), tr_points[i].x, tr_points[i].y,
 																				 tr_points[(i + 1) % tr_points.size()].x, 
@@ -93,4 +76,8 @@ void Path::draw(const WindowController& wc){
 
 std::vector<Vec2> Path::vertices() const {
 	return vertices_;
+}
+
+Vec4 Path::color() const {
+	return color_;
 }

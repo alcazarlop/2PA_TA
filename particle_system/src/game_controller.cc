@@ -3,13 +3,11 @@
 
 GameController::GameController(){
 	isRunning_ = 0;
-	currentTime_ = 0;
 	wc_ = WindowController();
 }
 
 GameController::GameController(const GameController& copy){
 	isRunning_ = copy.isRunning_;
-	currentTime_ = copy.currentTime_;
 	wc_ = copy.wc_;
 }
 
@@ -31,10 +29,7 @@ Sint8 GameController::init(){
   ImGui_ImplSDLRenderer_Init(wc_.renderer());
 
 	gm_.init();
-	gm_.set_gravity(100.0f, 100.0f);
-
-	emitter.loadPool(20);
-	emitter.init(1);
+	gm_.set_gravity(0.0f, 1.0f);
 
 	return isRunning_ = 1;
 }
@@ -47,9 +42,11 @@ void GameController::input(SDL_Event* e){
 			case SDL_KEYDOWN:
 				switch(e->key.keysym.sym){
 					case SDLK_ESCAPE: isRunning_ = 0; break; 
-					case SDLK_SPACE: emitter.set_physics(1); break;
-					case SDLK_F1: emitter.set_mass(10.0f); break;
-					case SDLK_F2: emitter.set_friction(5.0f); break;
+				}
+			break;
+			case SDL_MOUSEBUTTONDOWN: 
+				if(emitter_pool_.pool_.size() != 0){
+					emitter_pool_.pool_.back().isBound_ = false;
 				}
 			break;
 		}
@@ -60,11 +57,12 @@ void GameController::update(){
 
 	gm_.fixedTime();
 
-	// float fps = currentTime_ / (gm_.lastTime() / 1000.0f);
 
-	emitter.update();
+	for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
+		emitter_pool_.pool_[i].update();
+	}
 
-	currentTime_++;
+	gm_.currentTime_++;
 }
 
 void GameController::draw(){
@@ -74,7 +72,11 @@ void GameController::draw(){
 	SDL_SetRenderDrawColor(wc_.renderer(), 0x0, 0x0, 0x0, 0xFF);
 	SDL_RenderClear(wc_.renderer());
 
-	emitter.draw(wc_);
+	EmitterPoolManager(&emitter_pool_, wc_.renderer());
+
+	for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
+		emitter_pool_.pool_[i].draw(wc_);
+	}
 
   ImGui::Render();
   ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
@@ -83,8 +85,6 @@ void GameController::draw(){
 
 void GameController::quit(){
 	gm_.release();
-
-	emitter.release();
 
   ImGui_ImplSDLRenderer_Shutdown();
   ImGui_ImplSDL2_Shutdown();

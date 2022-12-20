@@ -5,6 +5,7 @@ GameManager::GameManager() {
 	space_ = NULL;
 	stepTime_ = 0.0;
 	startTime_ = 0;
+	currentTime_ = 0;
 }
 
 GameManager::GameManager(const GameManager& copy) {
@@ -42,4 +43,8 @@ void GameManager::startTime(){
 
 Uint32 GameManager::lastTime(){
 	return SDL_GetTicks() - startTime_;
+}
+
+float GameManager::getFPS(){
+	return currentTime_ / (lastTime() / 1000.0f);
 }

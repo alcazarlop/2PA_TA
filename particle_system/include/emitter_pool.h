@@ -1,4 +1,4 @@
-
+//Author: Manuel Alcazar Lopez
 #ifndef __EMITTER_POOL_H__
 #define __EMITTER_POOL_H__ 1
 
@@ -11,8 +11,7 @@ public:
 	EmitterPool(const EmitterPool& copy);
 	~EmitterPool();
 
-private:
-	std::vector<Emitter> emitter_pool_;
+	std::vector<Emitter> pool_;
 
 };
 

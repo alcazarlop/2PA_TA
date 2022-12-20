@@ -2,62 +2,59 @@
 #include "emitter.h"
 
 Emitter::Emitter(){
-	particle_pool_.clear();
 	emitter_mode_ = 0;
-	set_position(400.0f, 300.0f);
+	isBound_ = false;
+	tex_ = nullptr;
 	min_speed_ = 1.0f;
 	max_speed_ = 1.0f;
 	min_vel_x_ = 1.0f;
 	max_vel_x_ = 1.0f;
 	min_vel_y_ = 1.0f;
 	max_vel_y_ = 1.0f;
-	scale_x_ = 10.0f;
-	scale_y_ = 10.0f;
-	angle_ = 0.0f;
 	lifeTime_ = 20;
-	shape_ = 0;
-	physics_ = 0;
-	friction_ = 0.0f;
-	mass_ = 1.0f;
+	lerpColor_ = false;
+	startColor_ = Vec4(255.0f, 255.0f, 255.0f, 255.0f);
+	endColor_ = Vec4(255.0f, 255.0f, 255.0f, 255.0f);
 }
 
 Emitter::Emitter(const Emitter& copy){
-	particle_pool_ = copy.particle_pool_;
+	position_ = copy.position_;
 	emitter_mode_ = copy.emitter_mode_;
+	isBound_ = copy.isBound_;
+	tex_ = copy.tex_;
+	particle_pool_ = copy.particle_pool_;
+	emitter_params_ = copy.emitter_params_;
 	min_speed_ = copy.min_speed_;
 	max_speed_ = copy.max_speed_;
 	min_vel_x_ = copy.min_vel_x_;
 	max_vel_x_ = copy.max_vel_x_;
 	min_vel_y_ = copy.min_vel_y_;
 	max_vel_y_ = copy.max_vel_y_;
-	scale_x_ = copy.scale_x_;
-	scale_y_ = copy.scale_y_;
-	angle_ = copy.angle_;
 	lifeTime_ = copy.lifeTime_;
-	shape_ = copy.shape_;
-	physics_ = copy.physics_;
-	friction_ = copy.friction_;
-	mass_ = copy.mass_;
+	lerpColor_ = copy.lerpColor_;
+	startColor_ = copy.startColor_;
+	endColor_ = copy.endColor_;
 }
 
 Emitter::~Emitter(){
-	particle_pool_.clear();
+
 }
 
-void Emitter::loadPool(Uint32 size){
+void Emitter::loadTexture(SDL_Renderer* renderer){
+	Uint32 pixels = 0xFFFFFFFF;
+	tex_ = Texture::CreateTexture();
+	tex_->loadFromBuffer(16, 16, renderer, &pixels);	
+}
+
+void Emitter::init(Uint32 size, Uint32 mode){
 	for(Uint32 i = 0; i < size; ++i){
 		Particle particle = Particle();
 		particle_pool_.push_back(particle);
-	}
-}
-
-void Emitter::init(Uint8 mode){
-	for(Uint32 i = 0; i < particle_pool_.size(); ++i){
 		switch(mode){
-			case 0: smoke(); break;			
-			case 1: burst(i); break;			
-			case 2: custom(); break;			
-			default: custom(); break;			
+			case 0: firework(); break;			
+			case 1: burst(i); break;
+			case 2: custom(); break;
+			default: firework(); break;			
 		}
 		particle_pool_[i].init(emitter_params_);
 	}
@@ -65,15 +62,16 @@ void Emitter::init(Uint8 mode){
 }
 
 void Emitter::update(){
+	tex_->set_position(position_.x, position_.y);
 	for(Uint32 i = 0; i < particle_pool_.size(); ++i){
 		if(particle_pool_[i].currentTime() < emitter_params_.lifeTime){
 			particle_pool_[i].update();
 		} else {
 			switch(emitter_mode_){
-				case 0: smoke(); break;			
+				case 0: firework(); break;			
 				case 1: burst(i); break;			
 				case 2: custom(); break;			
-				default: custom(); break;			
+				default: firework(); break;			
 			}
 			particle_pool_[i].reset(emitter_params_);
 		}
@@ -81,14 +79,9 @@ void Emitter::update(){
 }
 
 void Emitter::draw(const WindowController& wc){
+	tex_->draw(wc.renderer());
 	for(Uint32 i = 0; i < particle_pool_.size(); ++i){
 		particle_pool_[i].draw(wc);
-	}
-}
-
-void Emitter::release(){
-	for(Uint32 i = 0; i < particle_pool_.size(); ++i){
-		particle_pool_[i].release();
 	}
 }
 
@@ -96,113 +89,108 @@ Particle::ParticleParams Emitter::params() const {
 	return emitter_params_;
 }
 
-void Emitter::smoke(){
+void Emitter::firework(){
 	emitter_params_.pos = position();
-	emitter_params_.scale = Vec2(scale_x_, scale_y_);
+	emitter_params_.scale = Vec2(10.0f, 10.0f);
 	emitter_params_.velocity.x = MathUtils::RandomFloat(-2.0f, 2.0f);
 	emitter_params_.velocity.y = MathUtils::RandomFloat(-5.0f, 0.0f);
 	emitter_params_.angle = MathUtils::RandomFloat(0.0f, 6.28f);
 	emitter_params_.speed = MathUtils::RandomFloat(1.0f, 3.0f);
 	emitter_params_.lifeTime = 50;
 	emitter_params_.shape = rand()%3;
-	emitter_params_.physics = physics_;
-	emitter_params_.friction = friction_;
-	emitter_params_.mass = mass_;
+	emitter_params_.lerpColor = rand()%2;
+	emitter_params_.startColor = Vec4((float)(rand()%255),(float)(rand()%255), (float)(rand()%255), (float)(rand()%255));
+	emitter_params_.endColor = Vec4((float)(rand()%255),(float)(rand()%255), (float)(rand()%255), (float)(rand()%255));
 }
 
 void Emitter::burst(Uint32 index){
 	emitter_params_.pos = position();
-	emitter_params_.scale = Vec2(scale_x_, scale_y_);
+	emitter_params_.scale = Vec2(10.0f, 10.0f);
 	emitter_params_.velocity.x = cosf((6.28f / particle_pool_.size() * index));
 	emitter_params_.velocity.y = sinf((6.28f / particle_pool_.size() * index));
 	emitter_params_.angle =  MathUtils::RandomFloat(0.0f, 6.28f);
 	emitter_params_.speed = MathUtils::RandomFloat(2.0f, 3.0f);
 	emitter_params_.lifeTime = 100;
 	emitter_params_.shape = rand()%3;
-	emitter_params_.physics = physics_;
-	emitter_params_.friction = friction_;
-	emitter_params_.mass = mass_;
+	emitter_params_.lerpColor = rand()%2;
+	emitter_params_.startColor = Vec4((float)(rand()%255),(float)(rand()%255), (float)(rand()%255), (float)(rand()%255));
+	emitter_params_.endColor = Vec4((float)(rand()%255),(float)(rand()%255), (float)(rand()%255), (float)(rand()%255));
 }
 
 void Emitter::custom(){
 	emitter_params_.pos = position();
-	emitter_params_.scale = Vec2(scale_x_, scale_y_);
+	emitter_params_.scale = Vec2(10.0f, 10.0f);
 	emitter_params_.velocity.x = MathUtils::RandomFloat(min_vel_x_, max_vel_x_);
 	emitter_params_.velocity.y = MathUtils::RandomFloat(min_vel_y_, max_vel_y_);
-	emitter_params_.angle = angle_;
+	emitter_params_.angle = MathUtils::RandomFloat(0.0f, 6.28f);;
 	emitter_params_.speed = MathUtils::RandomFloat(min_speed_, max_speed_);
 	emitter_params_.lifeTime = lifeTime_;
-	emitter_params_.shape = shape_;
-	emitter_params_.physics = physics_;
-	emitter_params_.friction = friction_;
-	emitter_params_.mass = mass_;
-}
-
-void Emitter::set_particle_scale(float sx, float sy){
-	scale_x_ = sx;
-	scale_y_ = sy;
+	emitter_params_.shape = rand()%3;
+	emitter_params_.lerpColor = lerpColor_;
+	emitter_params_.startColor = startColor_;
+	emitter_params_.endColor = endColor_;
 }
 
 void Emitter::set_particle_velocity_x(float min, float max){
-	min_vel_x_ = MathUtils::Clamp(min, -15.0f, max_vel_x_);
-	max_vel_x_ = MathUtils::Clamp(max, min_vel_x_, 15.0f);
+	min_vel_x_ = min;
+	max_vel_x_ = max;
 }
 
 void Emitter::set_particle_velocity_y(float min, float max){
-	min_vel_y_ = MathUtils::Clamp(min, -15.0f, max_vel_y_);
-	max_vel_y_ = MathUtils::Clamp(max, min_vel_y_, 15.0f);
-}
-
-void Emitter::set_particle_angle(float angle){
-	angle_ = angle;
+	min_vel_y_ = min;
+	max_vel_y_ = max;
 }
 
 void Emitter::set_particle_speed(float min, float max){
-	min_speed_ = MathUtils::Clamp(min, 1.0f, max_speed_);
-	max_speed_ = MathUtils::Clamp(max, min_speed_, 8.0f);
+	min_speed_ = min;
+	max_speed_ = max;
 }
 
-void Emitter::set_particle_lifetime(Uint8 time){
+void Emitter::set_particle_lifetime(Uint32 time){
 	lifeTime_ = time;
 }
 
-void Emitter::set_particle_shape(Uint8 shape){
-	shape_ = shape;
+void Emitter::set_lerpColor(bool b){
+	lerpColor_ = b;
 }
 
-void Emitter::set_physics(Uint8 physics){
- 	physics_ = physics;
- 	if(physics_){
- 		for(Uint32 i = 0; i < particle_pool_.size(); ++i){
- 			switch(emitter_mode_){
-				case 0: smoke(); break;
-				case 1: burst(i); break;
-				case 2: custom(); break;
-				default: custom(); break;
-			}
- 			particle_pool_[i].reset(emitter_params_);
- 		}
- 	}
+void Emitter::set_startColor(Vec4 color){
+	startColor_ = color;
 }
 
-void Emitter::set_friction(float value){
-	friction_ = MathUtils::Clamp(value, 0.0f, 100.0f);
+void Emitter::set_endColor(Vec4 color){
+	endColor_ = color;
 }
 
-void Emitter::set_mass(float value){
-	mass_ = MathUtils::Clamp(value, 1.0f, 100.0f);
+void Emitter::set_random_velocity_x(){
+	min_vel_x_ = MathUtils::RandomFloat(-10.0f, max_vel_y_);
+	max_vel_x_ = MathUtils::RandomFloat(min_vel_y_, 10.0f);
 }
 
-void Emitter::set_random_shape(){
-	shape_ = rand()%3;
+void Emitter::set_random_velocity_y(){
+	min_vel_y_ = MathUtils::RandomFloat(-10.0f, max_vel_y_);
+	max_vel_y_ = MathUtils::RandomFloat(min_vel_y_, 10.0f);
 }
 
-void Emitter::set_random_lifetime(Uint32 r){
-	lifeTime_ = (Uint8)MathUtils::Clamp(r, rand()%30, rand()%60);
+void Emitter::set_random_speed(){
+	min_speed_ = MathUtils::RandomFloat(-5.0f, 5.0f);
+	max_speed_ = MathUtils::RandomFloat(1.0f, 5.0f);
 }
 
-void Emitter::set_random_angle(){
-	angle_ = MathUtils::RandomFloat(0.0f, 6.28f);
+void Emitter::set_random_lifetime(){
+	lifeTime_ = 10 + rand()%120;
+}
+
+void Emitter::set_random_lerpColor(){
+	lerpColor_ = rand()%2;
+}
+
+void Emitter::set_random_startColor(){
+	startColor_ = Vec4((float)(rand()%255),(float)(rand()%255), (float)(rand()%255), (float)(rand()%255));
+}
+
+void Emitter::set_random_endColor(){
+	endColor_ = Vec4((float)(rand()%255),(float)(rand()%255), (float)(rand()%255), (float)(rand()%255));
 }
 
 void Emitter::set_pool_size(Uint32 new_size){
@@ -211,7 +199,7 @@ void Emitter::set_pool_size(Uint32 new_size){
 			Particle particle = Particle();
 			particle_pool_.push_back(particle);		
 		}
-		init(emitter_mode_);
+		init(new_size, emitter_mode_);
 	} 
 	else if(new_size < particle_pool_.size()){
 		Uint32 res = particle_pool_.size() - new_size;
@@ -219,4 +207,8 @@ void Emitter::set_pool_size(Uint32 new_size){
 			particle_pool_.pop_back();
 		}
 	} 
+}
+
+void Emitter::set_mode(Uint32 mode){
+	emitter_mode_ = MathUtils::Clamp(mode, 0, 2);
 }
