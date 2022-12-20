@@ -1,0 +1,235 @@
+\hypertarget{class_texture}{}\doxysection{Texture Class Reference}
+\label{class_texture}\index{Texture@{Texture}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_texture_ad04f3857d1317f69b080b4cad1a44cbc}{load\+From\+File}} (const char $\ast$path, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_texture}{Texture}} load. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_a1d708ceeeb1b102bf7c4c5f02894edf8}{load\+From\+Buffer}} (Uint32 \mbox{\hyperlink{class_texture_a98a370d5cc4ac2118633c409e2555cf8}{width}}, Uint32 \mbox{\hyperlink{class_texture_aad071f4528cfc89c41bd5f96cd0e3d84}{height}}, S\+D\+L\+\_\+\+Renderer $\ast$renderer, Uint32 $\ast$pixel\+\_\+buffer, Uint32 pitch=4)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_texture}{Texture}} load from buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_a16c096defe40a38d6f22bd08b63eb826}{release}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_texture}{Texture}} release. \end{DoxyCompactList}\item 
+Uint32 \mbox{\hyperlink{class_texture_a98a370d5cc4ac2118633c409e2555cf8}{width}} () const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_texture}{Texture}} width getter. \end{DoxyCompactList}\item 
+Uint32 \mbox{\hyperlink{class_texture_aad071f4528cfc89c41bd5f96cd0e3d84}{height}} () const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_texture}{Texture}} height getter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_a86b0e5978c81f89c4eea1ca79641a06b}{draw}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_texture}{Texture}} draw. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_aa080fd0c12b46e0121bd1280863a42e5}{set\+\_\+position}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_texture}{Texture}} position setter with values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_a49c596fbf521642358bbc36305cf133b}{set\+\_\+position}} (Vec2 \mbox{\hyperlink{class_texture_afd10e899cb40cafe72b30b3b8a5a5437}{position}})
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_texture}{Texture}} position setter with vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_ac7dadd0c90a181c5fc6ad0192331df53}{set\+\_\+rotation}} (float angle)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_texture}{Texture}} rotation setter. \end{DoxyCompactList}\item 
+Vec2 \mbox{\hyperlink{class_texture_afd10e899cb40cafe72b30b3b8a5a5437}{position}} () const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_texture}{Texture}} position getter. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_texture_a99f4c904fc209d534023b31571fdeac8}{rotation}} () const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_texture}{Texture}} rotation getter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_texture}{Texture}} $\ast$ \mbox{\hyperlink{class_texture_aee2522cb5ad0712602643775ed7678e4}{Create\+Texture}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_texture}{Texture}} create. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_texture_a31d52aad4ac291c8a654ea8854f4555d}\label{class_texture_a31d52aad4ac291c8a654ea8854f4555d}} 
+static const Uint32 {\bfseries k\+Max\+Texture} = 32
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_aee2522cb5ad0712602643775ed7678e4}\label{class_texture_aee2522cb5ad0712602643775ed7678e4}} 
+\index{Texture@{Texture}!CreateTexture@{CreateTexture}}
+\index{CreateTexture@{CreateTexture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{CreateTexture()}{CreateTexture()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_texture}{Texture}}$\ast$ Texture\+::\+Create\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\mbox{\hyperlink{class_texture}{Texture}} create. 
+
+Creates a new texture if the total doesn\textquotesingle{}t exceed the limit
+
+\begin{DoxyReturn}{Returns}
+A texture pointer of the new texture 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_texture_a86b0e5978c81f89c4eea1ca79641a06b}\label{class_texture_a86b0e5978c81f89c4eea1ca79641a06b}} 
+\index{Texture@{Texture}!draw@{draw}}
+\index{draw@{draw}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Texture\+::draw (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_texture}{Texture}} draw. 
+
+Drawing of a Tetxure using S\+DL
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & A S\+DL renderer object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_texture_aad071f4528cfc89c41bd5f96cd0e3d84}\label{class_texture_aad071f4528cfc89c41bd5f96cd0e3d84}} 
+\index{Texture@{Texture}!height@{height}}
+\index{height@{height}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily Uint32 Texture\+::height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\mbox{\hyperlink{class_texture}{Texture}} height getter. 
+
+Gets the \mbox{\hyperlink{class_texture}{Texture}}\textquotesingle{}s height \mbox{\Hypertarget{class_texture_a1d708ceeeb1b102bf7c4c5f02894edf8}\label{class_texture_a1d708ceeeb1b102bf7c4c5f02894edf8}} 
+\index{Texture@{Texture}!loadFromBuffer@{loadFromBuffer}}
+\index{loadFromBuffer@{loadFromBuffer}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{loadFromBuffer()}{loadFromBuffer()}}
+{\footnotesize\ttfamily void Texture\+::load\+From\+Buffer (\begin{DoxyParamCaption}\item[{Uint32}]{width,  }\item[{Uint32}]{height,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{Uint32 $\ast$}]{pixel\+\_\+buffer,  }\item[{Uint32}]{pitch = {\ttfamily 4} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_texture}{Texture}} load from buffer. 
+
+Loads a \mbox{\hyperlink{class_texture}{Texture}} from a pixel buffer
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Value that corresponds to the texture\textquotesingle{}s width \\
+\hline
+{\em height} & Value that corresponds to the texture\textquotesingle{}s height \\
+\hline
+{\em renderer} & S\+DL renderer object \\
+\hline
+{\em pixel\+\_\+buffer} & Pixel buffer \\
+\hline
+{\em pitch} & The number of bytes in a row of pixel data, including padding between lines \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_texture_ad04f3857d1317f69b080b4cad1a44cbc}\label{class_texture_ad04f3857d1317f69b080b4cad1a44cbc}} 
+\index{Texture@{Texture}!loadFromFile@{loadFromFile}}
+\index{loadFromFile@{loadFromFile}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{loadFromFile()}{loadFromFile()}}
+{\footnotesize\ttfamily void Texture\+::load\+From\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_texture}{Texture}} load. 
+
+Loads a \mbox{\hyperlink{class_texture}{Texture}} from memory
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The loaded image address in the system \\
+\hline
+{\em renderer} & A S\+DL renderer object used to create the texture \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_texture_afd10e899cb40cafe72b30b3b8a5a5437}\label{class_texture_afd10e899cb40cafe72b30b3b8a5a5437}} 
+\index{Texture@{Texture}!position@{position}}
+\index{position@{position}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{position()}{position()}}
+{\footnotesize\ttfamily Vec2 Texture\+::position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\mbox{\hyperlink{class_texture}{Texture}} position getter. 
+
+Gets the texture\textquotesingle{}s position coordinates
+
+\begin{DoxyReturn}{Returns}
+texture\textquotesingle{}s position coordinates 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_texture_a16c096defe40a38d6f22bd08b63eb826}\label{class_texture_a16c096defe40a38d6f22bd08b63eb826}} 
+\index{Texture@{Texture}!release@{release}}
+\index{release@{release}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily void Texture\+::release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_texture}{Texture}} release. 
+
+\mbox{\hyperlink{class_texture}{Texture}} release using S\+DL \mbox{\Hypertarget{class_texture_a99f4c904fc209d534023b31571fdeac8}\label{class_texture_a99f4c904fc209d534023b31571fdeac8}} 
+\index{Texture@{Texture}!rotation@{rotation}}
+\index{rotation@{rotation}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{rotation()}{rotation()}}
+{\footnotesize\ttfamily float Texture\+::rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\mbox{\hyperlink{class_texture}{Texture}} rotation getter. 
+
+Gets the texture\textquotesingle{}s rotation value
+
+\begin{DoxyReturn}{Returns}
+texture\textquotesingle{}s rotation angle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_texture_aa080fd0c12b46e0121bd1280863a42e5}\label{class_texture_aa080fd0c12b46e0121bd1280863a42e5}} 
+\index{Texture@{Texture}!set\_position@{set\_position}}
+\index{set\_position@{set\_position}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Texture\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_texture}{Texture}} position setter with values. 
+
+Sets the texture\textquotesingle{}s coordinates with given values
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Coordinates value in the X axis \\
+\hline
+{\em y} & Coordinates value in the Y axis \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_texture_a49c596fbf521642358bbc36305cf133b}\label{class_texture_a49c596fbf521642358bbc36305cf133b}} 
+\index{Texture@{Texture}!set\_position@{set\_position}}
+\index{set\_position@{set\_position}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Texture\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{Vec2}]{position }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_texture}{Texture}} position setter with vector. 
+
+Sets the texture\textquotesingle{}s coordinates with a given vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Vec2 that contains the X and Y coordinates values \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_texture_ac7dadd0c90a181c5fc6ad0192331df53}\label{class_texture_ac7dadd0c90a181c5fc6ad0192331df53}} 
+\index{Texture@{Texture}!set\_rotation@{set\_rotation}}
+\index{set\_rotation@{set\_rotation}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{set\_rotation()}{set\_rotation()}}
+{\footnotesize\ttfamily void Texture\+::set\+\_\+rotation (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_texture}{Texture}} rotation setter. 
+
+Sets the texture rotation\textquotesingle{}s angle with a given value
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Value that corresponds to the angle of rotation of the texture \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_texture_a98a370d5cc4ac2118633c409e2555cf8}\label{class_texture_a98a370d5cc4ac2118633c409e2555cf8}} 
+\index{Texture@{Texture}!width@{width}}
+\index{width@{width}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily Uint32 Texture\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\mbox{\hyperlink{class_texture}{Texture}} width getter. 
+
+Gets the \mbox{\hyperlink{class_texture}{Texture}}\textquotesingle{}s width 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Usuario/\+Desktop/\+Programacion Avanzada/\+Particle\+\_\+definitiv/2\+P\+A\+\_\+\+T\+A\+\_\+prietoro\+\_\+alcazarlo-\/master/particle\+\_\+system/include/texture.\+h\end{DoxyCompactItemize}

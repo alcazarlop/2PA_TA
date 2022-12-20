@@ -1,0 +1,209 @@
+\hypertarget{class_collider2_d}{}\doxysection{Collider2D Class Reference}
+\label{class_collider2_d}\index{Collider2D@{Collider2D}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_collider2_d_a030df91d426fafe8b35bd009ab42d7b1}\label{class_collider2_d_a030df91d426fafe8b35bd009ab42d7b1}} 
+{\bfseries Collider2D} (const \mbox{\hyperlink{class_collider2_d}{Collider2D}} \&copy)
+\item 
+void \mbox{\hyperlink{class_collider2_d_a8293c592167c07ca1798e6f15429dc68}{init}} (float radius, float mass, cp\+Space $\ast$space)
+\begin{DoxyCompactList}\small\item\em 2D Collider initialization \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collider2_d_a2153faf5bd9cfa896cdb7d3f44b93b08}{release}} ()
+\begin{DoxyCompactList}\small\item\em 2D Collider Release \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collider2_d_a62b2ce1c9d702a5092775ef6c06304e8}{set\+\_\+position}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Collider position setter with values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collider2_d_a3e4b0a63179e1fd7cc04f46479c5c9f9}{set\+\_\+position}} (cp\+Vect pos)
+\begin{DoxyCompactList}\small\item\em Collider position setter with Cp\+Vect. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collider2_d_a3d85cd17ef0f252e86ee78a41bb475c0}{set\+\_\+velocity}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Collider velocity setter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collider2_d_a082bbc532df6e481bf7f4d9e81995622}{apply\+\_\+force}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Collider force applier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collider2_d_a1cda60812fef4d3b32e5dea63601122c}{set\+\_\+friction}} (float value)
+\begin{DoxyCompactList}\small\item\em Collider friction setter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collider2_d_a232ab39839df9ef6a15c9080bd32361a}{set\+\_\+mass}} (float value)
+\begin{DoxyCompactList}\small\item\em Collider mass setter. \end{DoxyCompactList}\item 
+cp\+Vect \mbox{\hyperlink{class_collider2_d_a3edb38cc2f6b566a78c5398ca613de24}{position}} () const
+\begin{DoxyCompactList}\small\item\em Collider position getter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_collider2_d_a8a3f19c3a17475de57f4c9b7fc32d4a2}{draw}} (S\+D\+L\+\_\+\+Renderer $\ast$render, std\+::vector$<$ Vec2 $>$ vertices)
+\begin{DoxyCompactList}\small\item\em Collider\textquotesingle{}s draw. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_collider2_d_a082bbc532df6e481bf7f4d9e81995622}\label{class_collider2_d_a082bbc532df6e481bf7f4d9e81995622}} 
+\index{Collider2D@{Collider2D}!apply\_force@{apply\_force}}
+\index{apply\_force@{apply\_force}!Collider2D@{Collider2D}}
+\doxysubsubsection{\texorpdfstring{apply\_force()}{apply\_force()}}
+{\footnotesize\ttfamily void Collider2\+D\+::apply\+\_\+force (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Collider force applier. 
+
+Applies an impulse to a Collider\textquotesingle{}s body
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Impulse value in the X axis \\
+\hline
+{\em y} & Impulse value in the Y axis \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_collider2_d_a8a3f19c3a17475de57f4c9b7fc32d4a2}\label{class_collider2_d_a8a3f19c3a17475de57f4c9b7fc32d4a2}} 
+\index{Collider2D@{Collider2D}!draw@{draw}}
+\index{draw@{draw}!Collider2D@{Collider2D}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Collider2\+D\+::draw (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{render,  }\item[{std\+::vector$<$ Vec2 $>$}]{vertices }\end{DoxyParamCaption})}
+
+
+
+Collider\textquotesingle{}s draw. 
+
+Draws a collider after applying the transformations (translate, scale and rotate) with given vertices
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & S\+DL renderer used for the S\+LD drawing functions \\
+\hline
+{\em vertices} & Vector which contains the vertices to draw \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_collider2_d_a8293c592167c07ca1798e6f15429dc68}\label{class_collider2_d_a8293c592167c07ca1798e6f15429dc68}} 
+\index{Collider2D@{Collider2D}!init@{init}}
+\index{init@{init}!Collider2D@{Collider2D}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Collider2\+D\+::init (\begin{DoxyParamCaption}\item[{float}]{radius,  }\item[{float}]{mass,  }\item[{cp\+Space $\ast$}]{space }\end{DoxyParamCaption})}
+
+
+
+2D Collider initialization 
+
+Initializes all the chipmunks\textquotesingle{} 2D collider parameters
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & Value for the radius\+\_\+ variable \\
+\hline
+{\em mass} & Value used to initialize the body\+\_\+ variable \\
+\hline
+{\em space} & Chipmunk space object used to initialize the body\+\_\+ and shape\+\_\+ variables \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_collider2_d_a3edb38cc2f6b566a78c5398ca613de24}\label{class_collider2_d_a3edb38cc2f6b566a78c5398ca613de24}} 
+\index{Collider2D@{Collider2D}!position@{position}}
+\index{position@{position}!Collider2D@{Collider2D}}
+\doxysubsubsection{\texorpdfstring{position()}{position()}}
+{\footnotesize\ttfamily cp\+Vect Collider2\+D\+::position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Collider position getter. 
+
+Gets the Collider\textquotesingle{}s current position
+
+\begin{DoxyReturn}{Returns}
+Collider\textquotesingle{}s actual position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_collider2_d_a2153faf5bd9cfa896cdb7d3f44b93b08}\label{class_collider2_d_a2153faf5bd9cfa896cdb7d3f44b93b08}} 
+\index{Collider2D@{Collider2D}!release@{release}}
+\index{release@{release}!Collider2D@{Collider2D}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily void Collider2\+D\+::release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+2D Collider Release 
+
+Releases the body\+\_\+ and shape\+\_\+ variables \mbox{\Hypertarget{class_collider2_d_a1cda60812fef4d3b32e5dea63601122c}\label{class_collider2_d_a1cda60812fef4d3b32e5dea63601122c}} 
+\index{Collider2D@{Collider2D}!set\_friction@{set\_friction}}
+\index{set\_friction@{set\_friction}!Collider2D@{Collider2D}}
+\doxysubsubsection{\texorpdfstring{set\_friction()}{set\_friction()}}
+{\footnotesize\ttfamily void Collider2\+D\+::set\+\_\+friction (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Collider friction setter. 
+
+Sets friction value to a Collider\textquotesingle{}s shape
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Friction value to set to the collider \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_collider2_d_a232ab39839df9ef6a15c9080bd32361a}\label{class_collider2_d_a232ab39839df9ef6a15c9080bd32361a}} 
+\index{Collider2D@{Collider2D}!set\_mass@{set\_mass}}
+\index{set\_mass@{set\_mass}!Collider2D@{Collider2D}}
+\doxysubsubsection{\texorpdfstring{set\_mass()}{set\_mass()}}
+{\footnotesize\ttfamily void Collider2\+D\+::set\+\_\+mass (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Collider mass setter. 
+
+Sets mass value to a Collider\textquotesingle{}s body
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Friction value to set to the collider \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_collider2_d_a3e4b0a63179e1fd7cc04f46479c5c9f9}\label{class_collider2_d_a3e4b0a63179e1fd7cc04f46479c5c9f9}} 
+\index{Collider2D@{Collider2D}!set\_position@{set\_position}}
+\index{set\_position@{set\_position}!Collider2D@{Collider2D}}
+\doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Collider2\+D\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{cp\+Vect}]{pos }\end{DoxyParamCaption})}
+
+
+
+Collider position setter with Cp\+Vect. 
+
+Sets the collider\textquotesingle{}s position with a Chipmunk function, given a Chipmunk Vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Chipmunk vector that contains the new position values \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_collider2_d_a62b2ce1c9d702a5092775ef6c06304e8}\label{class_collider2_d_a62b2ce1c9d702a5092775ef6c06304e8}} 
+\index{Collider2D@{Collider2D}!set\_position@{set\_position}}
+\index{set\_position@{set\_position}!Collider2D@{Collider2D}}
+\doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Collider2\+D\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Collider position setter with values. 
+
+Sets the collider\textquotesingle{}s position with a Chipmunk function, given the coordinates values
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Coordinates value in the X axis \\
+\hline
+{\em y} & Coordinates value in the Y axis \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_collider2_d_a3d85cd17ef0f252e86ee78a41bb475c0}\label{class_collider2_d_a3d85cd17ef0f252e86ee78a41bb475c0}} 
+\index{Collider2D@{Collider2D}!set\_velocity@{set\_velocity}}
+\index{set\_velocity@{set\_velocity}!Collider2D@{Collider2D}}
+\doxysubsubsection{\texorpdfstring{set\_velocity()}{set\_velocity()}}
+{\footnotesize\ttfamily void Collider2\+D\+::set\+\_\+velocity (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Collider velocity setter. 
+
+Sets the collider\textquotesingle{}s velocity in each axis using chipmunk
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Velocity value in the X axis \\
+\hline
+{\em y} & Velocity value in the Y axis \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Usuario/\+Desktop/\+Programacion Avanzada/\+Particle\+\_\+definitiv/2\+P\+A\+\_\+\+T\+A\+\_\+prietoro\+\_\+alcazarlo-\/master/particle\+\_\+system/include/collider2\+D.\+h\end{DoxyCompactItemize}

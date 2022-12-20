@@ -1,0 +1,136 @@
+\hypertarget{class_game_manager}{}\doxysection{Game\+Manager Class Reference}
+\label{class_game_manager}\index{GameManager@{GameManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_manager_a849df8c09486d7c84f368d52716b56d2}{init}} ()
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s Manager Initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_manager_a82b7634882fd2e2c53ee518892b9d65a}{set\+\_\+gravity}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s Gravity set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_manager_a5bac05a7bf619f00207f39035fa6e9d8}{fixed\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Fixed Time setter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_manager_a91a2972e2ee07041a6c355168f1dc01c}{release}} ()
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s Manager release. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_manager_aa3007aa67fba1224eb04f37847ee4ad5}{start\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s Start Time Initializations. \end{DoxyCompactList}\item 
+Uint32 \mbox{\hyperlink{class_game_manager_a8daa351092473cfff8e4eef2bc2db8ed}{last\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s Last Time getter. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_game_manager_a52703fbac732b5e018c6f54b3d01f9ca}{get\+F\+PS}} ()
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s F\+PS getter. \end{DoxyCompactList}\item 
+cp\+Space $\ast$ \mbox{\hyperlink{class_game_manager_a0f3f7d7f5d8f4528da57d6dc051ec989}{space}} () const
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s Space Getter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_manager_a137f3d22762082713a43057ced7937f0}\label{class_game_manager_a137f3d22762082713a43057ced7937f0}} 
+static \mbox{\hyperlink{class_game_manager}{Game\+Manager}} \& {\bfseries Instance} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_manager_a5681ba73777e1a3ddd834fd5ae0b1e0f}\label{class_game_manager_a5681ba73777e1a3ddd834fd5ae0b1e0f}} 
+Uint32 {\bfseries current\+Time\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_manager_a5bac05a7bf619f00207f39035fa6e9d8}\label{class_game_manager_a5bac05a7bf619f00207f39035fa6e9d8}} 
+\index{GameManager@{GameManager}!fixedTime@{fixedTime}}
+\index{fixedTime@{fixedTime}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{fixedTime()}{fixedTime()}}
+{\footnotesize\ttfamily void Game\+Manager\+::fixed\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fixed Time setter. 
+
+Sets the fixed time used in the application using Chipmunk \mbox{\Hypertarget{class_game_manager_a52703fbac732b5e018c6f54b3d01f9ca}\label{class_game_manager_a52703fbac732b5e018c6f54b3d01f9ca}} 
+\index{GameManager@{GameManager}!getFPS@{getFPS}}
+\index{getFPS@{getFPS}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{getFPS()}{getFPS()}}
+{\footnotesize\ttfamily float Game\+Manager\+::get\+F\+PS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Application\textquotesingle{}s F\+PS getter. 
+
+Gets the application\textquotesingle{}s Frames per Second
+
+\begin{DoxyReturn}{Returns}
+Application\textquotesingle{}s current F\+PS 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_manager_a849df8c09486d7c84f368d52716b56d2}\label{class_game_manager_a849df8c09486d7c84f368d52716b56d2}} 
+\index{GameManager@{GameManager}!init@{init}}
+\index{init@{init}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Game\+Manager\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Application\textquotesingle{}s Manager Initialization. 
+
+Initializes all the application manager\textquotesingle{}s parameters for it to start correctly \mbox{\Hypertarget{class_game_manager_a8daa351092473cfff8e4eef2bc2db8ed}\label{class_game_manager_a8daa351092473cfff8e4eef2bc2db8ed}} 
+\index{GameManager@{GameManager}!lastTime@{lastTime}}
+\index{lastTime@{lastTime}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{lastTime()}{lastTime()}}
+{\footnotesize\ttfamily Uint32 Game\+Manager\+::last\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Application\textquotesingle{}s Last Time getter. 
+
+Gets the application\textquotesingle{}s last time
+
+\begin{DoxyReturn}{Returns}
+Last time value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_manager_a91a2972e2ee07041a6c355168f1dc01c}\label{class_game_manager_a91a2972e2ee07041a6c355168f1dc01c}} 
+\index{GameManager@{GameManager}!release@{release}}
+\index{release@{release}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily void Game\+Manager\+::release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Application\textquotesingle{}s Manager release. 
+
+Releases the Chipmunk\textquotesingle{}s Space \mbox{\Hypertarget{class_game_manager_a82b7634882fd2e2c53ee518892b9d65a}\label{class_game_manager_a82b7634882fd2e2c53ee518892b9d65a}} 
+\index{GameManager@{GameManager}!set\_gravity@{set\_gravity}}
+\index{set\_gravity@{set\_gravity}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{set\_gravity()}{set\_gravity()}}
+{\footnotesize\ttfamily void Game\+Manager\+::set\+\_\+gravity (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Application\textquotesingle{}s Gravity set. 
+
+Sets the gravity used in the application using Chipmunk \mbox{\Hypertarget{class_game_manager_a0f3f7d7f5d8f4528da57d6dc051ec989}\label{class_game_manager_a0f3f7d7f5d8f4528da57d6dc051ec989}} 
+\index{GameManager@{GameManager}!space@{space}}
+\index{space@{space}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{space()}{space()}}
+{\footnotesize\ttfamily cp\+Space$\ast$ Game\+Manager\+::space (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Application\textquotesingle{}s Space Getter. 
+
+Gets the application\textquotesingle{}s space used in Chipmunk
+
+\begin{DoxyReturn}{Returns}
+Application\textquotesingle{}s space 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_manager_aa3007aa67fba1224eb04f37847ee4ad5}\label{class_game_manager_aa3007aa67fba1224eb04f37847ee4ad5}} 
+\index{GameManager@{GameManager}!startTime@{startTime}}
+\index{startTime@{startTime}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{startTime()}{startTime()}}
+{\footnotesize\ttfamily void Game\+Manager\+::start\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Application\textquotesingle{}s Start Time Initializations. 
+
+Gets the application\textquotesingle{}s start time 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Usuario/\+Desktop/\+Programacion Avanzada/\+Particle\+\_\+definitiv/2\+P\+A\+\_\+\+T\+A\+\_\+prietoro\+\_\+alcazarlo-\/master/particle\+\_\+system/include/game\+\_\+manager.\+h\end{DoxyCompactItemize}

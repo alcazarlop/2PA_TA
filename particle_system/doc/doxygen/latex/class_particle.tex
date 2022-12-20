@@ -1,0 +1,133 @@
+\hypertarget{class_particle}{}\doxysection{Particle Class Reference}
+\label{class_particle}\index{Particle@{Particle}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_particle_1_1_particle_params}{Particle\+Params}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_particle_ace9b70136313343c8100e2555d57805b}\label{class_particle_ace9b70136313343c8100e2555d57805b}} 
+{\bfseries Particle} (const \mbox{\hyperlink{class_particle}{Particle}} \&copy)
+\item 
+void \mbox{\hyperlink{class_particle_aa2c868a0e168dea2f32caf62ed3b0bbf}{init}} (\mbox{\hyperlink{struct_particle_1_1_particle_params}{Particle\+Params}} \&params)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_particle}{Particle}} initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a1a6f0f3820eb93b2edd4f1961839a40e}{reset}} (\mbox{\hyperlink{struct_particle_1_1_particle_params}{Particle\+Params}} \&params)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_particle}{Particle}} reset. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_a686aad22bf7a80a089e117bbc7f4b738}{update}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_particle}{Particle}} update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_ad94951bf742b92bbc90fc215d9b50096}{draw}} (const \mbox{\hyperlink{class_window_controller}{Window\+Controller}} \&wc)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_particle}{Particle}} draw. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_particle_af971c17e4d9817092ebcb24247a9c8af}{set\+\_\+current\+Time}} (Uint32 time)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_particle}{Particle}} current time setter. \end{DoxyCompactList}\item 
+Uint32 \mbox{\hyperlink{class_particle_a9d6d9d61a188cbdf0e50be9aba8ba024}{current\+Time}} () const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_particle}{Particle}} current time getter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_path}{Path}} \mbox{\hyperlink{class_particle_af875cd6b8bba72507b9aab233e282b27}{path}} () const
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_particle}{Particle}} path object getter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_a9d6d9d61a188cbdf0e50be9aba8ba024}\label{class_particle_a9d6d9d61a188cbdf0e50be9aba8ba024}} 
+\index{Particle@{Particle}!currentTime@{currentTime}}
+\index{currentTime@{currentTime}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{currentTime()}{currentTime()}}
+{\footnotesize\ttfamily Uint32 Particle\+::current\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\mbox{\hyperlink{class_particle}{Particle}} current time getter. 
+
+Gets the \mbox{\hyperlink{class_particle}{Particle}}\textquotesingle{}s current time
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_particle}{Particle}}\textquotesingle{}s current\+Time value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_ad94951bf742b92bbc90fc215d9b50096}\label{class_particle_ad94951bf742b92bbc90fc215d9b50096}} 
+\index{Particle@{Particle}!draw@{draw}}
+\index{draw@{draw}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Particle\+::draw (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_window_controller}{Window\+Controller}} \&}]{wc }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_particle}{Particle}} draw. 
+
+Draws the particle using the \mbox{\hyperlink{class_path}{Path}} class function
+
+@params wc \mbox{\hyperlink{class_window_controller}{Window\+Controller}} object needed for the path draw function \mbox{\Hypertarget{class_particle_aa2c868a0e168dea2f32caf62ed3b0bbf}\label{class_particle_aa2c868a0e168dea2f32caf62ed3b0bbf}} 
+\index{Particle@{Particle}!init@{init}}
+\index{init@{init}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Particle\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_particle_1_1_particle_params}{Particle\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_particle}{Particle}} initialization. 
+
+Initializes a particle given it\textquotesingle{}s parameters
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & \mbox{\hyperlink{class_particle}{Particle}}\textquotesingle{}s parameters values \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_af875cd6b8bba72507b9aab233e282b27}\label{class_particle_af875cd6b8bba72507b9aab233e282b27}} 
+\index{Particle@{Particle}!path@{path}}
+\index{path@{path}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{path()}{path()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_path}{Path}} Particle\+::path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\mbox{\hyperlink{class_particle}{Particle}} path object getter. 
+
+Gets the \mbox{\hyperlink{class_particle}{Particle}}\textquotesingle{}s path object
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_particle}{Particle}}\textquotesingle{}s path object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_a1a6f0f3820eb93b2edd4f1961839a40e}\label{class_particle_a1a6f0f3820eb93b2edd4f1961839a40e}} 
+\index{Particle@{Particle}!reset@{reset}}
+\index{reset@{reset}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Particle\+::reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_particle_1_1_particle_params}{Particle\+Params}} \&}]{params }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_particle}{Particle}} reset. 
+
+Resets a particle given it\textquotesingle{}s new parameters
+
+
+\begin{DoxyParams}{Parameters}
+{\em params} & \mbox{\hyperlink{class_particle}{Particle}}\textquotesingle{}s parameters new values \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_af971c17e4d9817092ebcb24247a9c8af}\label{class_particle_af971c17e4d9817092ebcb24247a9c8af}} 
+\index{Particle@{Particle}!set\_currentTime@{set\_currentTime}}
+\index{set\_currentTime@{set\_currentTime}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{set\_currentTime()}{set\_currentTime()}}
+{\footnotesize\ttfamily void Particle\+::set\+\_\+current\+Time (\begin{DoxyParamCaption}\item[{Uint32}]{time }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_particle}{Particle}} current time setter. 
+
+Sets the \mbox{\hyperlink{class_particle}{Particle}}\textquotesingle{}s current time with a given value
+
+@params time New \mbox{\hyperlink{class_particle}{Particle}}\textquotesingle{}s current\+Time value \mbox{\Hypertarget{class_particle_a686aad22bf7a80a089e117bbc7f4b738}\label{class_particle_a686aad22bf7a80a089e117bbc7f4b738}} 
+\index{Particle@{Particle}!update@{update}}
+\index{update@{update}!Particle@{Particle}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Particle\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_particle}{Particle}} update. 
+
+Updates the particles\textquotesingle{} variables values setting it\textquotesingle{}s color and position 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Usuario/\+Desktop/\+Programacion Avanzada/\+Particle\+\_\+definitiv/2\+P\+A\+\_\+\+T\+A\+\_\+prietoro\+\_\+alcazarlo-\/master/particle\+\_\+system/include/particle.\+h\end{DoxyCompactItemize}

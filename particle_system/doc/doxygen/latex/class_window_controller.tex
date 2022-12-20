@@ -1,0 +1,120 @@
+\hypertarget{class_window_controller}{}\doxysection{Window\+Controller Class Reference}
+\label{class_window_controller}\index{WindowController@{WindowController}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_window_controller_a26345cc6b606c40b29b65de7beeba7d9}\label{class_window_controller_a26345cc6b606c40b29b65de7beeba7d9}} 
+{\bfseries Window\+Controller} (const \mbox{\hyperlink{class_window_controller}{Window\+Controller}} \&copy)
+\item 
+Sint8 \mbox{\hyperlink{class_window_controller_a00f6b2feab4972aea7166aa28ed1b96f}{init}} (Uint32 \mbox{\hyperlink{class_window_controller_a54af317b29a4e4f30ae43c31da9734e1}{width}}, Uint32 \mbox{\hyperlink{class_window_controller_a61360db8c4f78eb753fb539d0ff16ec2}{height}})
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s window initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_window_controller_ab051747be9f503206f7ac0cb8ed47e5b}{quit}} ()
+\begin{DoxyCompactList}\small\item\em Window destroy. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Renderer $\ast$ \mbox{\hyperlink{class_window_controller_a1fbff8952289ae37fdd558ea1364b79b}{renderer}} () const
+\begin{DoxyCompactList}\small\item\em Window Renderer getter. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Window $\ast$ \mbox{\hyperlink{class_window_controller_a1335aabec3b44db53ee104344deb0e38}{window}} () const
+\begin{DoxyCompactList}\small\item\em Window getter. \end{DoxyCompactList}\item 
+Uint32 \mbox{\hyperlink{class_window_controller_a54af317b29a4e4f30ae43c31da9734e1}{width}} () const
+\begin{DoxyCompactList}\small\item\em Window width getter. \end{DoxyCompactList}\item 
+Uint32 \mbox{\hyperlink{class_window_controller_a61360db8c4f78eb753fb539d0ff16ec2}{height}} () const
+\begin{DoxyCompactList}\small\item\em Window height getter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_window_controller_a61360db8c4f78eb753fb539d0ff16ec2}\label{class_window_controller_a61360db8c4f78eb753fb539d0ff16ec2}} 
+\index{WindowController@{WindowController}!height@{height}}
+\index{height@{height}!WindowController@{WindowController}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily Uint32 Window\+Controller\+::height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Window height getter. 
+
+Gets the Window height
+
+\begin{DoxyReturn}{Returns}
+Window height value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_controller_a00f6b2feab4972aea7166aa28ed1b96f}\label{class_window_controller_a00f6b2feab4972aea7166aa28ed1b96f}} 
+\index{WindowController@{WindowController}!init@{init}}
+\index{init@{init}!WindowController@{WindowController}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily Sint8 Window\+Controller\+::init (\begin{DoxyParamCaption}\item[{Uint32}]{width,  }\item[{Uint32}]{height }\end{DoxyParamCaption})}
+
+
+
+Application\textquotesingle{}s window initialization. 
+
+Initializes all the needed parameters to start the application\textquotesingle{}s window correctly using S\+DL functions
+
+\begin{DoxyReturn}{Returns}
+Value that determinates that the game is running 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Int value that corresponds with the window\textquotesingle{}s width \\
+\hline
+{\em height} & Int value that corresponds with the window\textquotesingle{}s height \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_window_controller_ab051747be9f503206f7ac0cb8ed47e5b}\label{class_window_controller_ab051747be9f503206f7ac0cb8ed47e5b}} 
+\index{WindowController@{WindowController}!quit@{quit}}
+\index{quit@{quit}!WindowController@{WindowController}}
+\doxysubsubsection{\texorpdfstring{quit()}{quit()}}
+{\footnotesize\ttfamily void Window\+Controller\+::quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Window destroy. 
+
+Manages the destruction of the \mbox{\hyperlink{class_window_controller}{Window\+Controller}}\textquotesingle{}s window \mbox{\Hypertarget{class_window_controller_a1fbff8952289ae37fdd558ea1364b79b}\label{class_window_controller_a1fbff8952289ae37fdd558ea1364b79b}} 
+\index{WindowController@{WindowController}!renderer@{renderer}}
+\index{renderer@{renderer}!WindowController@{WindowController}}
+\doxysubsubsection{\texorpdfstring{renderer()}{renderer()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Renderer$\ast$ Window\+Controller\+::renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Window Renderer getter. 
+
+Gets the sdl renderer object from \mbox{\hyperlink{class_window_controller}{Window\+Controller}}
+
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{class_window_controller}{Window\+Controller}}\textquotesingle{}s sdl renderer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_controller_a54af317b29a4e4f30ae43c31da9734e1}\label{class_window_controller_a54af317b29a4e4f30ae43c31da9734e1}} 
+\index{WindowController@{WindowController}!width@{width}}
+\index{width@{width}!WindowController@{WindowController}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily Uint32 Window\+Controller\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Window width getter. 
+
+Gets the Window width
+
+\begin{DoxyReturn}{Returns}
+Window width value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_controller_a1335aabec3b44db53ee104344deb0e38}\label{class_window_controller_a1335aabec3b44db53ee104344deb0e38}} 
+\index{WindowController@{WindowController}!window@{window}}
+\index{window@{window}!WindowController@{WindowController}}
+\doxysubsubsection{\texorpdfstring{window()}{window()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Window$\ast$ Window\+Controller\+::window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Window getter. 
+
+Gets the sdl window object from \mbox{\hyperlink{class_window_controller}{Window\+Controller}}
+
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{class_window_controller}{Window\+Controller}}\textquotesingle{}s sdl window object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Usuario/\+Desktop/\+Programacion Avanzada/\+Particle\+\_\+definitiv/2\+P\+A\+\_\+\+T\+A\+\_\+prietoro\+\_\+alcazarlo-\/master/particle\+\_\+system/include/window\+\_\+controller.\+h\end{DoxyCompactItemize}

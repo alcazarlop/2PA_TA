@@ -1,0 +1,100 @@
+\hypertarget{class_game_controller}{}\doxysection{Game\+Controller Class Reference}
+\label{class_game_controller}\index{GameController@{GameController}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_controller_abc106e459b55bbd233cc7f0d75ed4cb1}\label{class_game_controller_abc106e459b55bbd233cc7f0d75ed4cb1}} 
+{\bfseries Game\+Controller} (const \mbox{\hyperlink{class_game_controller}{Game\+Controller}} \&copy)
+\item 
+Sint8 \mbox{\hyperlink{class_game_controller_a57ed1e5dff714037a2cefeb7d9015078}{init}} ()
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s Initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_controller_a014f4dd0155d822742998dbcc62f9226}{input}} (S\+D\+L\+\_\+\+Event $\ast$e)
+\begin{DoxyCompactList}\small\item\em Game Input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_controller_a0cfefdd78ee1b2b61ad1050b3bedf49b}{update}} ()
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_controller_a879991acce7afa58fe10f41ca6c625c3}{draw}} ()
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s draw. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_controller_a82b414be11558c84b65e89e893bc143d}{quit}} ()
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s quit. \end{DoxyCompactList}\item 
+Sint8 \mbox{\hyperlink{class_game_controller_a45f6a537dc39668143813d91dd07e80e}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Application\textquotesingle{}s loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_controller_a879991acce7afa58fe10f41ca6c625c3}\label{class_game_controller_a879991acce7afa58fe10f41ca6c625c3}} 
+\index{GameController@{GameController}!draw@{draw}}
+\index{draw@{draw}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Game\+Controller\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Application\textquotesingle{}s draw. 
+
+Manages the drawing of the application\textquotesingle{}s elements \mbox{\Hypertarget{class_game_controller_a57ed1e5dff714037a2cefeb7d9015078}\label{class_game_controller_a57ed1e5dff714037a2cefeb7d9015078}} 
+\index{GameController@{GameController}!init@{init}}
+\index{init@{init}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily Sint8 Game\+Controller\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Application\textquotesingle{}s Initialization. 
+
+Initializes all the application\textquotesingle{}s parameters for it to start correctly
+
+\begin{DoxyReturn}{Returns}
+Value that determinates that the game is running 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_controller_a014f4dd0155d822742998dbcc62f9226}\label{class_game_controller_a014f4dd0155d822742998dbcc62f9226}} 
+\index{GameController@{GameController}!input@{input}}
+\index{input@{input}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{input()}{input()}}
+{\footnotesize\ttfamily void Game\+Controller\+::input (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Event $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Game Input. 
+
+Receives and manages the user\textquotesingle{}s inputs
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & S\+DL event object to detect an event \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_controller_a45f6a537dc39668143813d91dd07e80e}\label{class_game_controller_a45f6a537dc39668143813d91dd07e80e}} 
+\index{GameController@{GameController}!loop@{loop}}
+\index{loop@{loop}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily Sint8 Game\+Controller\+::loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Application\textquotesingle{}s loop. 
+
+Manages the loop of the application, getting the input, updating the values and drawing the elements \mbox{\Hypertarget{class_game_controller_a82b414be11558c84b65e89e893bc143d}\label{class_game_controller_a82b414be11558c84b65e89e893bc143d}} 
+\index{GameController@{GameController}!quit@{quit}}
+\index{quit@{quit}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{quit()}{quit()}}
+{\footnotesize\ttfamily void Game\+Controller\+::quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Application\textquotesingle{}s quit. 
+
+Manages the quitting functions to end the application correctly \mbox{\Hypertarget{class_game_controller_a0cfefdd78ee1b2b61ad1050b3bedf49b}\label{class_game_controller_a0cfefdd78ee1b2b61ad1050b3bedf49b}} 
+\index{GameController@{GameController}!update@{update}}
+\index{update@{update}!GameController@{GameController}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+Controller\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Application\textquotesingle{}s update. 
+
+Manages the updating of the application\textquotesingle{}s elements variables 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Usuario/\+Desktop/\+Programacion Avanzada/\+Particle\+\_\+definitiv/2\+P\+A\+\_\+\+T\+A\+\_\+prietoro\+\_\+alcazarlo-\/master/particle\+\_\+system/include/game\+\_\+controller.\+h\end{DoxyCompactItemize}
