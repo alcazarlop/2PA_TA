@@ -42,6 +42,7 @@ public:
 	static float Distance(const Vec4& a, const Vec4& b);
 	static float DotProduct(Vec4 a, Vec4 b);
 	static Vec4 Lerp(const Vec4& a, const Vec4& b, float t);	
+	static Vec4 LerpUnclamped(const Vec4& a, const Vec4& b, float t);	
 
 	static const Vec4 one;
 	static const Vec4 zero;
@@ -86,6 +87,10 @@ inline float Vec4::DotProduct(Vec4 a, Vec4 b) {
 
 inline Vec4 Vec4::Lerp(const Vec4& a, const Vec4& b, float t) {	
 	t = MathUtils::Clamp(t, 0.0f, 1.0f);
+	return Vec4((a.x + t) * (b.x - a.x), (a.y + t) * (b.y - a.y), (a.z + t) * (b.z - a.z), (a.w + t) * (b.w - a.w));
+}
+
+inline Vec4 Vec4::LerpUnclamped(const Vec4& a, const Vec4& b, float t) {	
 	return Vec4((a.x + t) * (b.x - a.x), (a.y + t) * (b.y - a.y), (a.z + t) * (b.z - a.z), (a.w + t) * (b.w - a.w));
 }
 
