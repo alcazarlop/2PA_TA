@@ -3,11 +3,13 @@
 #define __IMGUI_CONTROLLER_H__ 1
 
 #include <SDL.h>
+#include <string>
 #include "imgui.h"
 #include "math_utils.h"
 #include "emitter_pool.h"
 #include "emitter.h"
 #include "vector_4.h"
+#include "window_controller.h"
 
 /** @brief Emitter Manager
 *
@@ -18,7 +20,7 @@
 * @param renderer SDL renderer needed for drawing functions
 */
 
-void EmitterPoolManager(EmitterPool* emitter_pool, SDL_Renderer* renderer);
+void EmitterPoolManager(EmitterPool* emitter_pool, const WindowController& wc);
 
 /** @brief Emitter SetUp
 *

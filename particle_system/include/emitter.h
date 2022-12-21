@@ -9,7 +9,7 @@
 #include <math.h>
 #include "entity.h"
 #include "particle.h"
-#include "texture.h"
+#include "sprite.h"
 
 class WindowController;
 
@@ -19,13 +19,13 @@ public:
 	Emitter(const Emitter& copy);
 	virtual ~Emitter();
 
-/** @brief Load Texture
+/** @brief Load Sprite
 *
 * Creates a texture for the emitter
 *
 * @param renderer A SDL renderer object necessary to create the texture
 */
-	void loadTexture(SDL_Renderer* renderer);
+	void loadSprite(SDL_Renderer* renderer);
 
 /** @brief Emitter Initialize
 *
@@ -35,7 +35,7 @@ public:
 * @param mode Value that determines the emitter's mode
 */
 
-	void init(Uint32 size, Uint32 mode);
+	void init(Uint32 size, Uint32 mode, Uint8 particle_mode, const WindowController& wc);
 
 /** @brief Load Texture
 *
@@ -110,7 +110,9 @@ private:
 	std::vector<Particle> particle_pool_;
 	Uint32 emitter_mode_;
 	Particle::ParticleParams emitter_params_;
-	Texture* tex_;
+	Sprite tex_;
+	Uint8 particle_mode_;
+	WindowController wc_;
 
 	float min_speed_;
 	float max_speed_;

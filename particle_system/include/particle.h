@@ -2,7 +2,9 @@
 #ifndef __PARTICLE_H__
 #define __PARTICLE_H__ 1
 
+#include "entity.h"
 #include "path.h"
+#include "sprite.h"
 #include "game_manager.h"
 
 class Vec2;
@@ -28,7 +30,6 @@ public:
 		Vec4 endColor;
 	};
 
-
 /** @brief Particle initialization
 *
 * Initializes a particle given it's parameters
@@ -36,7 +37,7 @@ public:
 * @param params Particle's parameters values
 */
 
-	void init(ParticleParams& params);
+	void init(ParticleParams& params, Uint8 mode, const WindowController& wc);
 
 /** @brief Particle reset
 *
@@ -88,13 +89,13 @@ public:
 * @return Particle's path object
 */
 
-	Path path() const;
+	Entity* entity() const;
 
 private:
 	ParticleParams params_;
 	Uint32 currentTime_;
 
-	Path path_;
+	Entity* entity_;
 };
 
 #endif
