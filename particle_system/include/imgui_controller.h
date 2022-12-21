@@ -11,6 +11,8 @@
 #include "vector_4.h"
 #include "window_controller.h"
 
+void ChangeScene(int* scene);
+
 /** @brief Emitter Manager
 *
 * Shows and manages the ImGui iterface for the creation

@@ -96,6 +96,8 @@ void GameController::draw(){
 		break;
 	}
 
+	ChangeScene(&sceneChanger_);
+
   ImGui::Render();
   ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
 	SDL_RenderPresent(wc_.renderer());

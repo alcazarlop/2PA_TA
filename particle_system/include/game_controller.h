@@ -78,7 +78,7 @@ public:
 
 private:
 	Sint8 isRunning_;
-	Uint8 sceneChanger_;
+	int sceneChanger_;
 	WindowController wc_;
 
 	EmitterPool emitter_pool_;
