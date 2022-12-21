@@ -21,9 +21,10 @@ public:
 * Loads a Sprite from memory
 *
 * @param path The loaded image address in the system
+* @param window A SDL window object to get the screenSurface_
 */
 
-	void loadFromFile(const char* path, SDL_Renderer* renderer);
+	void loadFromFile(const char* path, SDL_Window* window);
 
 /** @brief Sprite draw
 *
@@ -59,7 +60,8 @@ public:
 	Uint32 height() const;
 
 private:
-	SDL_Texture* sprite_;
+	SDL_Surface* sprite_;
+	SDL_Surface* screenSurface_;
 	
 	Uint32 width_;
 	Uint32 height_;
