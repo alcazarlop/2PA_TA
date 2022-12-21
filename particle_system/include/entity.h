@@ -4,6 +4,7 @@
 
 #include "matrix_3.h"
 #include "vector_2.h"
+#include "vector_4.h"
 #include "window_controller.h"
 
 class Entity {
