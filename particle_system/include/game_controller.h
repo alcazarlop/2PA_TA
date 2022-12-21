@@ -4,10 +4,12 @@
 
 #include <SDL.h>
 #include <time.h>
+#include <string>
 #include "SDL_image.h"
 #include "window_controller.h"
 #include "game_manager.h"
 #include "emitter_pool.h"
+#include "cube.h"
 
 #include "imgui.h"
 #include "imgui_impl_sdl.h"
@@ -76,10 +78,11 @@ public:
 
 private:
 	Sint8 isRunning_;
+	Uint8 sceneChanger_;
 	WindowController wc_;
-	GameManager& gm_ = GameManager::Instance();
 
 	EmitterPool emitter_pool_;
+	Cube cube_;
 };
 
 #endif

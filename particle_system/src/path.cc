@@ -1,9 +1,12 @@
-
 #include "path.h"
 
 Path::Path(){
 	color_ = Vec4(255.0f, 255.0f, 255.0f, 255.0f);
-	vertices_.clear();
+	switch(rand()%3){
+		case 0: loadSquare(); break;
+		case 1: loadCircle(); break;
+		case 2: loadStar(); break;
+	}
 }
 
 Path::Path(const Path& copy){
@@ -13,7 +16,7 @@ Path::Path(const Path& copy){
 }
 
 Path::~Path(){
-	vertices_.clear();
+
 }
 
 void Path::add_vertices(float x, float y){
