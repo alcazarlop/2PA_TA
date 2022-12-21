@@ -3,13 +3,11 @@
 
 GameController::GameController(){
 	isRunning_ = 0;
-	sceneChanger_ = 0;
 	wc_ = WindowController();
 }
 
 GameController::GameController(const GameController& copy){
 	isRunning_ = copy.isRunning_;
-	sceneChanger_ = copy.sceneChanger_;
 	wc_ = copy.wc_;
 }
 
@@ -30,9 +28,8 @@ Sint8 GameController::init(){
   ImGui_ImplSDL2_InitForSDLRenderer(wc_.window());
   ImGui_ImplSDLRenderer_Init(wc_.renderer());
 
-  cube_.init();
-  cube_.set_position(Vec3(wc_.width() / 2.0f, wc_.height() / 2.0f, 0.0f));
-  cube_.set_scale(Vec3(100.0f, 100.0f, 0.0f));
+	gm_.init();
+	gm_.set_gravity(0.0f, 1.0f);
 
 	return isRunning_ = 1;
 }
@@ -45,12 +42,6 @@ void GameController::input(SDL_Event* e){
 			case SDL_KEYDOWN:
 				switch(e->key.keysym.sym){
 					case SDLK_ESCAPE: isRunning_ = 0; break; 
-					case SDLK_SPACE: 
-						if(sceneChanger_ == 0) 
-							sceneChanger_ = 1;
-						else
-							sceneChanger_ = 0;
-					break;
 				}
 			break;
 			case SDL_MOUSEBUTTONDOWN: 
@@ -64,17 +55,14 @@ void GameController::input(SDL_Event* e){
 
 void GameController::update(){
 
-	switch(sceneChanger_){
-		case 0:
-			for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
-				emitter_pool_.pool_[i].update();
-			}
-		break;
-		case 1:
-			cube_.set_rotation(Vec3((float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f)));
-		break;
+	gm_.fixedTime();
+
+
+	for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
+		emitter_pool_.pool_[i].update();
 	}
 
+	gm_.currentTime_++;
 }
 
 void GameController::draw(){
@@ -84,16 +72,10 @@ void GameController::draw(){
 	SDL_SetRenderDrawColor(wc_.renderer(), 0x0, 0x0, 0x0, 0xFF);
 	SDL_RenderClear(wc_.renderer());
 
-	switch(sceneChanger_){
-		case 0:
-		EmitterPoolManager(&emitter_pool_, wc_);
-		for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
-			emitter_pool_.pool_[i].draw(wc_);
-		}
-		break;
-		case 1:
-			cube_.draw(wc_.renderer());
-		break;
+	EmitterPoolManager(&emitter_pool_, wc_.renderer());
+
+	for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
+		emitter_pool_.pool_[i].draw(wc_);
 	}
 
   ImGui::Render();
@@ -102,6 +84,7 @@ void GameController::draw(){
 }
 
 void GameController::quit(){
+	gm_.release();
 
   ImGui_ImplSDLRenderer_Shutdown();
   ImGui_ImplSDL2_Shutdown();
@@ -117,6 +100,8 @@ Sint8 GameController::loop(){
 	srand((unsigned int)time(NULL));
 
 	init();
+	gm_.startTime();
+
 	while(isRunning_){
 		input(&eventHandler);
 		update();

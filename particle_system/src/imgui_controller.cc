@@ -1,23 +1,20 @@
 
 #include "imgui_controller.h"
+#include "string"
 
-void EmitterPoolManager(EmitterPool* emitter_pool, const WindowController& wc){
+void EmitterPoolManager(EmitterPool* emitter_pool, SDL_Renderer* renderer){
 
 	static int mouse_x = 0;
 	static int mouse_y = 0;
 	static int pool_size = 10;
 	static int mode = 0; 
-	static int particle_mode = 0;
 
 	SDL_GetMouseState(&mouse_x, &mouse_y); 
 
 	ImGui::Begin("Emitter Pool Manager");
 	ImGui::DragInt("Pool size", &pool_size, 1.0f, 1, 128, nullptr, ImGuiSliderFlags_AlwaysClamp);
 	ImGui::RadioButton("Firework", &mode, 0); ImGui::SameLine();
-	ImGui::RadioButton("Burst", &mode, 1); 
-
-	ImGui::RadioButton("Path", &particle_mode, 0); ImGui::SameLine();
-	ImGui::RadioButton("Sprite", &particle_mode, 1); 
+	ImGui::RadioButton("Burst", &mode, 1); ImGui::SameLine();
 
 	if(ImGui::Button("Create New Emitter")){
 		if(emitter_pool->pool_.size() < 32){
@@ -26,8 +23,8 @@ void EmitterPoolManager(EmitterPool* emitter_pool, const WindowController& wc){
 				emitter_pool->pool_.back().isBound_ = false;
 			}
 			emitter_pool->pool_.push_back(emitter);
-			emitter_pool->pool_.back().loadSprite(wc.renderer());
-			emitter_pool->pool_.back().init(pool_size, mode, particle_mode, wc);
+			emitter_pool->pool_.back().loadTexture(renderer);
+			emitter_pool->pool_.back().init(pool_size, mode);
 			emitter_pool->pool_.back().isBound_ = true;
 		}
 	}
@@ -92,7 +89,7 @@ void EmitterParamsWindow(Emitter* emitter){
 	if(ImGui::BeginPopup("Emitter Params Popup")){
 
 		ImGui::Checkbox("Random Velocity", &isVelRandom); ImGui::SameLine();
-		// ImGui::Checkbox("Random Lerp Color", &isLerpColorRandom);
+		ImGui::Checkbox("Random Lerp Color", &isLerpColorRandom);
 		ImGui::Checkbox("Random Speed", &isSpeedRandom); ImGui::SameLine();
 		ImGui::Checkbox("Random Lifetime", &isLifeTimeRandom); 
 
@@ -103,10 +100,10 @@ void EmitterParamsWindow(Emitter* emitter){
 			ImGui::DragFloat("Max Vel Y", &max_vel_y, 0.5f, min_vel_x, 10.0f, "%.3f", ImGuiSliderFlags_AlwaysClamp);
 		}
 
-		// if(!isLerpColorRandom){
-		// 	ImGui::ColorEdit3("Start Color", start_color ,ImGuiColorEditFlags_DisplayRGB);
-		// 	ImGui::ColorEdit3("End Color", end_color,ImGuiColorEditFlags_DisplayRGB);
-		// }
+		if(!isLerpColorRandom){
+			ImGui::ColorEdit3("Start Color", start_color ,ImGuiColorEditFlags_DisplayRGB);
+			ImGui::ColorEdit3("End Color", end_color,ImGuiColorEditFlags_DisplayRGB);
+		}
 
 		if(!isSpeedRandom){
 			ImGui::DragFloat("Min Speed", &min_speed, 0.2f, 1.0f, max_speed, "%.3f", ImGuiSliderFlags_AlwaysClamp);
@@ -126,15 +123,15 @@ void EmitterParamsWindow(Emitter* emitter){
 				emitter->set_particle_velocity_y(min_vel_y, max_vel_x);
 			}
 
-			// if(isLerpColorRandom){
-			// 	emitter->set_random_lerpColor();
-			// 	emitter->set_random_startColor();
-			// 	emitter->set_random_endColor();
-			// } else {
-			// 	emitter->set_lerpColor(true);
-			// 	emitter->set_startColor(Vec4(start_color[0], start_color[1], start_color[2], 255.0f));
-			// 	emitter->set_endColor(Vec4(end_color[0], end_color[1], end_color[2], 255.0f));
-			// }
+			if(isLerpColorRandom){
+				emitter->set_random_lerpColor();
+				emitter->set_random_startColor();
+				emitter->set_random_endColor();
+			} else {
+				emitter->set_lerpColor(true);
+				emitter->set_startColor(Vec4(start_color[0], start_color[1], start_color[2], 255.0f));
+				emitter->set_endColor(Vec4(end_color[0], end_color[1], end_color[2], 255.0f));
+			}
 
 			if(isSpeedRandom){
 				emitter->set_random_speed();

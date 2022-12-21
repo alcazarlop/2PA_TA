@@ -4,7 +4,7 @@
 Emitter::Emitter(){
 	emitter_mode_ = 0;
 	isBound_ = false;
-	tex_ = Sprite();
+	tex_ = nullptr;
 	min_speed_ = 1.0f;
 	max_speed_ = 1.0f;
 	min_vel_x_ = 1.0f;
@@ -34,20 +34,19 @@ Emitter::Emitter(const Emitter& copy){
 	lerpColor_ = copy.lerpColor_;
 	startColor_ = copy.startColor_;
 	endColor_ = copy.endColor_;
-	particle_mode_ = copy.particle_mode_;
-	wc_ = copy.wc_;
 }
 
 Emitter::~Emitter(){
 
 }
 
-void Emitter::loadSprite(SDL_Renderer* renderer){
-	tex_.loadFromFile("../data/melocoton.png", renderer);
-	tex_.set_scale(32.0f, 32.0f);	
+void Emitter::loadTexture(SDL_Renderer* renderer){
+	Uint32 pixels = 0xFFFFFFFF;
+	tex_ = Texture::CreateTexture();
+	tex_->loadFromBuffer(16, 16, renderer, &pixels);	
 }
 
-void Emitter::init(Uint32 size, Uint32 mode, Uint8 particle_mode, const WindowController& wc){
+void Emitter::init(Uint32 size, Uint32 mode){
 	for(Uint32 i = 0; i < size; ++i){
 		Particle particle = Particle();
 		particle_pool_.push_back(particle);
@@ -57,15 +56,13 @@ void Emitter::init(Uint32 size, Uint32 mode, Uint8 particle_mode, const WindowCo
 			case 2: custom(); break;
 			default: firework(); break;			
 		}
-		particle_pool_[i].init(emitter_params_, particle_mode, wc);
+		particle_pool_[i].init(emitter_params_);
 	}
 	emitter_mode_ = mode;
-	particle_mode_ = particle_mode;
-	wc_ = wc;
 }
 
 void Emitter::update(){
-	tex_.set_position(position_.x, position_.y);
+	tex_->set_position(position_.x, position_.y);
 	for(Uint32 i = 0; i < particle_pool_.size(); ++i){
 		if(particle_pool_[i].currentTime() < emitter_params_.lifeTime){
 			particle_pool_[i].update();
@@ -82,9 +79,9 @@ void Emitter::update(){
 }
 
 void Emitter::draw(const WindowController& wc){
-	tex_.draw(wc);
+	tex_->draw(wc.renderer());
 	for(Uint32 i = 0; i < particle_pool_.size(); ++i){
-		particle_pool_[i].entity()->draw(wc);
+		particle_pool_[i].draw(wc);
 	}
 }
 
@@ -202,7 +199,7 @@ void Emitter::set_pool_size(Uint32 new_size){
 			Particle particle = Particle();
 			particle_pool_.push_back(particle);		
 		}
-		init(new_size, emitter_mode_, particle_mode_, wc_);
+		init(new_size, emitter_mode_);
 	} 
 	else if(new_size < particle_pool_.size()){
 		Uint32 res = particle_pool_.size() - new_size;
