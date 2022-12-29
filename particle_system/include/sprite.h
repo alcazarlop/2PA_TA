@@ -8,6 +8,9 @@
 #include "matrix_3.h"
 #include "vector_2.h"
 
+// GUSTAVO: Sprite should use the features of the Texture class, not
+// re-implement them.
+
 class WindowController;
 
 class Sprite : public Entity {

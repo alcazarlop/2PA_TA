@@ -6,6 +6,9 @@
 #include <SDL_image.h>
 #include "vector_2.h"
 
+// GUSTAVO: A texture is just a pixel block in VRAM, it shouldn't have 
+// transform or draw functionalities.
+
 class Texture {
 public:
 	~Texture();

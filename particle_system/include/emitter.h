@@ -2,6 +2,8 @@
 #ifndef __EMITTER_H__
 #define __EMITTER_H__ 1
 
+// GUSTAVO: Be careful with the header. There may be some here like stdio,
+// stdlib, etc... that are not needed. And some like matrix_4 that are.
 #include <SDL.h>
 #include <stdio.h>
 #include <vector>

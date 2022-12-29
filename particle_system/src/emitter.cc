@@ -84,6 +84,7 @@ void Emitter::update(){
 void Emitter::draw(const WindowController& wc){
 	tex_.draw(wc);
 	for(Uint32 i = 0; i < particle_pool_.size(); ++i){
+		// GUSTAVO: This line is crashing when changing the pool size in runtime.
 		particle_pool_[i].entity()->draw(wc);
 	}
 }

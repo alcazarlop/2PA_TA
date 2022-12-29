@@ -7,6 +7,8 @@
 #include "vector_3.h"
 #include "matrix_4.h"
 
+// GUSTAVO: Why is this not an Entity?? Why is functionality 
+// being re-implemented and re-implemented?
 class Cube {
 
 public:

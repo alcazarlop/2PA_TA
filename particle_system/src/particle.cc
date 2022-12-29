@@ -18,9 +18,12 @@ Particle::Particle(const Particle& copy){
 	currentTime_ = copy.currentTime_;
 }
 
+// GUSTAVO: No, the destructor shouldn't be empty. There is memory to 
+// be released (e.g: entity_).
 Particle::~Particle(){}
 
 void Particle::init(ParticleParams& params, Uint8 mode, const WindowController& wc){
+  // GUSTAVO: entity_ never gets released, so it is creating a memory leak.
 	Sprite* sprite = new Sprite();
 	switch(mode){
 	case 0: entity_ = new Path(); break;

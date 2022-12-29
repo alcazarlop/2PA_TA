@@ -8,6 +8,8 @@ GameManager::GameManager() {
 	currentTime_ = 0;
 }
 
+// GUSTAVO: Singletons do NOT have copy constructors. They are singletons,
+// theres is only one instance.
 GameManager::GameManager(const GameManager& copy) {
 	space_ = copy.space_; 				// Posible error al copiar punteros
 	stepTime_ = copy.stepTime_;
