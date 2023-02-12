@@ -75,6 +75,27 @@ class Mat4 {
   float m[16];
 };
 
+inline Mat4::Mat4(){
+	for(int i = 0; i < 16 ; ++i)
+		m[i] = 0.0f;
+}
+
+inline Mat4::Mat4(float a[16]){
+	for(int i = 0; i < 16; ++i)
+		m[i] = a[i];
+}
+
+inline Mat4::Mat4(float value){
+	for(int i = 0; i < 16; ++i)
+		m[i] = value;
+}
+
+inline Mat4::Mat4(const Mat4& other){
+	for(int i = 0; i < 16; ++i)
+		m[i] = other.m[i];
+}
+
+inline Mat4::~Mat4(){}
 
 inline Mat4 Mat4::Identity() {
 	Mat4 result = Mat4();

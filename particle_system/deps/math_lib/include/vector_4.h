@@ -44,9 +44,6 @@ public:
 	static Vec4 Lerp(const Vec4& a, const Vec4& b, float t);	
 	static Vec4 LerpUnclamped(const Vec4& a, const Vec4& b, float t);	
 
-	static const Vec4 one;
-	static const Vec4 zero;
-
 	float x;
 	float y;
 	float z;
@@ -54,6 +51,49 @@ public:
 
 };
 
+inline Vec4::Vec4(){
+	x = 0.0f;
+	y = 0.0f;
+	z = 0.0f;
+	w = 0.0f;
+}
+
+inline Vec4::Vec4(float x, float y, float z, float w){
+	this->x = x;
+	this->y = y;
+	this->z = z;
+	this->w = w;
+}
+
+inline Vec4::Vec4(Vec3 a, float w){
+	x = a.x;
+	y = a.y;
+	z = a.z;
+	this->w = w;
+}
+
+inline Vec4::Vec4(float value){
+	x = value;
+	y = value;
+	z = value;
+	w = value;
+}
+
+inline Vec4::Vec4(float* array){
+	x = array[0];
+	y = array[1];
+	z = array[2];
+	w = array[3];
+}
+
+inline Vec4::Vec4(const Vec4& other){
+	x = other.x;
+	y = other.y;
+	z = other.z;
+	w = other.w;
+}
+
+inline Vec4::~Vec4(){}
 
 inline float Vec4::Magnitude() const{
 	return sqrtf(SqrMagnitude());

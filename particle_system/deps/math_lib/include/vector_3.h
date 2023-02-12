@@ -45,19 +45,42 @@ public:
 	static float Distance(const Vec3& a, const Vec3& b);
 	static Vec3 Reflect(const Vec3& direction, const Vec3& normal);
 
-	static const Vec3 up;
-	static const Vec3 down;
-	static const Vec3 right;
-	static const Vec3 left;
-	static const Vec3 forward;
-	static const Vec3 back;
-	static const Vec3 zero;
-	static const Vec3 unit;
-
 	float x;
 	float y;
 	float z;
 };
+
+inline Vec3::Vec3(){
+	x = 0.0f;
+	y = 0.0f;
+	z = 0.0f;
+}
+
+inline Vec3::Vec3(float value){
+	x = value;
+	y = value;
+	z = value;
+}
+
+inline Vec3::Vec3(float x, float y, float z){
+	this->x = x;
+	this->y = y;
+	this->z = z;
+}
+
+inline Vec3::Vec3(float* array){
+	x = array[0];
+	y = array[1];
+	z = array[2];
+}
+
+inline Vec3::Vec3(const Vec3& other){
+	x = other.x;
+	y = other.y;
+	z = other.z;
+}
+
+inline Vec3::~Vec3(){}
 
 inline float Vec3::Magnitude() const {
 	return sqrtf(SqrMagnitude());

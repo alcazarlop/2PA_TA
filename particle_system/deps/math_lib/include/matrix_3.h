@@ -15,7 +15,6 @@ public:
 	Mat3(float *values_array);
 	Mat3(float value);
 	Mat3(Vec3 a, Vec3 b, Vec3 c);
-
 	Mat3(const Mat3& copy);
 	~Mat3();
 
@@ -61,6 +60,34 @@ public:
 
 	float m[9];
 };
+
+inline Mat3::Mat3(){
+	for(int i = 0; i < 9; ++i)
+		m[i] = 0.0f;
+}
+
+inline Mat3::Mat3(float value){
+	for(int i = 0; i < 9; ++i)
+		m[i] = value;
+}
+
+inline Mat3::Mat3(float* values_array){
+	for(int i = 0; i < 9; ++i)
+		m[i] = values_array[i];
+}
+
+inline Mat3::Mat3(Vec3 a, Vec3 b, Vec3 c){
+	m[0] = a.x;	m[1] = a.y;	m[2] = a.z;
+	m[3] = b.x;	m[4] = b.y;	m[5] = b.z;
+	m[6] = c.x;	m[7] = c.y;	m[8] = c.z;
+}
+
+inline Mat3::Mat3(const Mat3& copy){
+	for(int i = 0; i < 9; ++i)
+		m[i] = copy.m[i];
+}
+
+inline Mat3::~Mat3(){}
 
 inline Mat3 Mat3::operator+(const Mat3& other) const {
 	Mat3 result(*this);
@@ -196,15 +223,15 @@ inline bool Mat3::Inverse() {
 
 inline Mat3 Mat3::Translate(const Vec2& mov_vector) {	
 	Mat3 result = Identity();
-	result.m[6] = mov_vector.x;
-	result.m[7] = mov_vector.y;
+	result.m[2] = mov_vector.x;
+	result.m[5] = mov_vector.y;
 	return result;
 }
 
 inline Mat3 Mat3::Translate(float x, float y) {
 	Mat3 result = Identity();
-	result.m[6] = x;
-	result.m[7] = y;
+	result.m[2] = x;
+	result.m[5] = y;
 	return result;
 }
 

@@ -8,7 +8,7 @@ class Vec2 {
  public:
 
   Vec2();
-  inline Vec2(float x, float y);
+  Vec2(float x, float y);
   Vec2(const Vec2& copy);
   ~Vec2();
 
@@ -44,16 +44,26 @@ class Vec2 {
   static Vec2 Lerp(const Vec2 a, const Vec2 b, float t);
   static Vec2 LerpUnclamped(const Vec2 a, const Vec2 b, float t);
 
-  static const Vec2 up;
-  static const Vec2 down;
-  static const Vec2 right;
-  static const Vec2 left;
-  static const Vec2 zero;
-  static const Vec2 one;
-
   float x;
   float y;
 };
+
+inline Vec2::Vec2(){
+  x = 0.0f;
+  y = 0.0f;
+}
+
+inline Vec2::Vec2(float x, float y){
+  this->x = x;
+  this->y = y;
+}
+
+inline Vec2::Vec2(const Vec2& other){
+  x = other.x;
+  y = other.y;
+}
+
+inline Vec2::~Vec2() {}
 
 inline Vec2 Vec2::operator+(const Vec2& other) const {
   return Vec2(this->x + other.x, this->y + other.y);
