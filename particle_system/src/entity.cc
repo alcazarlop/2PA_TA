@@ -5,9 +5,9 @@ Uint32 Entity::next_id = 0;
 
 Entity::Entity(){
 	enabled_ = true;
-	position_ = Vec2();
-	scale_ = Vec2();
-	rotation_ = 0.0f;
+	position_ = Vec3();
+	scale_ = Vec3();
+	rotation_ = Vec3();
 	id_ = Entity::next_id;
 	Entity::next_id++;
 }
@@ -31,37 +31,39 @@ bool Entity::enabled() const {
 	return enabled_;
 }
 
-void Entity::set_position(Vec2 pos){
+void Entity::set_position(Vec3 pos){
 	position_ = pos;
 }
 
-void Entity::set_position(float x, float y){
+void Entity::set_position(float x, float y, float z){
 	position_.x = x;
 	position_.y = y;
+	position_.z = z;
 }
 
-void Entity::set_scale(Vec2 scale){
+void Entity::set_scale(Vec3 scale){
 	scale_ = scale;
 }
 
-void Entity::set_scale(float x, float y){
+void Entity::set_scale(float x, float y, float z){
 	scale_.x = x;
 	scale_.y = y;
+	scale_.z = z;
 }
 
-void Entity::set_rotation(float angle){
-	rotation_ = angle;
+void Entity::set_rotation(Vec3 rotation){
+	rotation_ = rotation;
 }
 
-Vec2 Entity::position() const {
+Vec3 Entity::position() const {
 	return position_;
 }
 
-Vec2 Entity::scale() const {
+Vec3 Entity::scale() const {
 	return scale_;
 }
 
-float Entity::rotation() const {
+Vec3 Entity::rotation() const {
 	return rotation_;
 }
 

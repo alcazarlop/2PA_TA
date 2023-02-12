@@ -2,49 +2,33 @@
 #include "sprite.h"
 
 Sprite::Sprite(){
-	width_ = 0;
-	height_ = 0;
-	sprite_ = NULL;
+	tex_ = NULL;
 }
 
 Sprite::Sprite(const Sprite& copy){
-	width_ = copy.width_;
-	height_ = copy.height_;
-	sprite_ = copy.sprite_;
+	position_ = copy.position_;
+	scale_ = copy.scale_;
+	rotation_ = copy.rotation_;
+	tex_ = copy.tex_;
 }
 
-Sprite::~Sprite(){}
+Sprite::~Sprite(){
+	Entity::~Entity();
+}
 
 void Sprite::loadFromFile(const char* path, SDL_Renderer* renderer){
-
-	SDL_Surface* new_sprite = IMG_Load(path);
-	if(new_sprite == NULL){
-		SDL_Log("Failed to load new image: %s! Error: %s", path, IMG_GetError());
-		return;
-	}
-
-	sprite_ = SDL_CreateTextureFromSurface(renderer, new_sprite);
-	SDL_FreeSurface(new_sprite);
-
-	width_ = new_sprite->w;
-	height_ = new_sprite->h;
+	tex_ = Texture::CreateTexture();
+	tex_->loadFromFile(path, renderer);
 }
 
-void Sprite::draw(const WindowController& wc){
-	if(sprite_ != NULL && enabled()){
-		SDL_FRect dstRect = { position().x, position().y, scale().x, scale().y };
-		SDL_RenderCopyExF(wc.renderer(), sprite_, NULL, &dstRect, rotation(), NULL, SDL_FLIP_NONE);
+void Sprite::draw(SDL_Renderer* renderer){
+	if(tex_ != NULL && enabled()){
+
 	}
 }
 
 void Sprite::release(){
-	if(NULL != sprite_)
-		SDL_DestroyTexture(sprite_);
-}
-Uint32 Sprite::width() const {
-	return width_;
+	if(NULL != tex_)
+		tex_->release();
 }
 
-Uint32 Sprite::height() const {
-	return height_;
-}

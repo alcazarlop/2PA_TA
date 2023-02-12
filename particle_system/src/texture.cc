@@ -6,8 +6,6 @@ Uint32 Texture::num_textures = 0;
 Texture::Texture(){
 	width_ = 0;
 	height_ = 0;
-	position_ = Vec2();
-	angle_ = 0.0f;
 	texture_ = NULL;
 }
 
@@ -15,8 +13,6 @@ Texture::Texture(const Texture& copy){
 	width_ = copy.width_;
 	height_ = copy.height_;
 	texture_ = copy.texture_;
-	position_ = copy.position_;
-	angle_ = copy.angle_;
 }
 
 Texture::~Texture(){
@@ -55,32 +51,6 @@ Uint32 Texture::height() const {
 	return height_;
 }
 
-void Texture::draw(SDL_Renderer* renderer){
-	SDL_FRect dstRect = {position_.x, position_.y, (float)width_, (float)height_};
-	SDL_RenderCopyExF(renderer, texture_, NULL, &dstRect, angle_, NULL, SDL_FLIP_NONE);
-}
-
-void Texture::set_position(float x, float y){
-	position_.x = x;
-	position_.y = y;
-}
-
-void Texture::set_position(Vec2 pos){
-	position_ = pos;
-}
-
-void Texture::set_rotation(float angle){
-	angle_ = angle;
-}
-
-Vec2 Texture::position() const {
-	return position_;
-}
-
-float Texture::rotation() const {
-	return angle_;
-}
-
 Texture* Texture::CreateTexture(){
 	if(Texture::num_textures < Texture::kMaxTexture){
 		Texture* t = new Texture();
@@ -89,4 +59,8 @@ Texture* Texture::CreateTexture(){
 	} else {
 		return nullptr;
 	}
+}
+
+SDL_Texture* Texture::texture() const {
+	return texture_;
 }

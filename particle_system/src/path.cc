@@ -10,34 +10,36 @@ Path::Path(){
 }
 
 Path::Path(const Path& copy){
+	position_ = copy.position_;
+	rotation_ = copy.rotation_;
+	scale_ = copy.scale_;
 	color_ = copy.color_;
 	vertices_ = copy.vertices_;
-	position_ = copy.position_;
 }
 
 Path::~Path(){
-
+	Entity::~Entity();
 }
 
-void Path::add_vertices(float x, float y){
-	vertices_.push_back(Vec2(x, y));
+void Path::add_vertices(float x, float y, float z){
+	vertices_.push_back(Vec3(x, y, z));
 }
 
-void Path::add_vertices(const Vec2& vert){
+void Path::add_vertices(const Vec3& vert){
 	vertices_.push_back(vert);
 }
 
 void Path::loadSquare(){
-	add_vertices(-0.5f, -0.5f);
-	add_vertices(-0.5f, 0.5f);
-	add_vertices(0.5f, 0.5f);
-	add_vertices(0.5f, -0.5f);
+	add_vertices(-0.5f, -0.5f, 0.0f);
+	add_vertices(-0.5f, 0.5f, 0.0f);
+	add_vertices(0.5f, 0.5f, 0.0f);
+	add_vertices(0.5f, -0.5f, 0.0f);
 }
 
 void Path::loadCircle(){
 	Uint32 total_points = 20;
 	for(Uint32 i = 0; i < total_points; ++i){
-		add_vertices(cosf((6.28f / total_points) * i), sinf((6.28f / total_points) * i));
+		add_vertices(cosf((6.28f / total_points) * i), sinf((6.28f / total_points) * i), 0.0f);
 	}
 }
 
@@ -45,9 +47,9 @@ void Path::loadStar(){
 	Uint32 total_points = 10;
 	for(Uint32 i = 0; i < total_points; ++i){
 		if(i%2 == 0){
-			add_vertices(cosf((6.28f / total_points) * i) * 1.0f, sinf((6.28f / total_points) * i) * 1.0f);
+			add_vertices(cosf((6.28f / total_points) * i) * 1.0f, sinf((6.28f / total_points) * i) * 1.0f, 0.0f);
 		} else {
-			add_vertices(cosf((6.28f / total_points) * i) * 0.5f, sinf((6.28f / total_points) * i) * 0.5f);
+			add_vertices(cosf((6.28f / total_points) * i) * 0.5f, sinf((6.28f / total_points) * i) * 0.5f, 0.0f);
 		}
 	}
 }
@@ -56,28 +58,25 @@ void Path::set_color(Vec4 color){
 	color_ = color;
 }
 
-void Path::draw(const WindowController& wc){
+void Path::draw(SDL_Renderer* renderer){
 	if(enabled()){
-		Mat3 transform = Mat3::Identity();
-		transform = Mat3::Translate(position_.x, position_.y).Multiply(transform);
-		transform = Mat3::Scale(scale_.x, scale_.y).Multiply(transform);
-		transform = Mat3::Rotate(rotation_).Multiply(transform);
+		Mat4 transform = Mat4::GetTransform(position_, scale_, rotation_.x, rotation_.y, rotation_.z);
 
-		std::vector<Vec2> tr_points;
+		std::vector<Vec3> tr_points;
 		for(Uint32 i = 0; i < vertices_.size(); ++i){
-			tr_points.push_back(transform.Mat3TransformVec2(vertices_[i]));
+			tr_points.push_back(transform.Mat4TransformVec3(vertices_[i]));
 		}
 
-		SDL_SetRenderDrawColor(wc.renderer(), (Uint8)color_.x, (Uint8)color_.y, (Uint8)color_.z, (Uint8)color_.w);
+		SDL_SetRenderDrawColor(renderer, (Uint8)color_.x, (Uint8)color_.y, (Uint8)color_.z, (Uint8)color_.w);
 		for(Uint32 i = 0; i < tr_points.size(); ++i){
-			SDL_RenderDrawLineF(wc.renderer(), tr_points[i].x, tr_points[i].y,
+			SDL_RenderDrawLineF(renderer, tr_points[i].x, tr_points[i].y,
 																				 tr_points[(i + 1) % tr_points.size()].x, 
 																				 tr_points[(i + 1) % tr_points.size()].y);
 		}
 	}
 }
 
-std::vector<Vec2> Path::vertices() const {
+std::vector<Vec3> Path::vertices() const {
 	return vertices_;
 }
 

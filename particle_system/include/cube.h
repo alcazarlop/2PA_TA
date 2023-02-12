@@ -3,13 +3,11 @@
 #ifndef __CUBE_H__
 #define __CUBE_H__ 1
 
-#include <SDL.h>
-#include "vector_3.h"
-#include "matrix_4.h"
+#include "entity.h"
 
 // GUSTAVO: Why is this not an Entity?? Why is functionality 
 // being re-implemented and re-implemented?
-class Cube {
+class Cube : public Entity{
 
 public:
 	Cube();
@@ -17,23 +15,9 @@ public:
 	virtual ~Cube();
 
 	void init();
-	void transform();
-	void draw(SDL_Renderer* render);
-
-	Vec3 position() const;
-	Vec3 rotation() const;
-	Vec3 scale() const;
-
-	void set_position(const Vec3& pos);
-	void set_rotation(const Vec3& rot);
-	void set_scale(const Vec3& scale);
+	void draw(SDL_Renderer* render) override;
 
 private:
-	Vec3 position_;
-	Vec3 scale_;
-	Vec3 rotation_;
-
-	Mat4 mat_;
 	Vec3 points_[8];
 };
 

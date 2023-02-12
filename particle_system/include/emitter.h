@@ -52,7 +52,7 @@ public:
 *
 * @param wc WindowController object needed for drawing the emitter's components
 */
-	void draw(const WindowController& wc) override;
+	void draw(SDL_Renderer* renderer) override;
 
 /** @brief Load Texture
 *

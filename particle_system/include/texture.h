@@ -4,7 +4,6 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
-#include "vector_2.h"
 
 // GUSTAVO: A texture is just a pixel block in VRAM, it shouldn't have 
 // transform or draw functionalities.
@@ -60,60 +59,6 @@ public:
 
 	Uint32 height() const;
 
-/** @brief Texture draw
-*
-* Drawing of a Tetxure using SDL
-*
-* @param renderer A SDL renderer object
-*/
-	void draw(SDL_Renderer* renderer);
-
-/** @brief Texture position setter with values
-*
-* Sets the texture's coordinates with given values
-*
-* @param x Coordinates value in the X axis
-* @param y Coordinates value in the Y axis
-*/
-
-	void set_position(float x, float y);
-
-/** @brief Texture position setter with vector
-*
-* Sets the texture's coordinates with a given vector
-*
-* @param pos Vec2 that contains the X and Y coordinates values
-*/
-
-	void set_position(Vec2 position);
-
-/** @brief Texture rotation setter
-*
-* Sets the texture rotation's angle with a given value
-*
-* @param angle Value that corresponds to the angle of rotation of the texture
-*/
-
-	void set_rotation(float angle);
-
-/** @brief Texture position getter
-*
-* Gets the texture's position coordinates
-*
-* @return texture's position coordinates
-*/
-
-	Vec2 position() const;
-
-/** @brief Texture rotation getter
-*
-* Gets the texture's rotation value
-*
-* @return texture's rotation angle
-*/
-
-	float rotation() const;
-
 /** @brief Texture create
 *
 * Creates a new texture if the total doesn't
@@ -125,13 +70,12 @@ public:
 	static Texture* CreateTexture();
 	static const Uint32 kMaxTexture = 32; 
 
+	SDL_Texture* texture() const;
+
 private:
 	Texture();
 	Texture(const Texture& copy);
 	static Uint32 num_textures;
-
-	Vec2 position_;
-	float angle_;
 
 	Uint32 width_;
 	Uint32 height_;

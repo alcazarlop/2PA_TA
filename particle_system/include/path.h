@@ -7,9 +7,9 @@
 #include "vector_4.h"
 #include "entity.h"
 
-class Vec2;
-class Mat3;
-class WindowController;
+class Vec3;
+class Vec4;
+class Mat4;
 
 class Path : public Entity {
 public:
@@ -25,7 +25,7 @@ public:
 * @param x Coordinate value for Y axis
 */
 
-	void add_vertices(float x, float y);
+	void add_vertices(float x, float y, float z);
 
 /** @brief Path add vertices with a vector
 *
@@ -34,7 +34,7 @@ public:
 * @param vert Coordinates values for X and Y axis
 */
 
-	void add_vertices(const Vec2& vert);
+	void add_vertices(const Vec3& vert);
 
 /** @brief Square shape loader
 *
@@ -78,7 +78,7 @@ public:
 * @param wc Window Controller object which contains all the variables used
 */
 
-	void draw(const WindowController& wc) override;
+	void draw(SDL_Renderer* renderer) override;
 
 /** @brief Path vertices getter
 *
@@ -87,7 +87,7 @@ public:
 * @return The path's vertices
 */
 
-	std::vector<Vec2> vertices() const;
+	std::vector<Vec3> vertices() const;
 
 /** @brief Path color getter
 *
@@ -98,7 +98,7 @@ public:
 	Vec4 color() const;
 
 private:
-	std::vector<Vec2> vertices_;
+	std::vector<Vec3> vertices_;
 	Vec4 color_;
 
 };

@@ -14,7 +14,7 @@
 #include "imgui.h"
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_sdlrenderer.h"
-#include "imgui_controller.h"
+// #include "imgui_controller.h"
 
 class GameController {
 
@@ -81,8 +81,8 @@ private:
 	int sceneChanger_;
 	WindowController wc_;
 
-	EmitterPool emitter_pool_;
-	Cube cube_;
+	// EmitterPool emitter_pool_;
+	// Cube cube_;
 };
 
 #endif

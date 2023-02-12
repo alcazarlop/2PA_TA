@@ -2,10 +2,9 @@
 #ifndef __ENTITY_H__
 #define __ENTITY_H__ 1
 
-#include "matrix_3.h"
-#include "vector_2.h"
-#include "vector_4.h"
-#include "window_controller.h"
+#include <SDL.h>
+#include "matrix_4.h"
+#include "vector_3.h"
 
 class Entity {
 public:
@@ -13,16 +12,16 @@ public:
 	Entity(const Entity& copy);
 	virtual ~Entity();
 
-	virtual void draw(const WindowController& wc) = 0;
+	virtual void draw(SDL_Renderer* renderer) = 0;
 
 /** @brief Entity's position setter with vector
 *
-* Sets the entity's scale with a Vec2
+* Sets the entity's scale with a Vec3
 *
 * @param scale A vector that contains the entity's coordinates
 */
 
-	void set_position(Vec2 pos);
+	void set_position(Vec3 pos);
 
 /** @brief Entity's position setter with values
 *
@@ -31,16 +30,16 @@ public:
 * @param y Coordinate value for Y axis
 */
 
-	void set_position(float x, float y);
+	void set_position(float x, float y, float z);
 
 /** @brief Entity's scale setter with vector
 *
-* Sets the entity's scale with a Vec2
+* Sets the entity's scale with a Vec3
 *
 * @param scale A vector that contains the entity's scale value
 */
 
-	void set_scale(Vec2 scale);
+	void set_scale(Vec3 scale);
 
 /** @brief Entity's scale setter with values
 *
@@ -50,7 +49,7 @@ public:
 * @param y Scale value in the Y axis
 */
 
-	void set_scale(float x, float y);
+	void set_scale(float x, float y, float z);
 
 /** @brief Entity's rotation setter
 *
@@ -59,7 +58,7 @@ public:
 * @param angle The angle's value
 */
 
-	void set_rotation(float angle);
+	void set_rotation(Vec3 rotation);
 
 /** @brief Entity's position getter
 *
@@ -67,7 +66,7 @@ public:
 *
 * @return Entity's actual position
 */
-	Vec2 position() const;
+	Vec3 position() const;
 
 /** @brief Entity's scale getter
 *
@@ -75,7 +74,7 @@ public:
 *
 * @return Entity's actual scale
 */
-	Vec2 scale() const;
+	Vec3 scale() const;
 
 /** @brief Entity's rotation getter
 *
@@ -84,7 +83,7 @@ public:
 * @return Entity's actual angle rotation
 */
 
-	float rotation() const;
+	Vec3 rotation() const;
 
 	void set_enable(bool b);
 	bool enabled() const;
@@ -101,9 +100,9 @@ public:
 protected:
 	bool enabled_;
 
-	Vec2 position_;
-	Vec2 scale_;
-	float rotation_;
+	Vec3 position_;
+	Vec3 scale_;
+	Vec3 rotation_;
 
 private:
 	Uint32 id_;

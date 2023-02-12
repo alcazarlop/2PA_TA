@@ -3,15 +3,11 @@
 #define __SPRITE_H__ 1
 
 #include <SDL.h>
-#include <SDL_image.h>
 #include "entity.h"
-#include "matrix_3.h"
-#include "vector_2.h"
+#include "texture.h"
 
 // GUSTAVO: Sprite should use the features of the Texture class, not
 // re-implement them.
-
-class WindowController;
 
 class Sprite : public Entity {
 public:
@@ -35,7 +31,7 @@ public:
 * @param wc WindowController object used to draw the Sprite
 */
 
-	void draw(const WindowController& wc) override;
+	void draw(SDL_Renderer* renderer) override;
 
 /** @brief Sprite release
 *
@@ -45,27 +41,8 @@ public:
 
 	void release();
 
-/** @brief Sprite width getter
-*
-* Gets the Sprite's width
-*
-*/
-
-	Uint32 width() const;
-
-/** @brief Sprite height getter
-*
-* Gets the Sprite's height
-*
-*/
-
-	Uint32 height() const;
-
 private:
-	SDL_Texture* sprite_;
-	
-	Uint32 width_;
-	Uint32 height_;
+	Texture* tex_;
 };
 
 #endif
