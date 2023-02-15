@@ -6,7 +6,7 @@ Uint32 Entity::next_id = 0;
 Entity::Entity(){
 	enabled_ = true;
 	position_ = Vec3();
-	scale_ = Vec3();
+	scale_ = Vec3(1.0f, 1.0f, 1.0f);
 	rotation_ = Vec3();
 	id_ = Entity::next_id;
 	Entity::next_id++;

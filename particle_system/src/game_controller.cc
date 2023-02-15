@@ -32,6 +32,8 @@ Sint8 GameController::init(){
   cube_.set_position(Vec3(gm_.width() / 2.0f, gm_.height() / 2.0f, 0.0f));
   cube_.set_scale(Vec3(50.0f, 50.0f, 0.0f));
 
+  emitter.init(gm_.renderer());
+
 	return isRunning_ = 1;
 }
 
@@ -52,9 +54,7 @@ void GameController::input(SDL_Event* e){
 				}
 			break;
 			case SDL_MOUSEBUTTONDOWN: 
-				if(emitter_pool_.pool_.size() != 0){
-					emitter_pool_.pool_.back().isBound_ = false;
-				}
+				emitter.add(0);
 			break;
 		}
 	}
@@ -64,9 +64,7 @@ void GameController::update(){
 
 	switch(sceneChanger_){
 		case 0:
-			for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
-				emitter_pool_.pool_[i].update();
-			}
+			emitter.update();
 		break;
 		case 1:
 			cube_.set_rotation(Vec3((float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f)));
@@ -84,10 +82,7 @@ void GameController::draw(){
 
 	switch(sceneChanger_){
 		case 0:
-		EmitterPoolManager(&emitter_pool_, gm_.renderer());
-		for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
-			emitter_pool_.pool_[i].draw(gm_.renderer());
-		}
+			emitter.draw(gm_.renderer());
 		break;
 		case 1:
 			cube_.draw(gm_.renderer());
