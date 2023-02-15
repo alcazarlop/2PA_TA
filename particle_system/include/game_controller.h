@@ -6,7 +6,6 @@
 #include <time.h>
 #include <string>
 #include "SDL_image.h"
-#include "window_controller.h"
 #include "game_manager.h"
 #include "emitter_pool.h"
 #include "cube.h"
@@ -79,8 +78,8 @@ public:
 private:
 	Sint8 isRunning_;
 	int sceneChanger_;
-	WindowController wc_;
 
+	GameManager gm_ = GameManager::Instance();
 	// EmitterPool emitter_pool_;
 	// Cube cube_;
 };

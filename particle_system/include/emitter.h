@@ -13,8 +13,6 @@
 #include "particle.h"
 #include "sprite.h"
 
-class WindowController;
-
 class Emitter : public Entity {
 public:
 	Emitter();
@@ -37,7 +35,7 @@ public:
 * @param mode Value that determines the emitter's mode
 */
 
-	void init(Uint32 size, Uint32 mode, Uint8 particle_mode, const WindowController& wc);
+	void init(Uint32 size, Uint32 mode, Uint8 particle_mode);
 
 /** @brief Load Texture
 *
@@ -114,7 +112,6 @@ private:
 	Particle::ParticleParams emitter_params_;
 	Sprite tex_;
 	Uint8 particle_mode_;
-	WindowController wc_;
 
 	float min_speed_;
 	float max_speed_;

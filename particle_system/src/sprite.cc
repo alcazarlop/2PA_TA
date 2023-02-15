@@ -23,7 +23,8 @@ void Sprite::loadFromFile(const char* path, SDL_Renderer* renderer){
 
 void Sprite::draw(SDL_Renderer* renderer){
 	if(tex_ != NULL && enabled()){
-
+		SDL_FRect dstRect = {position_.x, position_.y, scale_.x * tex_->width(), scale_.y * tex_->height()};
+		SDL_RenderCopyExF(renderer, tex_->texture(), NULL, &dstRect, rotation_.y, NULL, SDL_FLIP_NONE);
 	}
 }
 

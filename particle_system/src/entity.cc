@@ -67,7 +67,6 @@ Vec3 Entity::rotation() const {
 	return rotation_;
 }
 
-
 Uint32 Entity::id() const {
 	return id_;
 }

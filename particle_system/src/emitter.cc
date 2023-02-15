@@ -35,7 +35,6 @@ Emitter::Emitter(const Emitter& copy){
 	startColor_ = copy.startColor_;
 	endColor_ = copy.endColor_;
 	particle_mode_ = copy.particle_mode_;
-	wc_ = copy.wc_;
 }
 
 Emitter::~Emitter(){
@@ -47,7 +46,7 @@ void Emitter::loadSprite(SDL_Renderer* renderer){
 	tex_.set_scale(32.0f, 32.0f);	
 }
 
-void Emitter::init(Uint32 size, Uint32 mode, Uint8 particle_mode, const WindowController& wc){
+void Emitter::init(Uint32 size, Uint32 mode, Uint8 particle_mode){
 	for(Uint32 i = 0; i < size; ++i){
 		Particle particle = Particle();
 		particle_pool_.push_back(particle);
@@ -57,11 +56,10 @@ void Emitter::init(Uint32 size, Uint32 mode, Uint8 particle_mode, const WindowCo
 			case 2: custom(); break;
 			default: firework(); break;			
 		}
-		particle_pool_[i].init(emitter_params_, particle_mode, wc);
+		particle_pool_[i].init(emitter_params_, particle_mode);
 	}
 	emitter_mode_ = mode;
 	particle_mode_ = particle_mode;
-	wc_ = wc;
 }
 
 void Emitter::update(){
