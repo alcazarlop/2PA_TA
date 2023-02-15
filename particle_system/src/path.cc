@@ -60,7 +60,12 @@ void Path::set_color(Vec4 color){
 
 void Path::draw(SDL_Renderer* renderer){
 	if(enabled()){
-		Mat4 transform = Mat4::GetTransform(position_, scale_, rotation_.x, rotation_.y, rotation_.z);
+		Mat4 transform = Mat4::Identity();
+		transform = Mat4::Translate(position_).Multiply(transform);
+		transform = Mat4::Scale(scale_).Multiply(transform);
+		transform = Mat4::RotateX(rotation_.x).Multiply(transform);
+		transform = Mat4::RotateY(rotation_.y).Multiply(transform);
+		transform = Mat4::RotateZ(rotation_.z).Multiply(transform);
 
 		std::vector<Vec3> tr_points;
 		for(Uint32 i = 0; i < vertices_.size(); ++i){

@@ -59,6 +59,7 @@ public:
 */
 
 	void set_rotation(Vec3 rotation);
+	void set_rotation(float x, float y, float z);
 
 /** @brief Entity's position getter
 *

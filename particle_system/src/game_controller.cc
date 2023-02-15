@@ -32,7 +32,7 @@ Sint8 GameController::init(){
   cube_.set_position(Vec3(gm_.width() / 2.0f, gm_.height() / 2.0f, 0.0f));
   cube_.set_scale(Vec3(50.0f, 50.0f, 0.0f));
 
-  emitter.init(gm_.renderer());
+  emitter.init(gm_.renderer(), Vec3());
 
 	return isRunning_ = 1;
 }
@@ -54,7 +54,7 @@ void GameController::input(SDL_Event* e){
 				}
 			break;
 			case SDL_MOUSEBUTTONDOWN: 
-				emitter.add(0);
+				emitter.add_particle();
 			break;
 		}
 	}
@@ -97,6 +97,8 @@ void GameController::draw(){
 }
 
 void GameController::quit(){
+
+	emitter.release();
 
   ImGui_ImplSDLRenderer_Shutdown();
   ImGui_ImplSDL2_Shutdown();

@@ -55,6 +55,12 @@ void Entity::set_rotation(Vec3 rotation){
 	rotation_ = rotation;
 }
 
+void Entity::set_rotation(float x, float y, float z){
+	rotation_.x = x;
+	rotation_.y = y;
+	rotation_.z = z;
+}
+
 Vec3 Entity::position() const {
 	return position_;
 }
