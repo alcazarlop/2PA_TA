@@ -43,7 +43,6 @@ Emitter::~Emitter(){
 
 void Emitter::loadSprite(SDL_Renderer* renderer){
 	tex_.loadFromFile("../data/melocoton.png", renderer);
-	tex_.set_scale(32.0f, 32.0f);	
 }
 
 void Emitter::init(Uint32 size, Uint32 mode, Uint8 particle_mode){
@@ -56,14 +55,14 @@ void Emitter::init(Uint32 size, Uint32 mode, Uint8 particle_mode){
 			case 2: custom(); break;
 			default: firework(); break;			
 		}
-		particle_pool_[i].init(emitter_params_, particle_mode);
+		particle_pool_[i].init(emitter_params_, particle_mode, GameManager::Instance().renderer());
 	}
 	emitter_mode_ = mode;
 	particle_mode_ = particle_mode;
 }
 
 void Emitter::update(){
-	tex_.set_position(position_.x, position_.y);
+	tex_.set_position(position_.x, position_.y, 0.0f);
 	for(Uint32 i = 0; i < particle_pool_.size(); ++i){
 		if(particle_pool_[i].currentTime() < emitter_params_.lifeTime){
 			particle_pool_[i].update();
@@ -80,10 +79,10 @@ void Emitter::update(){
 }
 
 void Emitter::draw(SDL_Renderer* renderer){
-	tex_.draw(wc);
+	tex_.draw(renderer);
 	for(Uint32 i = 0; i < particle_pool_.size(); ++i){
 		// GUSTAVO: This line is crashing when changing the pool size in runtime.
-		particle_pool_[i].entity()->draw(wc);
+		particle_pool_[i].entity()->draw(renderer);
 	}
 }
 
@@ -93,7 +92,7 @@ Particle::ParticleParams Emitter::params() const {
 
 void Emitter::firework(){
 	emitter_params_.pos = position();
-	emitter_params_.scale = Vec2(10.0f, 10.0f);
+	emitter_params_.scale = Vec3(10.0f, 10.0f, 0.0f);
 	emitter_params_.velocity.x = MathUtils::RandomFloat(-2.0f, 2.0f);
 	emitter_params_.velocity.y = MathUtils::RandomFloat(-5.0f, 0.0f);
 	emitter_params_.angle = MathUtils::RandomFloat(0.0f, 6.28f);
@@ -107,7 +106,7 @@ void Emitter::firework(){
 
 void Emitter::burst(Uint32 index){
 	emitter_params_.pos = position();
-	emitter_params_.scale = Vec2(10.0f, 10.0f);
+	emitter_params_.scale = Vec3(10.0f, 10.0f, 0.0f);
 	emitter_params_.velocity.x = cosf((6.28f / particle_pool_.size() * index));
 	emitter_params_.velocity.y = sinf((6.28f / particle_pool_.size() * index));
 	emitter_params_.angle =  MathUtils::RandomFloat(0.0f, 6.28f);
@@ -121,7 +120,7 @@ void Emitter::burst(Uint32 index){
 
 void Emitter::custom(){
 	emitter_params_.pos = position();
-	emitter_params_.scale = Vec2(10.0f, 10.0f);
+	emitter_params_.scale = Vec3(10.0f, 10.0f, 0.0f);
 	emitter_params_.velocity.x = MathUtils::RandomFloat(min_vel_x_, max_vel_x_);
 	emitter_params_.velocity.y = MathUtils::RandomFloat(min_vel_y_, max_vel_y_);
 	emitter_params_.angle = MathUtils::RandomFloat(0.0f, 6.28f);;
@@ -201,7 +200,7 @@ void Emitter::set_pool_size(Uint32 new_size){
 			Particle particle = Particle();
 			particle_pool_.push_back(particle);		
 		}
-		init(new_size, emitter_mode_, particle_mode_, wc_);
+		init(new_size, emitter_mode_, particle_mode_);
 	} 
 	else if(new_size < particle_pool_.size()){
 		Uint32 res = particle_pool_.size() - new_size;

@@ -15,6 +15,7 @@ public:
 	Sprite(const Sprite& copy);
 	virtual ~Sprite();
 
+	void loadFromBuffer(Uint32 width, Uint32 height, SDL_Renderer* renderer, Uint32* pixel_buffer, Uint32 pitch = 4);
 /** @brief Sprite load
 *
 * Loads a Sprite from memory

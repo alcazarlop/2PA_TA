@@ -11,10 +11,10 @@ cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\
 cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sdl2_image\include -I ..\deps\math_lib\include\  /c ..\src\path.cc
 cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sdl2_image\include -I ..\deps\math_lib\include\  /c ..\src\sprite.cc
 cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sdl2_image\include -I ..\deps\math_lib\include\  /c ..\src\texture.cc
-rem cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sdl2_image\include -I ..\deps\math_lib\include\  /c ..\src\particle.cc
-rem cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sdl2_image\include -I ..\deps\math_lib\include\  /c ..\src\emitter.cc
-rem cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sdl2_image\include -I ..\deps\math_lib\include\  /c ..\src\emitter_pool.cc
-rem cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sdl2_image\include -I ..\deps\math_lib\include\  /c ..\src\imgui_controller.cc
+cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sdl2_image\include -I ..\deps\math_lib\include\  /c ..\src\particle.cc
+cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sdl2_image\include -I ..\deps\math_lib\include\  /c ..\src\emitter.cc
+cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sdl2_image\include -I ..\deps\math_lib\include\  /c ..\src\emitter_pool.cc
+cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sdl2_image\include -I ..\deps\math_lib\include\  /c ..\src\imgui_controller.cc
 cl /nologo /Zi /EHs /MDd /W4 -D_CRT_SECURE_NO_WARNINGS -I ..\include -I ..\deps\sdl2\include -I ..\deps\imgui\ -I ..\deps\sdl2_image\include -I ..\deps\math_lib\include\  /c ..\src\cube.cc
 
 @echo LINKER

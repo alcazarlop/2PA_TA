@@ -9,7 +9,6 @@
 
 class Vec2;
 class Vec4;
-class WindowController;
 
 class Particle {
 public: 
@@ -18,9 +17,9 @@ public:
 	~Particle();
 
 	struct ParticleParams {
-		Vec2 pos;
-		Vec2 scale;
-		Vec2 velocity;
+		Vec3 pos;
+		Vec3 scale;
+		Vec3 velocity;
 		float angle;
 		float speed;
 		Uint32 lifeTime;
@@ -37,7 +36,7 @@ public:
 * @param params Particle's parameters values
 */
 
-	void init(ParticleParams& params, Uint8 mode, const WindowController& wc);
+	void init(ParticleParams& params, Uint8 mode, SDL_Renderer* renderer);
 
 /** @brief Particle reset
 *
@@ -54,15 +53,6 @@ public:
 *
 */
 	void update();
-
-/** @brief Particle draw
-*
-* Draws the particle using the Path class function
-*
-* @params wc WindowController object needed for the path draw function
-*/
-
-	void draw(const WindowController& wc);
 
 /** @brief Particle current time setter
 *

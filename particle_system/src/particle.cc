@@ -2,9 +2,9 @@
 #include "particle.h"
 
 Particle::Particle(){
-	params_.pos = Vec2();
-	params_.scale = Vec2();
-	params_.velocity = Vec2();
+	params_.pos = Vec3();
+	params_.scale = Vec3();
+	params_.velocity = Vec3();
 	params_.angle = 0.0f;
 	params_.speed = 0.0f;
 	params_.lifeTime = 0;
@@ -20,17 +20,20 @@ Particle::Particle(const Particle& copy){
 
 // GUSTAVO: No, the destructor shouldn't be empty. There is memory to 
 // be released (e.g: entity_).
-Particle::~Particle(){}
+Particle::~Particle(){
+	delete entity_;
+}
 
-void Particle::init(ParticleParams& params, Uint8 mode, const WindowController& wc){
+void Particle::init(ParticleParams& params, Uint8 mode, SDL_Renderer* renderer){
   // GUSTAVO: entity_ never gets released, so it is creating a memory leak.
-	Sprite* sprite = new Sprite();
 	switch(mode){
-	case 0: entity_ = new Path(); break;
+	case 0: 
+		entity_ = new Path(); break;
 	case 1:  
-		sprite->loadFromFile("../data/melocoton.png", wc.renderer()); 
+		Sprite* sprite = new Sprite();
+		sprite->loadFromFile("../data/melocoton.png", renderer); 
 		entity_ = sprite;
-	break;
+		break;
 	}
 	params_ = params;
 	entity_->set_position(params_.pos);
@@ -51,10 +54,6 @@ void Particle::update(){
 	// }
 	entity_->set_position(entity_->position() + params_.velocity * params_.speed);
 	currentTime_++;
-}
-
-void Particle::draw(const WindowController& wc){
-	entity_->draw(wc);
 }
 
 void Particle::set_currentTime(Uint32 time){

@@ -28,9 +28,9 @@ Sint8 GameController::init(){
   ImGui_ImplSDL2_InitForSDLRenderer(gm_.window());
   ImGui_ImplSDLRenderer_Init(gm_.renderer());
 
-  // cube_.init();
-  // cube_.set_position(Vec3(gm_.width() / 2.0f, gm_.height() / 2.0f, 0.0f));
-  // cube_.set_scale(Vec3(100.0f, 100.0f, 0.0f));
+  cube_.init();
+  cube_.set_position(Vec3(gm_.width() / 2.0f, gm_.height() / 2.0f, 0.0f));
+  cube_.set_scale(Vec3(50.0f, 50.0f, 0.0f));
 
 	return isRunning_ = 1;
 }
@@ -51,10 +51,10 @@ void GameController::input(SDL_Event* e){
 					break;
 				}
 			break;
-			// case SDL_MOUSEBUTTONDOWN: 
-			// 	if(emitter_pool_.pool_.size() != 0){
-			// 		emitter_pool_.pool_.back().isBound_ = false;
-			// 	}
+			case SDL_MOUSEBUTTONDOWN: 
+				if(emitter_pool_.pool_.size() != 0){
+					emitter_pool_.pool_.back().isBound_ = false;
+				}
 			break;
 		}
 	}
@@ -62,16 +62,16 @@ void GameController::input(SDL_Event* e){
 
 void GameController::update(){
 
-	// switch(sceneChanger_){
-	// 	case 0:
-	// 		for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
-	// 			emitter_pool_.pool_[i].update();
-	// 		}
-	// 	break;
-	// 	case 1:
-	// 		cube_.set_rotation(Vec3((float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f)));
-	// 	break;
-	// }
+	switch(sceneChanger_){
+		case 0:
+			for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
+				emitter_pool_.pool_[i].update();
+			}
+		break;
+		case 1:
+			cube_.set_rotation(Vec3((float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f)));
+		break;
+	}
 
 }
 
@@ -82,19 +82,19 @@ void GameController::draw(){
 	SDL_SetRenderDrawColor(gm_.renderer(), 0x0, 0x0, 0x0, 0xFF);
 	SDL_RenderClear(gm_.renderer());
 
-	// switch(sceneChanger_){
-	// 	case 0:
-	// 	EmitterPoolManager(&emitter_pool_, gm_);
-	// 	for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
-	// 		emitter_pool_.pool_[i].draw(gm_);
-	// 	}
-	// 	break;
-	// 	case 1:
-	// 		cube_.draw(gm_.renderer());
-	// 	break;
-	// }
+	switch(sceneChanger_){
+		case 0:
+		EmitterPoolManager(&emitter_pool_, gm_.renderer());
+		for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
+			emitter_pool_.pool_[i].draw(gm_.renderer());
+		}
+		break;
+		case 1:
+			cube_.draw(gm_.renderer());
+		break;
+	}
 
-	// ChangeScene(&sceneChanger_);
+	ChangeScene(&sceneChanger_);
 
   ImGui::Render();
   ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());

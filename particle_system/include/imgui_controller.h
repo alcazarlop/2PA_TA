@@ -8,8 +8,6 @@
 #include "math_utils.h"
 #include "emitter_pool.h"
 #include "emitter.h"
-#include "vector_4.h"
-#include "window_controller.h"
 
 void ChangeScene(int* scene);
 
@@ -22,7 +20,7 @@ void ChangeScene(int* scene);
 * @param renderer SDL renderer needed for drawing functions
 */
 
-void EmitterPoolManager(EmitterPool* emitter_pool, const WindowController& wc);
+void EmitterPoolManager(EmitterPool* emitter_pool, SDL_Renderer* renderer);
 
 /** @brief Emitter SetUp
 *

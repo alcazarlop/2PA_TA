@@ -10,7 +10,7 @@ void ChangeScene(int* scene){
 	ImGui::End();
 }
 
-void EmitterPoolManager(EmitterPool* emitter_pool, const WindowController& wc){
+void EmitterPoolManager(EmitterPool* emitter_pool, SDL_Renderer* renderer){
 
 	static int mouse_x = 0;
 	static int mouse_y = 0;
@@ -35,14 +35,14 @@ void EmitterPoolManager(EmitterPool* emitter_pool, const WindowController& wc){
 				emitter_pool->pool_.back().isBound_ = false;
 			}
 			emitter_pool->pool_.push_back(emitter);
-			emitter_pool->pool_.back().loadSprite(wc.renderer());
-			emitter_pool->pool_.back().init(pool_size, mode, particle_mode, wc);
+			emitter_pool->pool_.back().loadSprite(renderer);
+			emitter_pool->pool_.back().init(pool_size, mode, particle_mode);
 			emitter_pool->pool_.back().isBound_ = true;
 		}
 	}
 
 	if(emitter_pool->pool_.size() != 0 && emitter_pool->pool_.back().isBound_){
-		emitter_pool->pool_.back().set_position((float)mouse_x, (float)mouse_y);
+		emitter_pool->pool_.back().set_position((float)mouse_x, (float)mouse_y, 0.0f);
 	}
 
 	ImGui::SameLine();

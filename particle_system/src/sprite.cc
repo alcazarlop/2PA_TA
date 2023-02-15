@@ -21,6 +21,11 @@ void Sprite::loadFromFile(const char* path, SDL_Renderer* renderer){
 	tex_->loadFromFile(path, renderer);
 }
 
+void Sprite::loadFromBuffer(Uint32 width, Uint32 height, SDL_Renderer* renderer, Uint32* pixel_buffer, Uint32 pitch){
+	tex_ = Texture::CreateTexture();
+	tex_->loadFromBuffer(width, height, renderer, pixel_buffer, pitch);
+}
+
 void Sprite::draw(SDL_Renderer* renderer){
 	if(tex_ != NULL && enabled()){
 		SDL_FRect dstRect = {position_.x, position_.y, scale_.x * tex_->width(), scale_.y * tex_->height()};

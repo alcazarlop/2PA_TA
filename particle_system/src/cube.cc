@@ -25,11 +25,18 @@ void Cube::init(){
 
 void Cube::draw(SDL_Renderer* render){
 
-	Mat4 transform = Mat4::GetTransform(position_, scale_, rotation_.x, rotation_.y, rotation_.z);
+	Mat4 mat_ = mat_.Identity();
+	mat_ = Mat4::Translate(position_.x, position_.y, 0.0f).Multiply(mat_);
+	mat_ = Mat4::Scale(scale_.x, scale_.y, scale_.z).Multiply(mat_);
+	mat_ = Mat4::ProjectionMatrix().Multiply(mat_);
+	mat_ = Mat4::Translate(0.0f, 0.0f, position_.z).Multiply(mat_);
+	mat_ = Mat4::RotateX(rotation_.x).Multiply(mat_);
+	mat_ = Mat4::RotateY(rotation_.y).Multiply(mat_);
+	mat_ = Mat4::RotateZ(rotation_.z).Multiply(mat_);
 
 	Vec3 tr_points[8];
 	for(int i = 0; i < 8; ++i){
-		 tr_points[i] = transform.Mat4TransformVec3(points_[i]);
+		 tr_points[i] = mat_.Mat4TransformVec3(points_[i]);
 	}
 
 	SDL_SetRenderDrawColor(render, 0xFF, 0xFF, 0xFF, 0xFF);
