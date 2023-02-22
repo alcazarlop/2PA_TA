@@ -34,7 +34,6 @@ void Sprite::draw(SDL_Renderer* renderer){
 }
 
 void Sprite::release(){
-	if(NULL != tex_)
-		tex_->release();
+	tex_->release();
 }
 

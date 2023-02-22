@@ -10,3 +10,18 @@ void ChangeScene(int* scene){
 	ImGui::End();
 }
 
+void EmitterManager(Emitter* emitter){
+
+	static int emitter_size = 0;
+
+	ImGui::Begin("Emitter Manager");
+
+	ImGui::DragInt("Total particles", &emitter_size);
+	if(ImGui::Button("Submit")){
+		emitter_size = MathUtils::Clamp(emitter_size, 0, 30);
+		emitter->resize(emitter_size);
+	}
+
+	ImGui::End();
+}
+

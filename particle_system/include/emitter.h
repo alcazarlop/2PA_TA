@@ -18,6 +18,7 @@ public:
 	~Emitter();
 
 	void init(SDL_Renderer* renderer, Vec3 pos);
+	void resize(Uint32 new_size);
 	void add_particle();
 	void update();
 	void draw(SDL_Renderer* renderer);
@@ -33,6 +34,7 @@ private:
 	std::vector<Particle*> pool_;
 
 	Uint8 currentMode_;
+	Uint32 totalParticles_;
 
 };
 

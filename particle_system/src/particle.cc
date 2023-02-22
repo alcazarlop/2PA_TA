@@ -16,21 +16,20 @@ void Particle::init(int type){
 		case 0: 
 			{
 				Path* path = new Path();
+				path->set_scale(10.0f, 10.0f, 10.0f);
 				entity_ = path;
 				break;
 			}
 		case 1:
 			{
 				Sprite* sprite = new Sprite();
+				sprite->loadFromFile("../data/cuadrado.png", GameManager::Instance().renderer());
+				sprite->set_scale(1.0f, 1.0f, 1.0f);
 				entity_ = sprite;
 				break;
 			}
 	}
 
-}
-
-void Particle::draw(SDL_Renderer* renderer){
-	entity_->draw(renderer);
 }
 
 void Particle::update(){

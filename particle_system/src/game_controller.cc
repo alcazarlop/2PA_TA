@@ -20,19 +20,19 @@ Sint8 GameController::init(){
 		return isRunning_ = -1;
 	}
 
-	isRunning_ = gm_.init(1024, 680);
+	isRunning_ = GameManager::Instance().init(1024, 680);
 
 	IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
 
 	ImGui::CreateContext();
-  ImGui_ImplSDL2_InitForSDLRenderer(gm_.window());
-  ImGui_ImplSDLRenderer_Init(gm_.renderer());
+  ImGui_ImplSDL2_InitForSDLRenderer(GameManager::Instance().window());
+  ImGui_ImplSDLRenderer_Init(GameManager::Instance().renderer());
 
   cube_.init();
-  cube_.set_position(Vec3(gm_.width() / 2.0f, gm_.height() / 2.0f, 0.0f));
+  cube_.set_position(Vec3(GameManager::Instance().width() / 2.0f, GameManager::Instance().height() / 2.0f, 0.0f));
   cube_.set_scale(Vec3(50.0f, 50.0f, 0.0f));
 
-  emitter.init(gm_.renderer(), Vec3());
+  emitter.init(GameManager::Instance().renderer(), Vec3());
 
 	return isRunning_ = 1;
 }
@@ -54,7 +54,6 @@ void GameController::input(SDL_Event* e){
 				}
 			break;
 			case SDL_MOUSEBUTTONDOWN: 
-				emitter.add_particle();
 			break;
 		}
 	}
@@ -75,17 +74,18 @@ void GameController::update(){
 
 void GameController::draw(){
  	ImGui_ImplSDLRenderer_NewFrame();
-  ImGui_ImplSDL2_NewFrame(gm_.window());
+  ImGui_ImplSDL2_NewFrame(GameManager::Instance().window());
   ImGui::NewFrame();
-	SDL_SetRenderDrawColor(gm_.renderer(), 0x0, 0x0, 0x0, 0xFF);
-	SDL_RenderClear(gm_.renderer());
+	SDL_SetRenderDrawColor(GameManager::Instance().renderer(), 0x0, 0x0, 0x0, 0xFF);
+	SDL_RenderClear(GameManager::Instance().renderer());
 
 	switch(sceneChanger_){
 		case 0:
-			emitter.draw(gm_.renderer());
+			emitter.draw(GameManager::Instance().renderer());
+			EmitterManager(&emitter);
 		break;
 		case 1:
-			cube_.draw(gm_.renderer());
+			cube_.draw(GameManager::Instance().renderer());
 		break;
 	}
 
@@ -93,7 +93,7 @@ void GameController::draw(){
 
   ImGui::Render();
   ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
-	SDL_RenderPresent(gm_.renderer());
+	SDL_RenderPresent(GameManager::Instance().renderer());
 }
 
 void GameController::quit(){
@@ -102,8 +102,8 @@ void GameController::quit(){
 
   ImGui_ImplSDLRenderer_Shutdown();
   ImGui_ImplSDL2_Shutdown();
-	SDL_DestroyRenderer(gm_.renderer());
-	SDL_DestroyWindow(gm_.window());
+	SDL_DestroyRenderer(GameManager::Instance().renderer());
+	SDL_DestroyWindow(GameManager::Instance().window());
 	IMG_Quit();
 	SDL_Quit();
 }

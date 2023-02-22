@@ -4,9 +4,7 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
-
-// GUSTAVO: A texture is just a pixel block in VRAM, it shouldn't have 
-// transform or draw functionalities.
+#include <stdio.h>
 
 class Texture {
 public:

@@ -4,7 +4,10 @@
 
 #include <SDL.h>
 #include "imgui.h"
+#include "emitter.h"
+#include "math_utils.h"
 
 void ChangeScene(int* scene);
+void EmitterManager(Emitter* emitter);
 
 #endif

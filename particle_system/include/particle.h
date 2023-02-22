@@ -5,6 +5,7 @@
 #include "entity.h"
 #include "path.h"
 #include "sprite.h"
+#include "game_manager.h"
 
 class Vec3;
 

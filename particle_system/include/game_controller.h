@@ -79,7 +79,6 @@ private:
 	int sceneChanger_;
 
 	Emitter emitter;
-	GameManager gm_ = GameManager::Instance();
 	Cube cube_;
 };
 
