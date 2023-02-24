@@ -40,7 +40,7 @@ public:
 *
 */
 
-	void release();
+	Texture* texture() const;
 
 private:
 	Texture* tex_;

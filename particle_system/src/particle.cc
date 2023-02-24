@@ -9,14 +9,22 @@ Particle::Particle(const Particle& copy){
 	entity_ = copy.entity_;
 }
 
-Particle::~Particle(){}
+Particle::~Particle(){
+	delete entity_;
+}
 
-void Particle::init(int type){
+void Particle::init(Uint8 type){
 	switch(type){
 		case 0: 
 			{
 				Path* path = new Path();
 				path->set_scale(10.0f, 10.0f, 10.0f);
+				switch(rand()%3){
+					case 0: path->loadSquare(); break;
+					case 1: path->loadCircle(); break;
+					case 2: path->loadStar(); break;
+					default: path->loadSquare(); break;
+				}
 				entity_ = path;
 				break;
 			}
@@ -34,10 +42,6 @@ void Particle::init(int type){
 
 void Particle::update(){
 	entity_->set_position(entity_->position() + (params_.velocity * params_.speed));
-}
-
-void Particle::release(){
-	delete entity_;
 }
 
 Entity* Particle::entity() const {

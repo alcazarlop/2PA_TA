@@ -33,14 +33,6 @@ public:
 
 	void loadFromBuffer(Uint32 width, Uint32 height, SDL_Renderer* renderer, Uint32* pixel_buffer, Uint32 pitch = 4);
 
-/** @brief Texture release
-*
-* Texture release using SDL
-*
-*/
-
-	void release();
-
 /** @brief Texture width getter
 *
 * Gets the Texture's width

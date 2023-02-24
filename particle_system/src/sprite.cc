@@ -14,6 +14,7 @@ Sprite::Sprite(const Sprite& copy){
 
 Sprite::~Sprite(){
 	Entity::~Entity();
+	tex_->~Texture();
 }
 
 void Sprite::loadFromFile(const char* path, SDL_Renderer* renderer){
@@ -33,7 +34,7 @@ void Sprite::draw(SDL_Renderer* renderer){
 	}
 }
 
-void Sprite::release(){
-	tex_->release();
+Texture* Sprite::texture() const {
+	return tex_;
 }
 

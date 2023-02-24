@@ -8,6 +8,7 @@
 #include "math_utils.h"
 #include "sprite.h"
 #include "particle.h"
+#include "game_manager.h"
 
 class Vec3;
 
@@ -17,7 +18,7 @@ public:
 	Emitter(const Emitter& copy);
 	~Emitter();
 
-	void init(SDL_Renderer* renderer, Vec3 pos);
+	void init(SDL_Renderer* renderer, Vec3 pos, Uint8 mode, Uint8 type);
 	void resize(Uint32 new_size);
 	void add_particle();
 	void update();
@@ -34,6 +35,7 @@ private:
 	std::vector<Particle*> pool_;
 
 	Uint8 currentMode_;
+	Uint8 currentType_;
 	Uint32 totalParticles_;
 
 };

@@ -32,7 +32,7 @@ Sint8 GameController::init(){
   cube_.set_position(Vec3(GameManager::Instance().width() / 2.0f, GameManager::Instance().height() / 2.0f, 0.0f));
   cube_.set_scale(Vec3(50.0f, 50.0f, 0.0f));
 
-  emitter.init(GameManager::Instance().renderer(), Vec3());
+  emitter.init(GameManager::Instance().renderer(), Vec3(), 2, 1);
 
 	return isRunning_ = 1;
 }

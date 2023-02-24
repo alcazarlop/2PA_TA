@@ -6,6 +6,7 @@
 #include "path.h"
 #include "sprite.h"
 #include "game_manager.h"
+#include <stdlib.h>
 
 class Vec3;
 
@@ -15,10 +16,9 @@ public:
 	Particle(const Particle& copy);
 	~Particle();
 
-	void init(int type);
+	void init(Uint8 type);
 	void draw(SDL_Renderer* renderer);
 	void update();
-	void release();
 
 	Entity* entity() const;
 
@@ -26,6 +26,7 @@ public:
 		Vec3 velocity;
 		float speed;
 		float lifeTime;
+		float spawnTime;
 		float maxTimeAlive;
 	} params_;
 

@@ -16,6 +16,7 @@ Texture::Texture(const Texture& copy){
 }
 
 Texture::~Texture(){
+	SDL_DestroyTexture(texture_);
 	Texture::num_textures--;
 }
 
@@ -38,9 +39,6 @@ void Texture::loadFromBuffer(Uint32 width, Uint32 height, SDL_Renderer* renderer
 	SDL_UpdateTexture(texture_, NULL, pixel_buffer, pitch);
 }
 
-void Texture::release(){
-	SDL_DestroyTexture(texture_);
-}
 
 Uint32 Texture::width() const {
 	return width_;
