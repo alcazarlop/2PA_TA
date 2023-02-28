@@ -6,6 +6,8 @@
 #include "imgui.h"
 #include "emitter.h"
 #include "math_utils.h"
+#include "texture.h"
+#include <stdio.h>
 
 void ChangeScene(int* scene);
 void EmitterManager(Emitter* emitter);

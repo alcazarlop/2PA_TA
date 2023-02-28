@@ -54,6 +54,7 @@ void Emitter::add_particle(){
 			case 1:	firework(particle); break;
 			case 2:	smoke(particle); break;
 			case 3:	waterfall(particle); break;
+			default: burst(pool_[i], i); break;
 		}
 	}
 }
@@ -70,6 +71,7 @@ void Emitter::update(){
 					case 1:	firework(pool_[i]); break;
 					case 2:	smoke(pool_[i]); break;
 					case 3:	waterfall(pool_[i]); break;
+					default: burst(pool_[i], i); break;
 				}
 			}
 		}
@@ -127,7 +129,7 @@ void Emitter::smoke(Particle* particle){
 
 void Emitter::waterfall(Particle* particle){
 	static int waterfall_count = 0;
-	particle->entity()->set_position(Vec3(sprite_->position().x + MathUtils::RandomFloat(0.0f, (float)GameManager::Instance().width()), 0.0f, 0.0f));
+	particle->entity()->set_position(Vec3(MathUtils::RandomFloat(0.0f, (float)GameManager::Instance().width()), 0.0f, 0.0f));
 	particle->entity()->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
 	particle->params_.velocity = Vec3(0.0f, 1.0f, 0.0f);
 	particle->params_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
@@ -135,4 +137,24 @@ void Emitter::waterfall(Particle* particle){
 	waterfall_count == 0 ? particle->params_.spawnTime = 0.0f : particle->params_.spawnTime = MathUtils::RandomFloat(0.5f, 1.0f);
 	particle->params_.maxTimeAlive = particle->params_.spawnTime + MathUtils::RandomFloat(2.0f, 4.0f);
 	waterfall_count++;
+}
+
+void Emitter::set_mode(Uint8 mode){
+	currentMode_ = (Uint8)MathUtils::Clamp(mode, 0, 3);
+}
+
+void Emitter::set_type(Uint8 type){
+	currentType_ = (Uint8)MathUtils::Clamp(type, 0, 1);
+}
+
+Uint32 Emitter::size() const {
+	return totalParticles_;
+}
+
+Uint8 Emitter::mode() const {
+	return currentMode_;
+}
+
+Uint8 Emitter::type() const {
+	return currentType_;
 }

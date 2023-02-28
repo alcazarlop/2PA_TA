@@ -30,6 +30,13 @@ public:
 	void smoke(Particle* particle);
 	void waterfall(Particle* particle);
 
+	void set_mode(Uint8 mode);
+	void set_type(Uint8 type);
+
+	Uint32 size() const;
+	Uint8 mode() const;
+	Uint8 type() const;
+
 private:
 	Sprite* sprite_;
 	std::vector<Particle*> pool_;

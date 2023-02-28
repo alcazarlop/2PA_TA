@@ -49,7 +49,6 @@ Uint32 Texture::height() const {
 }
 
 Texture* Texture::CreateTexture(){
-	printf("Num Textures: %d\n", Texture::num_textures);
 	if(Texture::num_textures < Texture::kMaxTexture){
 		Texture* t = new Texture();
 		Texture::num_textures++;
