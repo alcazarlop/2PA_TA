@@ -24,7 +24,7 @@ void Emitter::init(SDL_Renderer* renderer, Vec3 pos, Uint8 mode, Uint8 type){
 	sprite_ = new Sprite();
 	Uint32 buffer = 0xFFFFFFFF;
 	sprite_->loadFromBuffer(32, 32, renderer, &buffer);
-	sprite_->set_position(100.0f, 100.0f, 0.0f);
+	sprite_->set_position(pos.x, pos.y, pos.z);
 	currentMode_ = mode;
 	currentType_ = type;
 
@@ -157,4 +157,8 @@ Uint8 Emitter::mode() const {
 
 Uint8 Emitter::type() const {
 	return currentType_;
+}
+
+Sprite* Emitter::sprite() const {
+	return sprite_;
 }

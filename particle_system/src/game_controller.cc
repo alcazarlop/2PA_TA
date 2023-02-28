@@ -9,9 +9,12 @@ GameController::GameController(){
 GameController::GameController(const GameController& copy){
 	isRunning_ = copy.isRunning_;
 	sceneChanger_ = copy.sceneChanger_;
+	emitter_pool_ = copy.emitter_pool_;
 }
 
-GameController::~GameController() {}
+GameController::~GameController() { 
+
+}
 
 Sint8 GameController::init(){
 
@@ -32,8 +35,6 @@ Sint8 GameController::init(){
   cube_.set_position(Vec3(GameManager::Instance().width() / 2.0f, GameManager::Instance().height() / 2.0f, 0.0f));
   cube_.set_scale(Vec3(50.0f, 50.0f, 0.0f));
 
-  emitter.init(GameManager::Instance().renderer(), Vec3(), 2, 1);
-
 	return isRunning_ = 1;
 }
 
@@ -53,7 +54,8 @@ void GameController::input(SDL_Event* e){
 					break;
 				}
 			break;
-			case SDL_MOUSEBUTTONDOWN: 
+			case SDL_MOUSEBUTTONDOWN:
+				emitter_pool_.isBinded_ = false; 
 			break;
 		}
 	}
@@ -63,7 +65,8 @@ void GameController::update(){
 
 	switch(sceneChanger_){
 		case 0:
-			emitter.update();
+			for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i)
+				emitter_pool_.pool_[i]->update();
 		break;
 		case 1:
 			cube_.set_rotation(Vec3((float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f)));
@@ -79,17 +82,19 @@ void GameController::draw(){
 	SDL_SetRenderDrawColor(GameManager::Instance().renderer(), 0x0, 0x0, 0x0, 0xFF);
 	SDL_RenderClear(GameManager::Instance().renderer());
 
+	SceneManager(&sceneChanger_, &emitter_pool_);
 	switch(sceneChanger_){
 		case 0:
-			emitter.draw(GameManager::Instance().renderer());
-			EmitterManager(&emitter);
+			for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
+				emitter_pool_.pool_[i]->draw(GameManager::Instance().renderer());
+				EmitterManager(emitter_pool_.pool_[i]);
+			}
 		break;
 		case 1:
 			cube_.draw(GameManager::Instance().renderer());
 		break;
 	}
 
-	ChangeScene(&sceneChanger_);
 
   ImGui::Render();
   ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
@@ -98,7 +103,10 @@ void GameController::draw(){
 
 void GameController::quit(){
 
-	emitter.release();
+	for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
+		emitter_pool_.pool_[i]->release();
+		delete emitter_pool_.pool_[i];
+	}
 
   ImGui_ImplSDLRenderer_Shutdown();
   ImGui_ImplSDL2_Shutdown();

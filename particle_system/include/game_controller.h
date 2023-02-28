@@ -5,9 +5,10 @@
 #include <SDL.h>
 #include <time.h>
 #include <SDL_image.h>
+#include <vector>
 #include "game_manager.h"
 #include "cube.h"
-#include "emitter.h"
+#include "emitter_pool.h"
 
 #include "imgui.h"
 #include "imgui_impl_sdl.h"
@@ -78,7 +79,7 @@ private:
 	Sint8 isRunning_;
 	int sceneChanger_;
 
-	Emitter emitter;
+	EmitterPool emitter_pool_;
 	Cube cube_;
 };
 

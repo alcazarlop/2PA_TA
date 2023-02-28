@@ -3,13 +3,16 @@
 #define __IMGUI_CONTROLLER_H__ 1
 
 #include <SDL.h>
+#include <stdio.h>
+#include <vector>
+#include "game_manager.h"
 #include "imgui.h"
 #include "emitter.h"
+#include "emitter_pool.h"
 #include "math_utils.h"
 #include "texture.h"
-#include <stdio.h>
 
-void ChangeScene(int* scene);
+void SceneManager(int* scene, EmitterPool* emitter_pool);
 void EmitterManager(Emitter* emitter);
 
 #endif

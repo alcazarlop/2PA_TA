@@ -37,6 +37,8 @@ public:
 	Uint8 mode() const;
 	Uint8 type() const;
 
+	Sprite* sprite() const;
+
 private:
 	Sprite* sprite_;
 	std::vector<Particle*> pool_;

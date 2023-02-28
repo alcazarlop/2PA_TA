@@ -1,12 +1,28 @@
 
 #include "imgui_controller.h"
 
-void ChangeScene(int* scene){
+void SceneManager(int* scene, EmitterPool* emitter_pool){
 	ImGui::Begin("Scene Manager");
-	if(ImGui::Button("Change Scene")){
-		if(*scene == 0) *scene = 1;
-		else *scene = 0;
+
+	static int mouseX = 0;
+	static int mouseY = 0;
+
+	SDL_GetMouseState(&mouseX, &mouseY);
+
+	if(ImGui::Button("Create Emitter")){
+		Emitter* new_emitter = new Emitter();
+		new_emitter->init(GameManager::Instance().renderer(), Vec3((float)mouseX, (float)mouseY, 0.0f), 0, 0);		
+		emitter_pool->pool_.push_back(new_emitter);
+		emitter_pool->isBinded_ = true;
 	}
+
+	if(emitter_pool->isBinded_){
+		emitter_pool->pool_.back()->sprite()->set_position(Vec3((float)mouseX, (float)mouseY, 0.0f));
+	}
+
+	if(ImGui::Button("Change Scene"))
+		*scene == 0 ? *scene = 1: *scene = 0;
+	
 	ImGui::End();
 }
 
