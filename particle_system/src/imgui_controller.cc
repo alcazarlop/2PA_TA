@@ -7,10 +7,15 @@ void SceneManager(int* scene, EmitterPool* emitter_pool){
 	GameManager& gm = GameManager::Instance();
 
 	if(ImGui::Button("Create Emitter")){
-		Emitter* new_emitter = new Emitter();
-		new_emitter->init(GameManager::Instance().renderer(), Vec3((float)gm.mouseX(), (float)gm.mouseY(), 0.0f), 0, 0);		
-		emitter_pool->pool_.push_back(new_emitter);
-		emitter_pool->isBinded_ = true;
+		if(Texture::avaliableTextures() >= 1){
+			Emitter* new_emitter = new Emitter();
+			new_emitter->init(GameManager::Instance().renderer(), Vec3((float)gm.mouseX(), (float)gm.mouseY(), 0.0f), 0, 0);		
+			emitter_pool->pool_.push_back(new_emitter);
+			emitter_pool->isBinded_ = true;
+		}
+		else {
+			ImGui::OpenPopup("Texture");
+		}
 	}
 
 	if(emitter_pool->isBinded_){
@@ -19,6 +24,11 @@ void SceneManager(int* scene, EmitterPool* emitter_pool){
 
 	if(ImGui::Button("Change Scene"))
 		*scene == 0 ? *scene = 1: *scene = 0;
+
+	if(ImGui::BeginPopup("Texture")){
+		ImGui::Text("No more textures avaiable to create an emitter");
+		ImGui::EndPopup();
+	}
 	
 	ImGui::End();
 }
@@ -45,7 +55,7 @@ void EmitterManager(Emitter* emitter){
 	if(ImGui::Button("Submit")){
 		emitter->set_mode((Uint8)emitter->params_.emitterMode);
 		emitter->set_type((Uint8)emitter->params_.emitterType);
-		emitter->params_.emitterSize = MathUtils::Clamp(emitter->params_.emitterSize, 0, Texture::kMaxTexture - 1);
+		emitter->params_.emitterSize = MathUtils::Clamp(emitter->params_.emitterSize, 0, Texture::avaliableTextures());
 		emitter->resize(emitter->params_.emitterSize);
 	}
 

@@ -4,7 +4,6 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
-#include <stdio.h>
 
 class Texture {
 public:
@@ -59,14 +58,15 @@ public:
 
 	static Texture* CreateTexture();
 	static const Uint32 kMaxTexture = 128; 
+	static Uint32 avaliableTextures(); 
 
 	SDL_Texture* texture() const;
 
 private:
 	Texture();
 	Texture(const Texture& copy);
-	static Uint32 num_textures;
 
+	static Uint32 num_textures;
 	Uint32 width_;
 	Uint32 height_;
 	SDL_Texture* texture_;

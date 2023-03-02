@@ -52,7 +52,6 @@ Texture* Texture::CreateTexture(){
 	if(Texture::num_textures < Texture::kMaxTexture){
 		Texture* t = new Texture();
 		Texture::num_textures++;
-		printf("Num Textures%d\n", Texture::num_textures);
 		return t;
 	} else {
 		return nullptr;
@@ -61,4 +60,8 @@ Texture* Texture::CreateTexture(){
 
 SDL_Texture* Texture::texture() const {
 	return texture_;
+}
+
+Uint32 Texture::avaliableTextures() {
+	return Texture::kMaxTexture - Texture::num_textures;
 }
