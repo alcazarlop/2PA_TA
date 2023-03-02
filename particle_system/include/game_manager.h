@@ -23,6 +23,12 @@ public:
 	Uint32 width() const;
 	Uint32 height() const;
 
+	void setMouseState();
+	int mouseX() const;
+	int mouseY() const;
+
+	bool BoxCollision(float x1, float y1, float w1, float h1, float x2, float y2, float w2, float h2);
+
 private:
 	GameManager();
 
@@ -31,6 +37,9 @@ private:
 
 	Uint32 width_;
 	Uint32 height_;
+
+	int mouseX_;
+	int mouseY_;
 	
 };
 

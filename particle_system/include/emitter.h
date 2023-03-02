@@ -39,6 +39,12 @@ public:
 
 	Sprite* sprite() const;
 
+	struct EmitterParams {
+		int emitterMode;
+		int emitterType;
+		int emitterSize;
+	} params_;
+
 private:
 	Sprite* sprite_;
 	std::vector<Particle*> pool_;

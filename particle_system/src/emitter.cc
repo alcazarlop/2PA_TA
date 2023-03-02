@@ -6,6 +6,9 @@ Emitter::Emitter(){
 	currentMode_ = 0;
 	currentType_ = 0;
 	totalParticles_ = 10;
+	params_.emitterMode = 0;
+	params_.emitterType = 0;
+	params_.emitterSize = 0;
 }
 
 Emitter::Emitter(const Emitter& copy){
@@ -14,6 +17,9 @@ Emitter::Emitter(const Emitter& copy){
 	currentMode_ = copy.currentMode_;
 	currentType_ = copy.currentType_;
 	totalParticles_ = copy.totalParticles_;
+	params_.emitterMode = copy.params_.emitterMode;
+	params_.emitterType = copy.params_.emitterType;
+	params_.emitterSize = copy.params_.emitterSize;
 }
 
 Emitter::~Emitter(){
@@ -27,6 +33,10 @@ void Emitter::init(SDL_Renderer* renderer, Vec3 pos, Uint8 mode, Uint8 type){
 	sprite_->set_position(pos.x, pos.y, pos.z);
 	currentMode_ = mode;
 	currentType_ = type;
+
+	params_.emitterMode = currentMode_;
+	params_.emitterType = currentType_;
+	params_.emitterSize = totalParticles_;
 
 	for(Uint32 i = 0; i < totalParticles_; ++i){
 		add_particle();

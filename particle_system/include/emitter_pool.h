@@ -13,6 +13,7 @@ public:
 
 	std::vector<Emitter*> pool_;
 	bool isBinded_;
+	int selectedEmitter_;
 };
 
 #endif

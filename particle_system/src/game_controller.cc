@@ -55,6 +55,15 @@ void GameController::input(SDL_Event* e){
 				}
 			break;
 			case SDL_MOUSEBUTTONDOWN:
+				for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
+					if(GameManager::Instance().BoxCollision((float)GameManager::Instance().mouseX(), (float)GameManager::Instance().mouseY(), 0.0f, 0.0f,
+						 emitter_pool_.pool_[i]->sprite()->position().x, emitter_pool_.pool_[i]->sprite()->position().y, 
+						 (float)emitter_pool_.pool_[i]->sprite()->texture()->width(), (float)emitter_pool_.pool_[i]->sprite()->texture()->height())
+						 && !emitter_pool_.isBinded_){
+
+						emitter_pool_.selectedEmitter_ = i;
+					}
+				}
 				emitter_pool_.isBinded_ = false; 
 			break;
 		}
@@ -62,7 +71,7 @@ void GameController::input(SDL_Event* e){
 }
 
 void GameController::update(){
-
+	GameManager::Instance().setMouseState();
 	switch(sceneChanger_){
 		case 0:
 			for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i)
@@ -87,8 +96,9 @@ void GameController::draw(){
 		case 0:
 			for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
 				emitter_pool_.pool_[i]->draw(GameManager::Instance().renderer());
-				EmitterManager(emitter_pool_.pool_[i]);
 			}
+			if(emitter_pool_.selectedEmitter_ >= 0)
+				EmitterManager(emitter_pool_.pool_[emitter_pool_.selectedEmitter_]);
 		break;
 		case 1:
 			cube_.draw(GameManager::Instance().renderer());

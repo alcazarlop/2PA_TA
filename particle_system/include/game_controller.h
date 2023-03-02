@@ -15,6 +15,8 @@
 #include "imgui_impl_sdlrenderer.h"
 #include "imgui_controller.h"
 
+#include <stdio.h>
+
 class GameController {
 
 public:

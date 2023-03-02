@@ -6,6 +6,8 @@ GameManager::GameManager() {
 	renderer_ = NULL;
 	width_ = 0;
 	height_ = 0;
+	mouseX_ = 0;
+	mouseY_ = 0;
 }
 
 GameManager::~GameManager() {}
@@ -50,3 +52,22 @@ Uint32 GameManager::width() const {
 Uint32 GameManager::height() const {
 	return height_;
 }
+
+int GameManager::mouseX() const {
+	return mouseX_;
+}
+
+int GameManager::mouseY() const {
+	return mouseY_;
+}
+
+void GameManager::setMouseState() {
+	SDL_GetMouseState(&mouseX_, &mouseY_);
+}
+
+bool GameManager::BoxCollision(float x1, float y1, float w1, float h1, float x2, float y2, float w2, float h2){
+	if(y1 + h1 < y2 || y1 > y2 + h2 || x1 + w1 < x2 || x1 > x2 + w2 ) 
+		return false;
+	return true;
+}
+
