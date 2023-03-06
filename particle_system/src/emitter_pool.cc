@@ -13,7 +13,5 @@ EmitterPool::EmitterPool(const EmitterPool& copy){
 }
 
 EmitterPool::~EmitterPool(){
-	for(unsigned int i = 0; i < pool_.size(); ++i)
-		delete pool_[i];
 	pool_.clear();
 }

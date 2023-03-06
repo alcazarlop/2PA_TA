@@ -23,7 +23,6 @@ public:
 	void add_particle();
 	void update();
 	void draw(SDL_Renderer* renderer);
-	void release();
 
 	void burst(Particle* particle, Uint32 index);
 	void firework(Particle* particle);

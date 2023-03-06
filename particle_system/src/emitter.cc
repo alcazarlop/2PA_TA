@@ -23,6 +23,10 @@ Emitter::Emitter(const Emitter& copy){
 }
 
 Emitter::~Emitter(){
+	delete sprite_;
+	for(Uint32 i = 0; i < totalParticles_; ++i){
+		delete pool_[i];
+	}
 	pool_.clear();
 }
 
@@ -95,13 +99,6 @@ void Emitter::draw(SDL_Renderer* renderer){
 		if(pool_[i]->params_.lifeTime >= pool_[i]->params_.spawnTime){
 			pool_[i]->entity()->draw(renderer);
 		}
-	}
-}
-
-void Emitter::release(){
-	delete sprite_;
-	for(Uint32 i = 0; i < totalParticles_; ++i){
-		delete pool_[i];
 	}
 }
 

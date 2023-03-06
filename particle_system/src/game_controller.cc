@@ -114,7 +114,6 @@ void GameController::draw(){
 void GameController::quit(){
 
 	for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
-		emitter_pool_.pool_[i]->release();
 		delete emitter_pool_.pool_[i];
 	}
 

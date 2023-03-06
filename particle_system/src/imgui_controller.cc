@@ -22,6 +22,9 @@ void SceneManager(int* scene, EmitterPool* emitter_pool){
 		emitter_pool->pool_.back()->sprite()->set_position(Vec3((float)gm.mouseX(), (float)gm.mouseY(), 0.0f));
 	}
 
+	if(*scene == 0)
+		ImGui::Text("Left-click over an emitter to selected it");
+
 	if(ImGui::Button("Change Scene"))
 		*scene == 0 ? *scene = 1: *scene = 0;
 
@@ -55,7 +58,12 @@ void EmitterManager(Emitter* emitter){
 	if(ImGui::Button("Submit")){
 		emitter->set_mode((Uint8)emitter->params_.emitterMode);
 		emitter->set_type((Uint8)emitter->params_.emitterType);
-		emitter->params_.emitterSize = MathUtils::Clamp(emitter->params_.emitterSize, 0, Texture::avaliableTextures());
+		if(emitter->params_.emitterType == 0){
+			emitter->params_.emitterSize = MathUtils::Clamp(emitter->params_.emitterSize, 0, 128);
+		} 
+		else {
+			emitter->params_.emitterSize = MathUtils::Clamp(emitter->params_.emitterSize, 0, Texture::avaliableTextures());
+		}
 		emitter->resize(emitter->params_.emitterSize);
 	}
 
