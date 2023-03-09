@@ -31,6 +31,7 @@ public:
 
 private:
 	GameManager();
+	GameManager(const GameManager& copy);
 
 	SDL_Renderer* renderer_;
 	SDL_Window* window_;

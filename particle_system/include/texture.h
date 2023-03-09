@@ -1,4 +1,5 @@
-//Author: Pablo Prieto Rodriguez
+///@author: Pablo Prieto Rodriguez
+
 #ifndef __TEXTURE_H__
 #define __TEXTURE_H__ 1
 
@@ -57,7 +58,7 @@ public:
 */
 
 	static Texture* CreateTexture();
-	static const Uint32 kMaxTexture = 128; 
+	static const Uint32 kMaxTexture = 32; 
 	static Uint32 avaliableTextures(); 
 
 	SDL_Texture* texture() const;

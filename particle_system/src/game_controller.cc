@@ -57,8 +57,8 @@ void GameController::input(SDL_Event* e){
 			case SDL_MOUSEBUTTONDOWN:
 				for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
 					if(GameManager::Instance().BoxCollision((float)GameManager::Instance().mouseX(), (float)GameManager::Instance().mouseY(), 0.0f, 0.0f,
-						 emitter_pool_.pool_[i]->sprite()->position().x, emitter_pool_.pool_[i]->sprite()->position().y, 
-						 (float)emitter_pool_.pool_[i]->sprite()->texture()->width(), (float)emitter_pool_.pool_[i]->sprite()->texture()->height())
+						 emitter_pool_.pool_[i]->position().x, emitter_pool_.pool_[i]->position().y, 
+						 (float)emitter_pool_.pool_[i]->texture()->width(), (float)emitter_pool_.pool_[i]->texture()->height())
 						 && !emitter_pool_.isBinded_){
 
 						emitter_pool_.selectedEmitter_ = i;

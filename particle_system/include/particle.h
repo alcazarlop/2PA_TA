@@ -1,4 +1,5 @@
-//Author: Manuel Alcazar Lopez
+///@author: Manuel Alcazar Lopez
+
 #ifndef __PARTICLE_H__
 #define __PARTICLE_H__ 1
 
@@ -10,17 +11,15 @@
 
 class Vec3;
 
-class Particle {
+class Particle : public Entity {
 public: 
 	Particle();
 	Particle(const Particle& copy);
 	~Particle();
 
 	void init(Uint8 type);
-	void draw(SDL_Renderer* renderer);
+	void draw(SDL_Renderer* renderer) override;
 	void update();
-
-	Entity* entity() const;
 
 	struct ParticleParams {
 		Vec3 velocity;
@@ -29,9 +28,6 @@ public:
 		float spawnTime;
 		float maxTimeAlive;
 	} params_;
-
-private:
-	Entity* entity_;
 
 };
 

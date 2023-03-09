@@ -10,6 +10,8 @@ GameManager::GameManager() {
 	mouseY_ = 0;
 }
 
+GameManager::GameManager(const GameManager& copy) {}
+
 GameManager::~GameManager() {}
 
 Sint8 GameManager::init(Uint32 width, Uint32 height){

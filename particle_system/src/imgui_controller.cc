@@ -19,7 +19,7 @@ void SceneManager(int* scene, EmitterPool* emitter_pool){
 	}
 
 	if(emitter_pool->isBinded_){
-		emitter_pool->pool_.back()->sprite()->set_position(Vec3((float)gm.mouseX(), (float)gm.mouseY(), 0.0f));
+		emitter_pool->pool_.back()->set_position(Vec3((float)gm.mouseX(), (float)gm.mouseY(), 0.0f));
 	}
 
 	if(*scene == 0)
@@ -58,12 +58,7 @@ void EmitterManager(Emitter* emitter){
 	if(ImGui::Button("Submit")){
 		emitter->set_mode((Uint8)emitter->params_.emitterMode);
 		emitter->set_type((Uint8)emitter->params_.emitterType);
-		if(emitter->params_.emitterType == 0){
-			emitter->params_.emitterSize = MathUtils::Clamp(emitter->params_.emitterSize, 0, 128);
-		} 
-		else {
-			emitter->params_.emitterSize = MathUtils::Clamp(emitter->params_.emitterSize, 0, Texture::avaliableTextures());
-		}
+		emitter->params_.emitterSize = MathUtils::Clamp(emitter->params_.emitterSize, 0, 128);
 		emitter->resize(emitter->params_.emitterSize);
 	}
 

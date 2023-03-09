@@ -2,7 +2,7 @@
 #include "emitter.h"
 
 Emitter::Emitter(){
-	sprite_ = nullptr;
+	tex_ = NULL;
 	currentMode_ = 0;
 	currentType_ = 0;
 	totalParticles_ = 10;
@@ -12,7 +12,7 @@ Emitter::Emitter(){
 }
 
 Emitter::Emitter(const Emitter& copy){
-	sprite_ = copy.sprite_;
+	tex_ = copy.tex_;
 	pool_ = copy.pool_;
 	currentMode_ = copy.currentMode_;
 	currentType_ = copy.currentType_;
@@ -23,18 +23,14 @@ Emitter::Emitter(const Emitter& copy){
 }
 
 Emitter::~Emitter(){
-	delete sprite_;
 	for(Uint32 i = 0; i < totalParticles_; ++i){
 		delete pool_[i];
 	}
 	pool_.clear();
+	Entity::~Entity();
 }
 
 void Emitter::init(SDL_Renderer* renderer, Vec3 pos, Uint8 mode, Uint8 type){
-	sprite_ = new Sprite();
-	Uint32 buffer = 0xFFFFFFFF;
-	sprite_->loadFromBuffer(32, 32, renderer, &buffer);
-	sprite_->set_position(pos.x, pos.y, pos.z);
 	currentMode_ = mode;
 	currentType_ = type;
 
@@ -94,17 +90,16 @@ void Emitter::update(){
 }
 
 void Emitter::draw(SDL_Renderer* renderer){
-	sprite_->draw(renderer);
 	for(Uint32 i = 0; i < totalParticles_; ++i){
 		if(pool_[i]->params_.lifeTime >= pool_[i]->params_.spawnTime){
-			pool_[i]->entity()->draw(renderer);
+			pool_[i]->draw(renderer);
 		}
 	}
 }
 
 void Emitter::burst(Particle* particle, Uint32 index){
-	particle->entity()->set_position(sprite_->position() + sprite_->texture()->width() * 0.5f);
-	particle->entity()->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
+	particle->set_position(position() + texture()->width() * 0.5f);
+	particle->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
 	particle->params_.velocity = Vec3(cosf((6.28f / pool_.size() * index)), sinf((6.28f / pool_.size() * index)), 0.0f);
 	particle->params_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
 	particle->params_.lifeTime = 0.0f;
@@ -113,8 +108,8 @@ void Emitter::burst(Particle* particle, Uint32 index){
 }
 
 void Emitter::firework(Particle* particle){
-	particle->entity()->set_position(sprite_->position() + sprite_->texture()->width() * 0.5f);
-	particle->entity()->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
+	particle->set_position(position() + texture()->width() * 0.5f);
+	particle->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
 	particle->params_.velocity = Vec3(MathUtils::RandomFloat(-1.0f, 1.0f), -1.0f, 0.0f);
 	particle->params_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
 	particle->params_.lifeTime = 0.0f;
@@ -124,8 +119,8 @@ void Emitter::firework(Particle* particle){
 
 void Emitter::smoke(Particle* particle){
 	static int smoke_count = 0;
-	particle->entity()->set_position(sprite_->position() + sprite_->texture()->width() * 0.5f);
-	particle->entity()->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
+	particle->set_position(position() + texture()->width() * 0.5f);
+	particle->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
 	particle->params_.velocity = Vec3(MathUtils::RandomFloat(-0.5, 0.5f), -1.0f, 0.0f);
 	particle->params_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
 	particle->params_.lifeTime = 0.0f;
@@ -136,8 +131,8 @@ void Emitter::smoke(Particle* particle){
 
 void Emitter::waterfall(Particle* particle){
 	static int waterfall_count = 0;
-	particle->entity()->set_position(Vec3(MathUtils::RandomFloat(0.0f, (float)GameManager::Instance().width()), 0.0f, 0.0f));
-	particle->entity()->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
+	particle->set_position(Vec3(MathUtils::RandomFloat(0.0f, (float)GameManager::Instance().width()), 0.0f, 0.0f));
+	particle->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
 	particle->params_.velocity = Vec3(0.0f, 1.0f, 0.0f);
 	particle->params_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
 	particle->params_.lifeTime = 0.0f;
@@ -166,6 +161,11 @@ Uint8 Emitter::type() const {
 	return currentType_;
 }
 
-Sprite* Emitter::sprite() const {
-	return sprite_;
+void Emitter::set_texture(Texture* tex){
+	if(tex_ != NULL)
+		tex_ = tex;
+}
+
+Texture* Emitter::texture() const {
+	return tex_;
 }
