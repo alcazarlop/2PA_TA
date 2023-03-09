@@ -13,6 +13,7 @@ public:
 	Sprite(const Sprite& copy);
 	virtual ~Sprite();
 
+	void init() override;
 	void draw(SDL_Renderer* renderer) override;
 	void set_texture(Texture* tex);
 	Texture* texture() const;

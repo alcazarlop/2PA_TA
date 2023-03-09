@@ -11,14 +11,13 @@
 
 class Vec3;
 
-class Particle : public Entity {
+class Particle : public Sprite {
 public: 
 	Particle();
 	Particle(const Particle& copy);
 	~Particle();
 
-	void init(Uint8 type);
-	void draw(SDL_Renderer* renderer) override;
+	void init();
 	void update();
 
 	struct ParticleParams {

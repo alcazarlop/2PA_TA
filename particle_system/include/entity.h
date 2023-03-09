@@ -1,4 +1,5 @@
-//Author: Pablo Prieto Rodriguez
+///@author: Pablo Prieto Rodriguez
+
 #ifndef __ENTITY_H__
 #define __ENTITY_H__ 1
 
@@ -12,6 +13,7 @@ public:
 	Entity(const Entity& copy);
 	virtual ~Entity();
 
+	virtual void init() = 0;
 	virtual void draw(SDL_Renderer* renderer) = 0;
 
 /** @brief Entity's position setter with vector

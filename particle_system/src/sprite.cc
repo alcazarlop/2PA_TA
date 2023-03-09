@@ -14,7 +14,10 @@ Sprite::Sprite(const Sprite& copy){
 
 Sprite::~Sprite(){
 	Entity::~Entity();
-	tex_->~Texture();
+}
+
+void Sprite::init(){
+	
 }
 
 void Sprite::draw(SDL_Renderer* renderer){

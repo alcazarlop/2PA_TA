@@ -1,4 +1,5 @@
-//Author: Pablo Prieto Rodriguez
+///@author: Pablo Prieto Rodriguez
+
 #ifndef __IMGUI_CONTROLLER_H__
 #define __IMGUI_CONTROLLER_H__ 1
 
@@ -12,7 +13,7 @@
 #include "math_utils.h"
 #include "texture.h"
 
-void SceneManager(int* scene, EmitterPool* emitter_pool);
-void EmitterManager(Emitter* emitter);
+void SceneManager(int* scene, EmitterPool* emitter_pool, Texture* texture);
+void EmitterManager(Emitter* emitter, Texture* texture);
 
 #endif

@@ -83,6 +83,7 @@ private:
 
 	EmitterPool emitter_pool_;
 	Cube cube_;
+	Texture* texture_;
 };
 
 #endif

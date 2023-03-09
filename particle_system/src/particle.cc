@@ -18,40 +18,14 @@ Particle::Particle(const Particle& copy){
 }
 
 Particle::~Particle(){
-	Entity::~Entity();
+	Sprite::~Sprite();
 }
 
-void Particle::init(Uint8 type){
-	// switch(type){
-	// 	case 0: 
-	// 		{
-	// 			Path* path = new Path();
-	// 			path->set_scale(10.0f, 10.0f, 10.0f);
-	// 			switch(rand()%3){
-	// 				case 0: path->loadSquare(); break;
-	// 				case 1: path->loadCircle(); break;
-	// 				case 2: path->loadStar(); break;
-	// 				default: path->loadSquare(); break;
-	// 			}
-	// 			entity_ = path;
-	// 			break;
-	// 		}
-	// 	case 1:
-	// 		{
-	// 			Sprite* sprite = new Sprite();
-	// 			sprite->loadFromFile("../data/cuadrado.png", GameManager::Instance().renderer());
-	// 			sprite->set_scale(1.0f, 1.0f, 1.0f);
-	// 			entity_ = sprite;
-	// 			break;
-	// 		}
-	// }
-
-}
-
-void Particle::draw(SDL_Renderer* renderer) {
-
+void Particle::init(){
+	Sprite::init();
+	
 }
 
 void Particle::update(){
-	// entity_->set_position(entity_->position() + (params_.velocity * params_.speed));
+	set_position(position() + (params_.velocity * params_.speed));
 }

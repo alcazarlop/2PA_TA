@@ -14,15 +14,15 @@
 
 class Vec3;
 
-class Emitter : public Entity{
+class Emitter : public Path {
 public:
 	Emitter();
 	Emitter(const Emitter& copy);
 	~Emitter();
 
-	void init(SDL_Renderer* renderer, Vec3 pos, Uint8 mode, Uint8 type);
-	void resize(Uint32 new_size);
-	void add_particle();
+	void init() override;
+	void resize(Uint32 new_size, Texture* texture);
+	void add_particle(Texture* texture);
 	void update();
 	void draw(SDL_Renderer* renderer) override;
 
@@ -34,16 +34,12 @@ public:
 	void set_mode(Uint8 mode);
 	void set_type(Uint8 type);
 
-	void set_texture(Texture* tex);
-	Texture* texture() const;
-
 	Uint32 size() const;
 	Uint8 mode() const;
 	Uint8 type() const;
 
 	struct EmitterParams {
 		int emitterMode;
-		int emitterType;
 		int emitterSize;
 	} params_;
 
@@ -51,7 +47,6 @@ private:
 	std::vector<Particle*> pool_;
 
 	Uint8 currentMode_;
-	Uint8 currentType_;
 	Uint32 totalParticles_;
 
 	Texture* tex_;

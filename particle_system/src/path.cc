@@ -16,6 +16,15 @@ Path::~Path(){
 	Entity::~Entity();
 }
 
+void Path::init(){
+	switch(rand()%3){
+		case 0: loadSquare(); break;
+		case 1: loadCircle(); break;
+		case 2: loadStar(); break;
+		default: loadSquare(); break;
+	}
+}
+
 void Path::add_vertices(float x, float y, float z){
 	vertices_.push_back(Vec3(x, y, z));
 }
@@ -25,10 +34,10 @@ void Path::add_vertices(const Vec3& vert){
 }
 
 void Path::loadSquare(){
-	add_vertices(-0.5f, -0.5f, 0.0f);
-	add_vertices(-0.5f, 0.5f, 0.0f);
-	add_vertices(0.5f, 0.5f, 0.0f);
-	add_vertices(0.5f, -0.5f, 0.0f);
+	add_vertices(-1.0f, -1.0f, 0.0f);
+	add_vertices(-1.0f, 1.0f, 0.0f);
+	add_vertices(1.0f, 1.0f, 0.0f);
+	add_vertices(1.0f, -1.0f, 0.0f);
 }
 
 void Path::loadCircle(){
@@ -42,9 +51,9 @@ void Path::loadStar(){
 	Uint32 total_points = 10;
 	for(Uint32 i = 0; i < total_points; ++i){
 		if(i%2 == 0){
-			add_vertices(cosf((6.28f / total_points) * i) * 1.0f, sinf((6.28f / total_points) * i) * 1.0f, 0.0f);
+			add_vertices(cosf((6.28f / total_points) * i) * 1.8f, sinf((6.28f / total_points) * i) * 1.8f, 0.0f);
 		} else {
-			add_vertices(cosf((6.28f / total_points) * i) * 0.5f, sinf((6.28f / total_points) * i) * 0.5f, 0.0f);
+			add_vertices(cosf((6.28f / total_points) * i) * 0.9f, sinf((6.28f / total_points) * i) * 0.9f, 0.0f);
 		}
 	}
 }

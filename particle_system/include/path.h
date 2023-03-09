@@ -1,4 +1,5 @@
-//Author: Pablo Prieto Rodriguez
+///@author: Pablo Prieto Rodriguez
+
 #ifndef __PATH_H__
 #define __PATH_H__ 1
 
@@ -16,6 +17,8 @@ public:
 	Path();
 	Path(const Path& copy);
 	virtual ~Path();
+
+	void init() override;
 
 /** @brief Path add vertices with values
 *
