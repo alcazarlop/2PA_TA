@@ -5,8 +5,6 @@
 
 #include "entity.h"
 
-// GUSTAVO: Why is this not an Entity?? Why is functionality 
-// being re-implemented and re-implemented?
 class Cube : public Entity{
 
 public:
@@ -14,7 +12,7 @@ public:
 	Cube(const Cube& other);
 	virtual ~Cube();
 
-	void init() override;
+	void init(Vec3 pos, Vec3 scale) override;
 	void draw(SDL_Renderer* render) override;
 	void update() override;
 

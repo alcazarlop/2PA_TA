@@ -14,6 +14,6 @@
 #include "texture.h"
 
 void SceneManager(int* scene, EmitterPool* emitter_pool, Texture* texture);
-void EmitterManager(Emitter* emitter, Texture* texture);
+void EmitterManager(Emitter* emitter, Texture* texture, Uint32 index);
 
 #endif

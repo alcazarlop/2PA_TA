@@ -13,7 +13,7 @@ public:
 	Sprite(const Sprite& copy);
 	virtual ~Sprite();
 
-	void init() override;
+	void init(Vec3 pos, Vec3 scale) override;
 	void draw(SDL_Renderer* renderer) override;
 	void update() override;
 

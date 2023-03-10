@@ -20,10 +20,10 @@ public:
 	Emitter(const Emitter& copy);
 	virtual ~Emitter();
 
-	void init() override;
+	void init(Vec3 pos, Vec3 scale) override;
 	void resize(Uint32 new_size, Texture* texture);
 	void add_particle(Texture* texture);
-	void update();
+	void update() override;
 	void draw(SDL_Renderer* renderer) override;
 
 	void burst(Particle* particle, Uint32 index);
@@ -41,15 +41,13 @@ public:
 	struct EmitterParams {
 		int emitterMode;
 		int emitterSize;
-	} params_;
+	} e_params_;
 
 private:
 	std::vector<Entity*> pool_;
 
 	Uint8 currentMode_;
 	Uint32 totalParticles_;
-
-	Texture* tex_;
 };
 
 #endif

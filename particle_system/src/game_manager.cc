@@ -67,9 +67,9 @@ void GameManager::setMouseState() {
 	SDL_GetMouseState(&mouseX_, &mouseY_);
 }
 
-bool GameManager::BoxCollision(float x1, float y1, float w1, float h1, float x2, float y2, float w2, float h2){
-	if(y1 + h1 < y2 || y1 > y2 + h2 || x1 + w1 < x2 || x1 > x2 + w2 ) 
-		return false;
-	return true;
+bool GameManager::CircularCollision(Vec3 p1, Vec3 p2, float r1, float r2){
+	Vec3 temp = Vec3(p1 - p2);
+	float length = temp.Magnitude();
+	return length <= r1 + r2;
 }
 

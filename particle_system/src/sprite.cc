@@ -16,7 +16,10 @@ Sprite::~Sprite(){
 	Entity::~Entity();
 }
 
-void Sprite::init(){}
+void Sprite::init(Vec3 pos, Vec3 scale){
+	set_position(pos);
+	set_scale(scale);
+}
 
 void Sprite::draw(SDL_Renderer* renderer){
 	if(tex_ != NULL && enabled()){

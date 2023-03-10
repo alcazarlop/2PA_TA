@@ -4,6 +4,7 @@
 #define __GAME_MANAGER_H__ 1
 
 #include <SDL.h>
+#include "vector_3.h"
 
 class GameManager {
 public:	
@@ -27,7 +28,7 @@ public:
 	int mouseX() const;
 	int mouseY() const;
 
-	bool BoxCollision(float x1, float y1, float w1, float h1, float x2, float y2, float w2, float h2);
+	bool CircularCollision(Vec3 p1, Vec3 p2, float r1, float r2);
 
 private:
 	GameManager();

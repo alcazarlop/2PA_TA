@@ -18,7 +18,7 @@ public:
 	Path(const Path& copy);
 	virtual ~Path();
 
-	void init() override;
+	void init(Vec3 pos, Vec3 scale) override;
 
 /** @brief Path add vertices with values
 *

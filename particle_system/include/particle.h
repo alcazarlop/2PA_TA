@@ -17,7 +17,7 @@ public:
 	Particle(const Particle& copy);
 	virtual ~Particle();
 
-	void init() override;
+	void init(Vec3 pos, Vec3 scale) override;
 	void update() override;
 
 	struct ParticleParams {
@@ -26,7 +26,10 @@ public:
 		float lifeTime;
 		float spawnTime;
 		float maxTimeAlive;
-	} params_;
+	};
+
+	ParticleParams params_; 
+	ParticleParams startParams_;
 
 };
 

@@ -9,8 +9,7 @@ void SceneManager(int* scene, EmitterPool* emitter_pool, Texture* texture){
 	if(ImGui::Button("Create Emitter")){
 		if(Texture::avaliableTextures() >= 1){
 			Emitter* new_emitter = new Emitter();
-			new_emitter->init();
-			new_emitter->set_position(Vec3((float)gm.mouseX(), (float)gm.mouseY(), 0.0f));	
+			new_emitter->init(Vec3((float)gm.mouseX(), (float)gm.mouseY(), 0.0f), Vec3(10.0f, 10.0f, 0.0f));
 			for(Uint32 i = 0; i < new_emitter->particle_number(); ++i){
 				new_emitter->add_particle(texture);
 			}	
@@ -40,24 +39,25 @@ void SceneManager(int* scene, EmitterPool* emitter_pool, Texture* texture){
 	ImGui::End();
 }
 
-void EmitterManager(Emitter* emitter, Texture* texture){
+void EmitterManager(Emitter* emitter, Texture* texture, Uint32 index){
 
 	ImGui::Begin("Emitter Manager");
 
-	ImGui::DragInt("Total particles", &emitter->params_.emitterSize);
+	ImGui::Text("Emitter %d selected", index);
+	ImGui::DragInt("Total particles", &emitter->e_params_.emitterSize);
 
  	ImGui::Text("Emitter Mode");
-	ImGui::RadioButton("Burst", &emitter->params_.emitterMode, 0); 
+	ImGui::RadioButton("Burst", &emitter->e_params_.emitterMode, 0); 
 	ImGui::SameLine();
-	ImGui::RadioButton("Smoke", &emitter->params_.emitterMode, 2);
-	ImGui::RadioButton("Firework", &emitter->params_.emitterMode, 1);
+	ImGui::RadioButton("Smoke", &emitter->e_params_.emitterMode, 2);
+	ImGui::RadioButton("Firework", &emitter->e_params_.emitterMode, 1);
 	ImGui::SameLine();
-	ImGui::RadioButton("Waterfall", &emitter->params_.emitterMode, 3);
+	ImGui::RadioButton("Waterfall", &emitter->e_params_.emitterMode, 3);
 
 	if(ImGui::Button("Submit")){
-		emitter->set_mode((Uint8)emitter->params_.emitterMode);
-		emitter->params_.emitterSize = MathUtils::Clamp(emitter->params_.emitterSize, 0, 128);
-		emitter->resize(emitter->params_.emitterSize, texture);
+		emitter->set_mode((Uint8)emitter->e_params_.emitterMode);
+		emitter->e_params_.emitterSize = MathUtils::Clamp(emitter->e_params_.emitterSize, 0, 128);
+		emitter->resize(emitter->e_params_.emitterSize, texture);
 	}
 
 	ImGui::End();

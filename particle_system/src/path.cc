@@ -16,13 +16,10 @@ Path::~Path(){
 	Entity::~Entity();
 }
 
-void Path::init(){
-	switch(rand()%3){
-		case 0: loadSquare(); break;
-		case 1: loadCircle(); break;
-		case 2: loadStar(); break;
-		default: loadSquare(); break;
-	}
+void Path::init(Vec3 pos, Vec3 scale){
+	set_position(pos);
+	set_scale(scale);
+	loadCircle();
 }
 
 void Path::add_vertices(float x, float y, float z){

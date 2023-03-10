@@ -12,7 +12,9 @@ Cube::Cube(const Cube& other){
 
 Cube::~Cube(){}
 
-void Cube::init(){
+void Cube::init(Vec3 pos, Vec3 scale){
+	set_position(pos);
+	set_scale(scale);
 	points_[0] = {-1.0f, -1.0f, 1.0f};
 	points_[1] = {1.0f, -1.0f, 1.0f};
 	points_[2] = {1.0f, 1.0f, 1.0f};

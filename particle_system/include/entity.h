@@ -13,7 +13,7 @@ public:
 	Entity(const Entity& copy);
 	virtual ~Entity();
 
-	virtual void init() = 0;
+	virtual void init(Vec3 pos, Vec3 scale) = 0;
 	virtual void update() = 0;
 	virtual void draw(SDL_Renderer* renderer) = 0;
 

@@ -11,21 +11,26 @@ Particle::Particle(){
 
 Particle::Particle(const Particle& copy){
 	params_ = copy.params_;
+	startParams_ = copy.startParams_;
 }
 
 Particle::~Particle(){
 	Sprite::~Sprite();
 }
 
-void Particle::init(){
-	Sprite::init();
+void Particle::init(Vec3 pos, Vec3 scale){
+	Sprite::init(pos, scale);
 }
 
 void Particle::update(){
-	if(params_.lifeTime >= params_.spawnTime){
+	if(params_.lifeTime >= params_.spawnTime && enabled()){
 		if(params_.lifeTime < params_.maxTimeAlive){
 			set_position(position() + (params_.velocity * params_.speed));
 		} 
+		else {
+			params_ = startParams_;
+			set_enable(false);
+		}
 	}
 	params_.lifeTime += 0.016f;
 }

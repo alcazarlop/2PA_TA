@@ -31,9 +31,8 @@ Sint8 GameController::init(){
   ImGui_ImplSDL2_InitForSDLRenderer(GameManager::Instance().window());
   ImGui_ImplSDLRenderer_Init(GameManager::Instance().renderer());
 
-  cube_.init();
-  cube_.set_position(Vec3(GameManager::Instance().width() / 2.0f, GameManager::Instance().height() / 2.0f, 0.0f));
-  cube_.set_scale(Vec3(50.0f, 50.0f, 0.0f));
+  cube_.init(Vec3(GameManager::Instance().width() / 2.0f, GameManager::Instance().height() / 2.0f, 0.0f),
+  								Vec3(50.0f, 50.0f, 0.0f));
 
   texture_ = Texture::CreateTexture();
   texture_->loadFromFile("../data/cuadrado.png", GameManager::Instance().renderer());
@@ -59,9 +58,9 @@ void GameController::input(SDL_Event* e){
 			break;
 			case SDL_MOUSEBUTTONDOWN:
 				for(Uint32 i = 0; i < emitter_pool_.pool_.size(); ++i){
-					if(GameManager::Instance().BoxCollision((float)GameManager::Instance().mouseX(), (float)GameManager::Instance().mouseY(), 0.0f, 0.0f,
-						 emitter_pool_.pool_[i]->position().x, emitter_pool_.pool_[i]->position().y, 
-						 emitter_pool_.pool_[i]->scale().x, emitter_pool_.pool_[i]->scale().y)
+					if(GameManager::Instance().CircularCollision(Vec3((float)GameManager::Instance().mouseX(), (float)GameManager::Instance().mouseY(), 0.0f),
+						 emitter_pool_.pool_[i]->position(), 
+						 emitter_pool_.pool_[i]->scale().x, 1.0f)
 						 && !emitter_pool_.isBinded_){
 
 						emitter_pool_.selectedEmitter_ = i;
@@ -101,7 +100,7 @@ void GameController::draw(){
 				emitter_pool_.pool_[i]->draw(GameManager::Instance().renderer());
 			}
 			if(emitter_pool_.selectedEmitter_ >= 0)
-				EmitterManager(emitter_pool_.pool_[emitter_pool_.selectedEmitter_], texture_);
+				EmitterManager(emitter_pool_.pool_[emitter_pool_.selectedEmitter_], texture_, emitter_pool_.selectedEmitter_);
 		break;
 		case 1:
 			cube_.draw(GameManager::Instance().renderer());

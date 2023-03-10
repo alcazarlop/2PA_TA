@@ -4,16 +4,15 @@
 Emitter::Emitter(){
 	currentMode_ = 0;
 	totalParticles_ = 10;
-	params_.emitterMode = 0;
-	params_.emitterSize = 0;
+	e_params_.emitterMode = 0;
+	e_params_.emitterSize = 0;
 }
 
 Emitter::Emitter(const Emitter& copy){
 	pool_ = copy.pool_;
 	currentMode_ = copy.currentMode_;
 	totalParticles_ = copy.totalParticles_;
-	params_.emitterMode = copy.params_.emitterMode;
-	params_.emitterSize = copy.params_.emitterSize;
+	e_params_ = copy.e_params_;
 }
 
 Emitter::~Emitter(){
@@ -24,11 +23,10 @@ Emitter::~Emitter(){
 	Path::~Path();
 }
 
-void Emitter::init(){
-	Path::init();
-	set_scale(10.0f, 10.0f, 0.0f);
-	params_.emitterMode = currentMode_;
-	params_.emitterSize = totalParticles_;
+void Emitter::init(Vec3 pos, Vec3 scale){
+	Path::init(pos, scale);
+	e_params_.emitterMode = currentMode_;
+	e_params_.emitterSize = totalParticles_;
 }
 
 void Emitter::resize(Uint32 new_size, Texture* texture){
@@ -54,13 +52,18 @@ void Emitter::add_particle(Texture* texture){
 			default: burst(particle, i); break;
 		}
 	}
-	particle->init();
+	particle->init(position(), Vec3(1.0f, 1.0f, 0.0f));
 	pool_.push_back(particle);
 }
 
 void Emitter::update(){
 	for(Uint32 i = 0; i < totalParticles_; ++i){
 		pool_[i]->update();
+		if(!pool_[i]->enabled()){
+			if(currentMode_ != 3) pool_[i]->set_position(position());
+			else pool_[i]->set_position(Vec3(MathUtils::RandomFloat(0.0f, (float)GameManager::Instance().width()), 0.0f, 0.0f));
+			pool_[i]->set_enable(true);
+		}
 	}
 }
 
@@ -73,45 +76,41 @@ void Emitter::draw(SDL_Renderer* renderer){
 
 void Emitter::burst(Particle* particle, Uint32 index){
 	particle->set_position(position());
-	particle->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
-	particle->params_.velocity = Vec3(cosf((6.28f / pool_.size() * index)), sinf((6.28f / pool_.size() * index)), 0.0f);
-	particle->params_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
-	particle->params_.lifeTime = 0.0f;
-	particle->params_.spawnTime = -1.0f;
-	particle->params_.maxTimeAlive = 1.0f;
+	particle->startParams_.velocity = Vec3(cosf((6.28f / pool_.size() * index)), sinf((6.28f / pool_.size() * index)), 0.0f);
+	particle->startParams_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
+	particle->startParams_.lifeTime = 0.0f;
+	particle->startParams_.spawnTime = -1.0f;
+	particle->startParams_.maxTimeAlive = 1.0f;
 }
 
 void Emitter::firework(Particle* particle){
 	particle->set_position(position());
-	particle->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
-	particle->params_.velocity = Vec3(MathUtils::RandomFloat(-1.0f, 1.0f), -1.0f, 0.0f);
-	particle->params_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
-	particle->params_.lifeTime = 0.0f;
-	particle->params_.spawnTime = -1.0f;
-	particle->params_.maxTimeAlive = 1.0f;
+	particle->startParams_.velocity = Vec3(MathUtils::RandomFloat(-1.0f, 1.0f), -1.0f, 0.0f);
+	particle->startParams_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
+	particle->startParams_.lifeTime = 0.0f;
+	particle->startParams_.spawnTime = -1.0f;
+	particle->startParams_.maxTimeAlive = 1.0f;
 }
 
 void Emitter::smoke(Particle* particle){
 	static int smoke_count = 0;
 	particle->set_position(position());
-	particle->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
-	particle->params_.velocity = Vec3(MathUtils::RandomFloat(-0.5, 0.5f), -1.0f, 0.0f);
-	particle->params_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
-	particle->params_.lifeTime = 0.0f;
-	smoke_count == 0 ? particle->params_.spawnTime = 0.0f : particle->params_.spawnTime = MathUtils::RandomFloat(0.5f, 1.0f);
-	particle->params_.maxTimeAlive = particle->params_.spawnTime + MathUtils::RandomFloat(0.8f, 1.2f);
+	particle->startParams_.velocity = Vec3(MathUtils::RandomFloat(-0.5, 0.5f), -1.0f, 0.0f);
+	particle->startParams_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
+	particle->startParams_.lifeTime = 0.0f;
+	smoke_count == 0 ? particle->startParams_.spawnTime = 0.0f : particle->startParams_.spawnTime = MathUtils::RandomFloat(0.5f, 1.0f);
+	particle->startParams_.maxTimeAlive = particle->startParams_.spawnTime + MathUtils::RandomFloat(0.8f, 1.2f);
 	smoke_count++;
 }
 
 void Emitter::waterfall(Particle* particle){
 	static int waterfall_count = 0;
 	particle->set_position(Vec3(MathUtils::RandomFloat(0.0f, (float)GameManager::Instance().width()), 0.0f, 0.0f));
-	particle->set_rotation(0.0f, 0.0f, MathUtils::RandomFloat(0.0f, 6.28f));
-	particle->params_.velocity = Vec3(0.0f, 1.0f, 0.0f);
-	particle->params_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
-	particle->params_.lifeTime = 0.0f;
-	waterfall_count == 0 ? particle->params_.spawnTime = 0.0f : particle->params_.spawnTime = MathUtils::RandomFloat(0.5f, 1.0f);
-	particle->params_.maxTimeAlive = particle->params_.spawnTime + MathUtils::RandomFloat(2.0f, 4.0f);
+	particle->startParams_.velocity = Vec3(0.0f, 1.0f, 0.0f);
+	particle->startParams_.speed = MathUtils::RandomFloat(2.0f, 5.0f);
+	particle->startParams_.lifeTime = 0.0f;
+	waterfall_count == 0 ? particle->startParams_.spawnTime = 0.0f : particle->startParams_.spawnTime = MathUtils::RandomFloat(0.5f, 1.0f);
+	particle->startParams_.maxTimeAlive = particle->startParams_.spawnTime + MathUtils::RandomFloat(2.0f, 4.0f);
 	waterfall_count++;
 }
 
