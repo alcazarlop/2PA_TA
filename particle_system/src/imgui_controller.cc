@@ -11,7 +11,7 @@ void SceneManager(int* scene, EmitterPool* emitter_pool, Texture* texture){
 			Emitter* new_emitter = new Emitter();
 			new_emitter->init();
 			new_emitter->set_position(Vec3((float)gm.mouseX(), (float)gm.mouseY(), 0.0f));	
-			for(Uint32 i = 0; i < new_emitter->size(); ++i){
+			for(Uint32 i = 0; i < new_emitter->particle_number(); ++i){
 				new_emitter->add_particle(texture);
 			}	
 			emitter_pool->pool_.push_back(new_emitter);

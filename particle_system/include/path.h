@@ -100,6 +100,8 @@ public:
 */
 	Vec4 color() const;
 
+	void update() override;
+
 private:
 	std::vector<Vec3> vertices_;
 	Vec4 color_;

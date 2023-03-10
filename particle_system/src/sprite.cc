@@ -16,9 +16,7 @@ Sprite::~Sprite(){
 	Entity::~Entity();
 }
 
-void Sprite::init(){
-	
-}
+void Sprite::init(){}
 
 void Sprite::draw(SDL_Renderer* renderer){
 	if(tex_ != NULL && enabled()){
@@ -26,6 +24,8 @@ void Sprite::draw(SDL_Renderer* renderer){
 		SDL_RenderCopyExF(renderer, tex_->texture(), NULL, &dstRect, rotation_.y, NULL, SDL_FLIP_NONE);
 	}
 }
+
+void Sprite::update(){}
 
 void Sprite::set_texture(Texture* tex){
 	if(tex != NULL)

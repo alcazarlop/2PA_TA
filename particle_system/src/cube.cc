@@ -23,6 +23,10 @@ void Cube::init(){
 	points_[7] = {-1.0f, 1.0f, -1.0f};
 }
 
+void Cube::update(){
+	set_rotation(Vec3((float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f)));
+}
+
 void Cube::draw(SDL_Renderer* render){
 
 	Mat4 mat_ = mat_.Identity();

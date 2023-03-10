@@ -10,11 +10,7 @@ Particle::Particle(){
 }
 
 Particle::Particle(const Particle& copy){
-	params_.velocity = copy.params_.velocity;
-	params_.speed = copy.params_.speed;
-	params_.lifeTime = copy.params_.lifeTime;
-	params_.spawnTime = copy.params_.spawnTime;
-	params_.maxTimeAlive = copy.params_.maxTimeAlive;
+	params_ = copy.params_;
 }
 
 Particle::~Particle(){
@@ -23,9 +19,13 @@ Particle::~Particle(){
 
 void Particle::init(){
 	Sprite::init();
-	
 }
 
 void Particle::update(){
-	set_position(position() + (params_.velocity * params_.speed));
+	if(params_.lifeTime >= params_.spawnTime){
+		if(params_.lifeTime < params_.maxTimeAlive){
+			set_position(position() + (params_.velocity * params_.speed));
+		} 
+	}
+	params_.lifeTime += 0.016f;
 }

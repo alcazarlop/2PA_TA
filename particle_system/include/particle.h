@@ -15,10 +15,10 @@ class Particle : public Sprite {
 public: 
 	Particle();
 	Particle(const Particle& copy);
-	~Particle();
+	virtual ~Particle();
 
-	void init();
-	void update();
+	void init() override;
+	void update() override;
 
 	struct ParticleParams {
 		Vec3 velocity;

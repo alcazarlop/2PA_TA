@@ -15,6 +15,8 @@ public:
 
 	void init() override;
 	void draw(SDL_Renderer* renderer) override;
+	void update() override;
+
 	void set_texture(Texture* tex);
 	Texture* texture() const;
 

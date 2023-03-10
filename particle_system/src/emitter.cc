@@ -44,37 +44,23 @@ void Emitter::resize(Uint32 new_size, Texture* texture){
 
 void Emitter::add_particle(Texture* texture){
 	Particle* particle = new Particle();
-	particle->init();
 	particle->set_texture(texture);
-	pool_.push_back(particle);
 	for(Uint32 i = 0; i < totalParticles_; ++i){
 		switch(currentMode_){
 			case 0: burst(particle, i); break;
 			case 1:	firework(particle); break;
 			case 2:	smoke(particle); break;
 			case 3:	waterfall(particle); break;
-			default: burst(pool_[i], i); break;
+			default: burst(particle, i); break;
 		}
 	}
+	particle->init();
+	pool_.push_back(particle);
 }
 
 void Emitter::update(){
 	for(Uint32 i = 0; i < totalParticles_; ++i){
-		if(pool_[i]->params_.lifeTime >= pool_[i]->params_.spawnTime){
-			if(pool_[i]->params_.lifeTime < pool_[i]->params_.maxTimeAlive){
-				pool_[i]->update();
-			}
-			else {
-				switch(currentMode_){
-					case 0:	burst(pool_[i], i); break;
-					case 1:	firework(pool_[i]); break;
-					case 2:	smoke(pool_[i]); break;
-					case 3:	waterfall(pool_[i]); break;
-					default: burst(pool_[i], i); break;
-				}
-			}
-		}
-		pool_[i]->params_.lifeTime += 0.016f;
+		pool_[i]->update();
 	}
 }
 
@@ -133,7 +119,7 @@ void Emitter::set_mode(Uint8 mode){
 	currentMode_ = (Uint8)MathUtils::Clamp(mode, 0, 3);
 }
 
-Uint32 Emitter::size() const {
+Uint32 Emitter::particle_number() const {
 	return totalParticles_;
 }
 

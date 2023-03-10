@@ -14,6 +14,7 @@ public:
 	virtual ~Entity();
 
 	virtual void init() = 0;
+	virtual void update() = 0;
 	virtual void draw(SDL_Renderer* renderer) = 0;
 
 /** @brief Entity's position setter with vector

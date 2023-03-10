@@ -18,7 +18,7 @@ class Emitter : public Path {
 public:
 	Emitter();
 	Emitter(const Emitter& copy);
-	~Emitter();
+	virtual ~Emitter();
 
 	void init() override;
 	void resize(Uint32 new_size, Texture* texture);
@@ -34,7 +34,7 @@ public:
 	void set_mode(Uint8 mode);
 	void set_type(Uint8 type);
 
-	Uint32 size() const;
+	Uint32 particle_number() const;
 	Uint8 mode() const;
 	Uint8 type() const;
 
@@ -44,7 +44,7 @@ public:
 	} params_;
 
 private:
-	std::vector<Particle*> pool_;
+	std::vector<Entity*> pool_;
 
 	Uint8 currentMode_;
 	Uint32 totalParticles_;

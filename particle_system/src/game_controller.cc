@@ -81,7 +81,7 @@ void GameController::update(){
 				emitter_pool_.pool_[i]->update();
 		break;
 		case 1:
-			cube_.set_rotation(Vec3((float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f),(float)(SDL_GetTicks() * 0.0016f)));
+			cube_.update();
 		break;
 	}
 

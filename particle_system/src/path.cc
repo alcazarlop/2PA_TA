@@ -62,6 +62,8 @@ void Path::set_color(Vec4 color){
 	color_ = color;
 }
 
+void Path::update() {}
+
 void Path::draw(SDL_Renderer* renderer){
 	if(enabled()){
 		Mat4 transform = Mat4::Identity();

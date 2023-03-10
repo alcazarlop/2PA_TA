@@ -1,4 +1,4 @@
-//author Manuel Alcázar López
+///@author Manuel Alcázar López
 
 #ifndef __CUBE_H__
 #define __CUBE_H__ 1
@@ -14,8 +14,9 @@ public:
 	Cube(const Cube& other);
 	virtual ~Cube();
 
-	void init();
+	void init() override;
 	void draw(SDL_Renderer* render) override;
+	void update() override;
 
 private:
 	Vec3 points_[8];
