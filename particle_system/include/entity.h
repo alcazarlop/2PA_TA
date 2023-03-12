@@ -1,4 +1,4 @@
-///@author Pablo Prieto Rodriguez
+///@author: Pablo Prieto Rodriguez
 
 #ifndef __ENTITY_H__
 #define __ENTITY_H__ 1
@@ -12,6 +12,7 @@ public:
 	Entity();
 	Entity(const Entity& copy);
 	virtual ~Entity();
+
 
 	virtual void init(Vec3 pos, Vec3 scale) = 0;
 	virtual void update() = 0;

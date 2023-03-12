@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Particle System: C:/Users/Usuario/Desktop/Programacion Avanzada/Particle_definitiv/2PA_TA_prietoro_alcazarlo-master/particle_system/include/game_manager.h Source File</title>
+<title>Particle System: game_manager.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,6 +45,7 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,69 +60,66 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">game_manager.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __GAME_MANAGER_H__</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __GAME_MANAGER_H__ 1</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;chipmunk.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_game_manager.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_manager.html">GameManager</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>: </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    ~<a class="code" href="class_game_manager.html">GameManager</a>();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_game_manager.html">GameManager</a>&amp; Instance() {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_game_manager.html">GameManager</a>* instance = <span class="keyword">new</span> <a class="code" href="class_game_manager.html">GameManager</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordflow">return</span> *instance;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    }</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#a849df8c09486d7c84f368d52716b56d2">init</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#a82b7634882fd2e2c53ee518892b9d65a">set_gravity</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#a5bac05a7bf619f00207f39035fa6e9d8">fixedTime</a>();</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//Author: Pablo Prieto Rodriguez</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef __GAME_MANAGER_H__</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define __GAME_MANAGER_H__ 1</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;vector_3.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_game_manager.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_manager.html">GameManager</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>: </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    ~<a class="code" href="class_game_manager.html">GameManager</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_game_manager.html">GameManager</a>&amp; Instance() {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_game_manager.html">GameManager</a>* instance = <span class="keyword">new</span> <a class="code" href="class_game_manager.html">GameManager</a>();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">return</span> *instance;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    Sint8 <a class="code" href="class_game_manager.html#a043279bfee148a15210bca7c0ff084a3">init</a>(Uint32 width, Uint32 height);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#ac63aa477ce3707e03b42968d364a6ce6">quit</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    SDL_Renderer* renderer() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    SDL_Window* window() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    Uint32 width() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    Uint32 height() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#a91a2972e2ee07041a6c355168f1dc01c">release</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#aa3007aa67fba1224eb04f37847ee4ad5">startTime</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    Uint32 <a class="code" href="class_game_manager.html#a8daa351092473cfff8e4eef2bc2db8ed">lastTime</a>();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_game_manager.html#a52703fbac732b5e018c6f54b3d01f9ca">getFPS</a>();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    cpSpace* <a class="code" href="class_game_manager.html#a0f3f7d7f5d8f4528da57d6dc051ec989">space</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    Uint32 currentTime_;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="class_game_manager.html">GameManager</a>();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="class_game_manager.html">GameManager</a>(<span class="keyword">const</span> <a class="code" href="class_game_manager.html">GameManager</a>&amp; copy);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    cpSpace* space_;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    cpFloat stepTime_;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    Uint32 startTime_;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> setMouseState();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span> mouseX() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> mouseY() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game_manager.html#a0142bf426e84bf885ae5d32afb37eb75">CircularCollision</a>(Vec3 p1, Vec3 p2, <span class="keywordtype">float</span> r1, <span class="keywordtype">float</span> r2);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="class_game_manager.html">GameManager</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="class_game_manager.html">GameManager</a>(<span class="keyword">const</span> <a class="code" href="class_game_manager.html">GameManager</a>&amp; copy);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    SDL_Renderer* renderer_;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    SDL_Window* window_;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    Uint32 width_;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    Uint32 height_;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> mouseX_;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span> mouseY_;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_game_manager_html"><div class="ttname"><a href="class_game_manager.html">GameManager</a></div><div class="ttdef"><b>Definition:</b> game_manager.h:7</div></div>
-<div class="ttc" id="aclass_game_manager_html_a8daa351092473cfff8e4eef2bc2db8ed"><div class="ttname"><a href="class_game_manager.html#a8daa351092473cfff8e4eef2bc2db8ed">GameManager::lastTime</a></div><div class="ttdeci">Uint32 lastTime()</div><div class="ttdoc">Application's Last Time getter.</div></div>
-<div class="ttc" id="aclass_game_manager_html_a0f3f7d7f5d8f4528da57d6dc051ec989"><div class="ttname"><a href="class_game_manager.html#a0f3f7d7f5d8f4528da57d6dc051ec989">GameManager::space</a></div><div class="ttdeci">cpSpace * space() const</div><div class="ttdoc">Application's Space Getter.</div></div>
-<div class="ttc" id="aclass_game_manager_html_a82b7634882fd2e2c53ee518892b9d65a"><div class="ttname"><a href="class_game_manager.html#a82b7634882fd2e2c53ee518892b9d65a">GameManager::set_gravity</a></div><div class="ttdeci">void set_gravity(float x, float y)</div><div class="ttdoc">Application's Gravity set.</div></div>
-<div class="ttc" id="aclass_game_manager_html_a91a2972e2ee07041a6c355168f1dc01c"><div class="ttname"><a href="class_game_manager.html#a91a2972e2ee07041a6c355168f1dc01c">GameManager::release</a></div><div class="ttdeci">void release()</div><div class="ttdoc">Application's Manager release.</div></div>
-<div class="ttc" id="aclass_game_manager_html_a5bac05a7bf619f00207f39035fa6e9d8"><div class="ttname"><a href="class_game_manager.html#a5bac05a7bf619f00207f39035fa6e9d8">GameManager::fixedTime</a></div><div class="ttdeci">void fixedTime()</div><div class="ttdoc">Fixed Time setter.</div></div>
-<div class="ttc" id="aclass_game_manager_html_aa3007aa67fba1224eb04f37847ee4ad5"><div class="ttname"><a href="class_game_manager.html#aa3007aa67fba1224eb04f37847ee4ad5">GameManager::startTime</a></div><div class="ttdeci">void startTime()</div><div class="ttdoc">Application's Start Time Initializations.</div></div>
-<div class="ttc" id="aclass_game_manager_html_a52703fbac732b5e018c6f54b3d01f9ca"><div class="ttname"><a href="class_game_manager.html#a52703fbac732b5e018c6f54b3d01f9ca">GameManager::getFPS</a></div><div class="ttdeci">float getFPS()</div><div class="ttdoc">Application's FPS getter.</div></div>
-<div class="ttc" id="aclass_game_manager_html_a849df8c09486d7c84f368d52716b56d2"><div class="ttname"><a href="class_game_manager.html#a849df8c09486d7c84f368d52716b56d2">GameManager::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Application's Manager Initialization.</div></div>
+<div class="ttc" id="aclass_game_manager_html_ac63aa477ce3707e03b42968d364a6ce6"><div class="ttname"><a href="class_game_manager.html#ac63aa477ce3707e03b42968d364a6ce6">GameManager::quit</a></div><div class="ttdeci">void quit()</div><div class="ttdoc">Application's exit.</div></div>
+<div class="ttc" id="aclass_game_manager_html"><div class="ttname"><a href="class_game_manager.html">GameManager</a></div><div class="ttdef"><b>Definition:</b> game_manager.h:9</div></div>
+<div class="ttc" id="aclass_game_manager_html_a0142bf426e84bf885ae5d32afb37eb75"><div class="ttname"><a href="class_game_manager.html#a0142bf426e84bf885ae5d32afb37eb75">GameManager::CircularCollision</a></div><div class="ttdeci">bool CircularCollision(Vec3 p1, Vec3 p2, float r1, float r2)</div><div class="ttdoc">Circular collision.</div></div>
+<div class="ttc" id="aclass_game_manager_html_a043279bfee148a15210bca7c0ff084a3"><div class="ttname"><a href="class_game_manager.html#a043279bfee148a15210bca7c0ff084a3">GameManager::init</a></div><div class="ttdeci">Sint8 init(Uint32 width, Uint32 height)</div><div class="ttdoc">Application's singleton initialization.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

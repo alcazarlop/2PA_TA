@@ -70,48 +70,35 @@ $(function() {
 <div class="title">Texture Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="texture_8h_source.html">texture.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad04f3857d1317f69b080b4cad1a44cbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ad04f3857d1317f69b080b4cad1a44cbc">loadFromFile</a> (const char *path, SDL_Renderer *renderer)</td></tr>
 <tr class="memdesc:ad04f3857d1317f69b080b4cad1a44cbc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture.html">Texture</a> load.  <a href="class_texture.html#ad04f3857d1317f69b080b4cad1a44cbc">More...</a><br /></td></tr>
 <tr class="separator:ad04f3857d1317f69b080b4cad1a44cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d708ceeeb1b102bf7c4c5f02894edf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a1d708ceeeb1b102bf7c4c5f02894edf8">loadFromBuffer</a> (Uint32 <a class="el" href="class_texture.html#a98a370d5cc4ac2118633c409e2555cf8">width</a>, Uint32 <a class="el" href="class_texture.html#aad071f4528cfc89c41bd5f96cd0e3d84">height</a>, SDL_Renderer *renderer, Uint32 *pixel_buffer, Uint32 pitch=4)</td></tr>
+<tr class="memitem:a1d708ceeeb1b102bf7c4c5f02894edf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a1d708ceeeb1b102bf7c4c5f02894edf8">loadFromBuffer</a> (Uint32 width, Uint32 height, SDL_Renderer *renderer, Uint32 *pixel_buffer, Uint32 pitch=4)</td></tr>
 <tr class="memdesc:a1d708ceeeb1b102bf7c4c5f02894edf8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture.html">Texture</a> load from buffer.  <a href="class_texture.html#a1d708ceeeb1b102bf7c4c5f02894edf8">More...</a><br /></td></tr>
 <tr class="separator:a1d708ceeeb1b102bf7c4c5f02894edf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16c096defe40a38d6f22bd08b63eb826"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a16c096defe40a38d6f22bd08b63eb826">release</a> ()</td></tr>
-<tr class="memdesc:a16c096defe40a38d6f22bd08b63eb826"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture.html">Texture</a> release.  <a href="class_texture.html#a16c096defe40a38d6f22bd08b63eb826">More...</a><br /></td></tr>
-<tr class="separator:a16c096defe40a38d6f22bd08b63eb826"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98a370d5cc4ac2118633c409e2555cf8"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a98a370d5cc4ac2118633c409e2555cf8">width</a> () const</td></tr>
-<tr class="memdesc:a98a370d5cc4ac2118633c409e2555cf8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture.html">Texture</a> width getter.  <a href="class_texture.html#a98a370d5cc4ac2118633c409e2555cf8">More...</a><br /></td></tr>
+<tr class="memitem:a98a370d5cc4ac2118633c409e2555cf8"><td class="memItemLeft" align="right" valign="top"><a id="a98a370d5cc4ac2118633c409e2555cf8"></a>
+Uint32&#160;</td><td class="memItemRight" valign="bottom"><b>width</b> () const</td></tr>
 <tr class="separator:a98a370d5cc4ac2118633c409e2555cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad071f4528cfc89c41bd5f96cd0e3d84"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#aad071f4528cfc89c41bd5f96cd0e3d84">height</a> () const</td></tr>
-<tr class="memdesc:aad071f4528cfc89c41bd5f96cd0e3d84"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture.html">Texture</a> height getter.  <a href="class_texture.html#aad071f4528cfc89c41bd5f96cd0e3d84">More...</a><br /></td></tr>
+<tr class="memitem:aad071f4528cfc89c41bd5f96cd0e3d84"><td class="memItemLeft" align="right" valign="top"><a id="aad071f4528cfc89c41bd5f96cd0e3d84"></a>
+Uint32&#160;</td><td class="memItemRight" valign="bottom"><b>height</b> () const</td></tr>
 <tr class="separator:aad071f4528cfc89c41bd5f96cd0e3d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86b0e5978c81f89c4eea1ca79641a06b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a86b0e5978c81f89c4eea1ca79641a06b">draw</a> (SDL_Renderer *renderer)</td></tr>
-<tr class="memdesc:a86b0e5978c81f89c4eea1ca79641a06b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture.html">Texture</a> draw.  <a href="class_texture.html#a86b0e5978c81f89c4eea1ca79641a06b">More...</a><br /></td></tr>
-<tr class="separator:a86b0e5978c81f89c4eea1ca79641a06b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa080fd0c12b46e0121bd1280863a42e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#aa080fd0c12b46e0121bd1280863a42e5">set_position</a> (float x, float y)</td></tr>
-<tr class="memdesc:aa080fd0c12b46e0121bd1280863a42e5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture.html">Texture</a> position setter with values.  <a href="class_texture.html#aa080fd0c12b46e0121bd1280863a42e5">More...</a><br /></td></tr>
-<tr class="separator:aa080fd0c12b46e0121bd1280863a42e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49c596fbf521642358bbc36305cf133b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a49c596fbf521642358bbc36305cf133b">set_position</a> (Vec2 <a class="el" href="class_texture.html#afd10e899cb40cafe72b30b3b8a5a5437">position</a>)</td></tr>
-<tr class="memdesc:a49c596fbf521642358bbc36305cf133b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture.html">Texture</a> position setter with vector.  <a href="class_texture.html#a49c596fbf521642358bbc36305cf133b">More...</a><br /></td></tr>
-<tr class="separator:a49c596fbf521642358bbc36305cf133b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7dadd0c90a181c5fc6ad0192331df53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ac7dadd0c90a181c5fc6ad0192331df53">set_rotation</a> (float angle)</td></tr>
-<tr class="memdesc:ac7dadd0c90a181c5fc6ad0192331df53"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture.html">Texture</a> rotation setter.  <a href="class_texture.html#ac7dadd0c90a181c5fc6ad0192331df53">More...</a><br /></td></tr>
-<tr class="separator:ac7dadd0c90a181c5fc6ad0192331df53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd10e899cb40cafe72b30b3b8a5a5437"><td class="memItemLeft" align="right" valign="top">Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#afd10e899cb40cafe72b30b3b8a5a5437">position</a> () const</td></tr>
-<tr class="memdesc:afd10e899cb40cafe72b30b3b8a5a5437"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture.html">Texture</a> position getter.  <a href="class_texture.html#afd10e899cb40cafe72b30b3b8a5a5437">More...</a><br /></td></tr>
-<tr class="separator:afd10e899cb40cafe72b30b3b8a5a5437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99f4c904fc209d534023b31571fdeac8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a99f4c904fc209d534023b31571fdeac8">rotation</a> () const</td></tr>
-<tr class="memdesc:a99f4c904fc209d534023b31571fdeac8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture.html">Texture</a> rotation getter.  <a href="class_texture.html#a99f4c904fc209d534023b31571fdeac8">More...</a><br /></td></tr>
-<tr class="separator:a99f4c904fc209d534023b31571fdeac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14ffc1a90080b9e57a56533d016bcab2"><td class="memItemLeft" align="right" valign="top"><a id="a14ffc1a90080b9e57a56533d016bcab2"></a>
+SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>texture</b> () const</td></tr>
+<tr class="separator:a14ffc1a90080b9e57a56533d016bcab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aee2522cb5ad0712602643775ed7678e4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#aee2522cb5ad0712602643775ed7678e4">CreateTexture</a> ()</td></tr>
 <tr class="memdesc:aee2522cb5ad0712602643775ed7678e4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_texture.html">Texture</a> create.  <a href="class_texture.html#aee2522cb5ad0712602643775ed7678e4">More...</a><br /></td></tr>
 <tr class="separator:aee2522cb5ad0712602643775ed7678e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a208bec132d2df332a9c96baf93470b16"><td class="memItemLeft" align="right" valign="top"><a id="a208bec132d2df332a9c96baf93470b16"></a>
+static Uint32&#160;</td><td class="memItemRight" valign="bottom"><b>avaliableTextures</b> ()</td></tr>
+<tr class="separator:a208bec132d2df332a9c96baf93470b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -119,7 +106,9 @@ Static Public Attributes</h2></td></tr>
 static const Uint32&#160;</td><td class="memItemRight" valign="bottom"><b>kMaxTexture</b> = 32</td></tr>
 <tr class="separator:a31d52aad4ac291c8a654ea8854f4555d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>: Pablo Prieto Rodriguez </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aee2522cb5ad0712602643775ed7678e4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aee2522cb5ad0712602643775ed7678e4">&#9670;&nbsp;</a></span>CreateTexture()</h2>
 
@@ -146,53 +135,6 @@ static const Uint32&#160;</td><td class="memItemRight" valign="bottom"><b>kMaxTe
 <p><a class="el" href="class_texture.html">Texture</a> create. </p>
 <p>Creates a new texture if the total doesn't exceed the limit</p>
 <dl class="section return"><dt>Returns</dt><dd>A texture pointer of the new texture </dd></dl>
-
-</div>
-</div>
-<a id="a86b0e5978c81f89c4eea1ca79641a06b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86b0e5978c81f89c4eea1ca79641a06b">&#9670;&nbsp;</a></span>draw()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Texture::draw </td>
-          <td>(</td>
-          <td class="paramtype">SDL_Renderer *&#160;</td>
-          <td class="paramname"><em>renderer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><a class="el" href="class_texture.html">Texture</a> draw. </p>
-<p>Drawing of a Tetxure using SDL</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">renderer</td><td>A SDL renderer object </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aad071f4528cfc89c41bd5f96cd0e3d84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad071f4528cfc89c41bd5f96cd0e3d84">&#9670;&nbsp;</a></span>height()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Uint32 Texture::height </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><a class="el" href="class_texture.html">Texture</a> height getter. </p>
-<p>Gets the <a class="el" href="class_texture.html">Texture</a>'s height </p>
 
 </div>
 </div>
@@ -293,182 +235,8 @@ static const Uint32&#160;</td><td class="memItemRight" valign="bottom"><b>kMaxTe
 
 </div>
 </div>
-<a id="afd10e899cb40cafe72b30b3b8a5a5437"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd10e899cb40cafe72b30b3b8a5a5437">&#9670;&nbsp;</a></span>position()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Vec2 Texture::position </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><a class="el" href="class_texture.html">Texture</a> position getter. </p>
-<p>Gets the texture's position coordinates</p>
-<dl class="section return"><dt>Returns</dt><dd>texture's position coordinates </dd></dl>
-
-</div>
-</div>
-<a id="a16c096defe40a38d6f22bd08b63eb826"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16c096defe40a38d6f22bd08b63eb826">&#9670;&nbsp;</a></span>release()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Texture::release </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><a class="el" href="class_texture.html">Texture</a> release. </p>
-<p><a class="el" href="class_texture.html">Texture</a> release using SDL </p>
-
-</div>
-</div>
-<a id="a99f4c904fc209d534023b31571fdeac8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99f4c904fc209d534023b31571fdeac8">&#9670;&nbsp;</a></span>rotation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Texture::rotation </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><a class="el" href="class_texture.html">Texture</a> rotation getter. </p>
-<p>Gets the texture's rotation value</p>
-<dl class="section return"><dt>Returns</dt><dd>texture's rotation angle </dd></dl>
-
-</div>
-</div>
-<a id="aa080fd0c12b46e0121bd1280863a42e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa080fd0c12b46e0121bd1280863a42e5">&#9670;&nbsp;</a></span>set_position() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Texture::set_position </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><a class="el" href="class_texture.html">Texture</a> position setter with values. </p>
-<p>Sets the texture's coordinates with given values</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>Coordinates value in the X axis </td></tr>
-    <tr><td class="paramname">y</td><td>Coordinates value in the Y axis </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a49c596fbf521642358bbc36305cf133b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49c596fbf521642358bbc36305cf133b">&#9670;&nbsp;</a></span>set_position() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Texture::set_position </td>
-          <td>(</td>
-          <td class="paramtype">Vec2&#160;</td>
-          <td class="paramname"><em>position</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><a class="el" href="class_texture.html">Texture</a> position setter with vector. </p>
-<p>Sets the texture's coordinates with a given vector</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pos</td><td>Vec2 that contains the X and Y coordinates values </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ac7dadd0c90a181c5fc6ad0192331df53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7dadd0c90a181c5fc6ad0192331df53">&#9670;&nbsp;</a></span>set_rotation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Texture::set_rotation </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>angle</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><a class="el" href="class_texture.html">Texture</a> rotation setter. </p>
-<p>Sets the texture rotation's angle with a given value</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">angle</td><td>Value that corresponds to the angle of rotation of the texture </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a98a370d5cc4ac2118633c409e2555cf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98a370d5cc4ac2118633c409e2555cf8">&#9670;&nbsp;</a></span>width()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Uint32 Texture::width </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><a class="el" href="class_texture.html">Texture</a> width getter. </p>
-<p>Gets the <a class="el" href="class_texture.html">Texture</a>'s width </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Usuario/Desktop/Programacion Avanzada/Particle_definitiv/2PA_TA_prietoro_alcazarlo-master/particle_system/include/<a class="el" href="texture_8h_source.html">texture.h</a></li>
+<li><a class="el" href="texture_8h_source.html">texture.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -69,15 +69,19 @@ $(function() {
 <div class="title">Entity Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="entity_8h_source.html">entity.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Entity:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_entity.png" usemap="#Entity_map" alt=""/>
   <map id="Entity_map" name="Entity_map">
-<area href="class_emitter.html" alt="Emitter" shape="rect" coords="0,56,50,80"/>
-<area href="class_path.html" alt="Path" shape="rect" coords="60,56,110,80"/>
-<area href="class_sprite.html" alt="Sprite" shape="rect" coords="120,56,170,80"/>
+<area href="class_cube.html" alt="Cube" shape="rect" coords="0,56,55,80"/>
+<area href="class_path.html" alt="Path" shape="rect" coords="65,56,120,80"/>
+<area href="class_sprite.html" alt="Sprite" shape="rect" coords="130,56,185,80"/>
+<area href="class_emitter.html" alt="Emitter" shape="rect" coords="65,112,120,136"/>
+<area href="class_particle.html" alt="Particle" shape="rect" coords="130,112,185,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -86,33 +90,42 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a59decaeeea522b7128a19e1bbc3e1321"><td class="memItemLeft" align="right" valign="top"><a id="a59decaeeea522b7128a19e1bbc3e1321"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Entity</b> (const <a class="el" href="class_entity.html">Entity</a> &amp;copy)</td></tr>
 <tr class="separator:a59decaeeea522b7128a19e1bbc3e1321"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89fe30f3ed95d3c815d484d6504b58d1"><td class="memItemLeft" align="right" valign="top"><a id="a89fe30f3ed95d3c815d484d6504b58d1"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (const <a class="el" href="class_window_controller.html">WindowController</a> &amp;wc)=0</td></tr>
-<tr class="separator:a89fe30f3ed95d3c815d484d6504b58d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a369bb13d11048374f863c0604574dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a9a369bb13d11048374f863c0604574dd">set_position</a> (Vec2 pos)</td></tr>
-<tr class="memdesc:a9a369bb13d11048374f863c0604574dd"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s position setter with vector.  <a href="class_entity.html#a9a369bb13d11048374f863c0604574dd">More...</a><br /></td></tr>
-<tr class="separator:a9a369bb13d11048374f863c0604574dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26c0e2e59a6a0a803d005eff4eab29ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a26c0e2e59a6a0a803d005eff4eab29ba">set_position</a> (float x, float y)</td></tr>
-<tr class="memdesc:a26c0e2e59a6a0a803d005eff4eab29ba"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s position setter with values.  <a href="class_entity.html#a26c0e2e59a6a0a803d005eff4eab29ba">More...</a><br /></td></tr>
-<tr class="separator:a26c0e2e59a6a0a803d005eff4eab29ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3cd4eabe4a23cdf9939e9ac9894b5ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ae3cd4eabe4a23cdf9939e9ac9894b5ef">set_scale</a> (Vec2 <a class="el" href="class_entity.html#a670434507dce26abfb80f84d3c63cb59">scale</a>)</td></tr>
-<tr class="memdesc:ae3cd4eabe4a23cdf9939e9ac9894b5ef"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s scale setter with vector.  <a href="class_entity.html#ae3cd4eabe4a23cdf9939e9ac9894b5ef">More...</a><br /></td></tr>
-<tr class="separator:ae3cd4eabe4a23cdf9939e9ac9894b5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3eb9d4ff46ca377176978f6d099f0d91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a3eb9d4ff46ca377176978f6d099f0d91">set_scale</a> (float x, float y)</td></tr>
-<tr class="memdesc:a3eb9d4ff46ca377176978f6d099f0d91"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s scale setter with values.  <a href="class_entity.html#a3eb9d4ff46ca377176978f6d099f0d91">More...</a><br /></td></tr>
-<tr class="separator:a3eb9d4ff46ca377176978f6d099f0d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a009617e9ce1453aa56b290b471e05e05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a009617e9ce1453aa56b290b471e05e05">set_rotation</a> (float angle)</td></tr>
-<tr class="memdesc:a009617e9ce1453aa56b290b471e05e05"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s rotation setter.  <a href="class_entity.html#a009617e9ce1453aa56b290b471e05e05">More...</a><br /></td></tr>
-<tr class="separator:a009617e9ce1453aa56b290b471e05e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3987cef1ec4f973d94f45c56a4615cb9"><td class="memItemLeft" align="right" valign="top">Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a3987cef1ec4f973d94f45c56a4615cb9">position</a> () const</td></tr>
-<tr class="memdesc:a3987cef1ec4f973d94f45c56a4615cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s position getter.  <a href="class_entity.html#a3987cef1ec4f973d94f45c56a4615cb9">More...</a><br /></td></tr>
-<tr class="separator:a3987cef1ec4f973d94f45c56a4615cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a670434507dce26abfb80f84d3c63cb59"><td class="memItemLeft" align="right" valign="top">Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a670434507dce26abfb80f84d3c63cb59">scale</a> () const</td></tr>
-<tr class="memdesc:a670434507dce26abfb80f84d3c63cb59"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s scale getter.  <a href="class_entity.html#a670434507dce26abfb80f84d3c63cb59">More...</a><br /></td></tr>
-<tr class="separator:a670434507dce26abfb80f84d3c63cb59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac89bc7a3e2da66cd47f2d5c78e12d44b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac89bc7a3e2da66cd47f2d5c78e12d44b">rotation</a> () const</td></tr>
-<tr class="memdesc:ac89bc7a3e2da66cd47f2d5c78e12d44b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s rotation getter.  <a href="class_entity.html#ac89bc7a3e2da66cd47f2d5c78e12d44b">More...</a><br /></td></tr>
-<tr class="separator:ac89bc7a3e2da66cd47f2d5c78e12d44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac94df40a06ea7636e1226c29e5538722"><td class="memItemLeft" align="right" valign="top"><a id="ac94df40a06ea7636e1226c29e5538722"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (Vec3 pos, Vec3 <a class="el" href="class_entity.html#ade37eb0f7e9d1f3f9a5cafb7180b773c">scale</a>)=0</td></tr>
+<tr class="separator:ac94df40a06ea7636e1226c29e5538722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59a29d9b7474baf13c9c76859242287d"><td class="memItemLeft" align="right" valign="top"><a id="a59a29d9b7474baf13c9c76859242287d"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()=0</td></tr>
+<tr class="separator:a59a29d9b7474baf13c9c76859242287d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9300a4faf82591e8f4a95101a92885a8"><td class="memItemLeft" align="right" valign="top"><a id="a9300a4faf82591e8f4a95101a92885a8"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (SDL_Renderer *renderer)=0</td></tr>
+<tr class="separator:a9300a4faf82591e8f4a95101a92885a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4318f16e520696d67d344a56c36d6d44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a4318f16e520696d67d344a56c36d6d44">set_position</a> (Vec3 pos)</td></tr>
+<tr class="memdesc:a4318f16e520696d67d344a56c36d6d44"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s position setter with vector.  <a href="class_entity.html#a4318f16e520696d67d344a56c36d6d44">More...</a><br /></td></tr>
+<tr class="separator:a4318f16e520696d67d344a56c36d6d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16b33c677464e16ad8f590f3eabe52c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a16b33c677464e16ad8f590f3eabe52c9">set_position</a> (float x, float y, float z)</td></tr>
+<tr class="memdesc:a16b33c677464e16ad8f590f3eabe52c9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s position setter with values.  <a href="class_entity.html#a16b33c677464e16ad8f590f3eabe52c9">More...</a><br /></td></tr>
+<tr class="separator:a16b33c677464e16ad8f590f3eabe52c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b0d5ba7b0f0d9344d5b2a086b55d32a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a2b0d5ba7b0f0d9344d5b2a086b55d32a">set_scale</a> (Vec3 <a class="el" href="class_entity.html#ade37eb0f7e9d1f3f9a5cafb7180b773c">scale</a>)</td></tr>
+<tr class="memdesc:a2b0d5ba7b0f0d9344d5b2a086b55d32a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s scale setter with vector.  <a href="class_entity.html#a2b0d5ba7b0f0d9344d5b2a086b55d32a">More...</a><br /></td></tr>
+<tr class="separator:a2b0d5ba7b0f0d9344d5b2a086b55d32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfb2074dbc39ed505f4730441c55ac1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#abfb2074dbc39ed505f4730441c55ac1f">set_scale</a> (float x, float y, float z)</td></tr>
+<tr class="memdesc:abfb2074dbc39ed505f4730441c55ac1f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s scale setter with values.  <a href="class_entity.html#abfb2074dbc39ed505f4730441c55ac1f">More...</a><br /></td></tr>
+<tr class="separator:abfb2074dbc39ed505f4730441c55ac1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace41c19fab3349af8f237a6da7028064"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ace41c19fab3349af8f237a6da7028064">set_rotation</a> (Vec3 <a class="el" href="class_entity.html#af4d917542d9beaf2bb8958983aa9abee">rotation</a>)</td></tr>
+<tr class="memdesc:ace41c19fab3349af8f237a6da7028064"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s rotation setter.  <a href="class_entity.html#ace41c19fab3349af8f237a6da7028064">More...</a><br /></td></tr>
+<tr class="separator:ace41c19fab3349af8f237a6da7028064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af028cd75bb268f6ae951d2096ae3127f"><td class="memItemLeft" align="right" valign="top"><a id="af028cd75bb268f6ae951d2096ae3127f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_rotation</b> (float x, float y, float z)</td></tr>
+<tr class="separator:af028cd75bb268f6ae951d2096ae3127f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c379fad01050ee8773c64b8e1c7251d"><td class="memItemLeft" align="right" valign="top">Vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a6c379fad01050ee8773c64b8e1c7251d">position</a> () const</td></tr>
+<tr class="memdesc:a6c379fad01050ee8773c64b8e1c7251d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s position getter.  <a href="class_entity.html#a6c379fad01050ee8773c64b8e1c7251d">More...</a><br /></td></tr>
+<tr class="separator:a6c379fad01050ee8773c64b8e1c7251d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade37eb0f7e9d1f3f9a5cafb7180b773c"><td class="memItemLeft" align="right" valign="top">Vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ade37eb0f7e9d1f3f9a5cafb7180b773c">scale</a> () const</td></tr>
+<tr class="memdesc:ade37eb0f7e9d1f3f9a5cafb7180b773c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s scale getter.  <a href="class_entity.html#ade37eb0f7e9d1f3f9a5cafb7180b773c">More...</a><br /></td></tr>
+<tr class="separator:ade37eb0f7e9d1f3f9a5cafb7180b773c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4d917542d9beaf2bb8958983aa9abee"><td class="memItemLeft" align="right" valign="top">Vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af4d917542d9beaf2bb8958983aa9abee">rotation</a> () const</td></tr>
+<tr class="memdesc:af4d917542d9beaf2bb8958983aa9abee"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_entity.html">Entity</a>'s rotation getter.  <a href="class_entity.html#af4d917542d9beaf2bb8958983aa9abee">More...</a><br /></td></tr>
+<tr class="separator:af4d917542d9beaf2bb8958983aa9abee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c58a9fb354998fe65259ee8361da7a8"><td class="memItemLeft" align="right" valign="top"><a id="a9c58a9fb354998fe65259ee8361da7a8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>set_enable</b> (bool b)</td></tr>
 <tr class="separator:a9c58a9fb354998fe65259ee8361da7a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,17 +141,19 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a6af257141d53a18aa447ceec24d475ca"><td class="memItemLeft" align="right" valign="top"><a id="a6af257141d53a18aa447ceec24d475ca"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>enabled_</b></td></tr>
 <tr class="separator:a6af257141d53a18aa447ceec24d475ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e2649bfbba941460cd9354193fd46ad"><td class="memItemLeft" align="right" valign="top"><a id="a0e2649bfbba941460cd9354193fd46ad"></a>
-Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>position_</b></td></tr>
-<tr class="separator:a0e2649bfbba941460cd9354193fd46ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a169b63891bd5e9d9cc4eba253a1eb33e"><td class="memItemLeft" align="right" valign="top"><a id="a169b63891bd5e9d9cc4eba253a1eb33e"></a>
-Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>scale_</b></td></tr>
-<tr class="separator:a169b63891bd5e9d9cc4eba253a1eb33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afef865e740edb19fa9ed87a55404d2e6"><td class="memItemLeft" align="right" valign="top"><a id="afef865e740edb19fa9ed87a55404d2e6"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></tr>
-<tr class="separator:afef865e740edb19fa9ed87a55404d2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a7c198012467f49ec33b0d65dfa9392"><td class="memItemLeft" align="right" valign="top"><a id="a4a7c198012467f49ec33b0d65dfa9392"></a>
+Vec3&#160;</td><td class="memItemRight" valign="bottom"><b>position_</b></td></tr>
+<tr class="separator:a4a7c198012467f49ec33b0d65dfa9392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8fabe83c2927af42cf08e3f3b42bd04"><td class="memItemLeft" align="right" valign="top"><a id="af8fabe83c2927af42cf08e3f3b42bd04"></a>
+Vec3&#160;</td><td class="memItemRight" valign="bottom"><b>scale_</b></td></tr>
+<tr class="separator:af8fabe83c2927af42cf08e3f3b42bd04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ba47cbb28a584dcec187935e5ec1293"><td class="memItemLeft" align="right" valign="top"><a id="a8ba47cbb28a584dcec187935e5ec1293"></a>
+Vec3&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></tr>
+<tr class="separator:a8ba47cbb28a584dcec187935e5ec1293"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>: Pablo Prieto Rodriguez </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a098ff568225a89f33b53da6c7ecf6105"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a098ff568225a89f33b53da6c7ecf6105">&#9670;&nbsp;</a></span>id()</h2>
 
@@ -160,14 +175,14 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
 
 </div>
 </div>
-<a id="a3987cef1ec4f973d94f45c56a4615cb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3987cef1ec4f973d94f45c56a4615cb9">&#9670;&nbsp;</a></span>position()</h2>
+<a id="a6c379fad01050ee8773c64b8e1c7251d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c379fad01050ee8773c64b8e1c7251d">&#9670;&nbsp;</a></span>position()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Vec2 Entity::position </td>
+          <td class="memname">Vec3 Entity::position </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -181,14 +196,14 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
 
 </div>
 </div>
-<a id="ac89bc7a3e2da66cd47f2d5c78e12d44b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac89bc7a3e2da66cd47f2d5c78e12d44b">&#9670;&nbsp;</a></span>rotation()</h2>
+<a id="af4d917542d9beaf2bb8958983aa9abee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4d917542d9beaf2bb8958983aa9abee">&#9670;&nbsp;</a></span>rotation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Entity::rotation </td>
+          <td class="memname">Vec3 Entity::rotation </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -202,14 +217,14 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
 
 </div>
 </div>
-<a id="a670434507dce26abfb80f84d3c63cb59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a670434507dce26abfb80f84d3c63cb59">&#9670;&nbsp;</a></span>scale()</h2>
+<a id="ade37eb0f7e9d1f3f9a5cafb7180b773c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade37eb0f7e9d1f3f9a5cafb7180b773c">&#9670;&nbsp;</a></span>scale()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Vec2 Entity::scale </td>
+          <td class="memname">Vec3 Entity::scale </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -223,8 +238,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
 
 </div>
 </div>
-<a id="a26c0e2e59a6a0a803d005eff4eab29ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26c0e2e59a6a0a803d005eff4eab29ba">&#9670;&nbsp;</a></span>set_position() <span class="overload">[1/2]</span></h2>
+<a id="a16b33c677464e16ad8f590f3eabe52c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16b33c677464e16ad8f590f3eabe52c9">&#9670;&nbsp;</a></span>set_position() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,7 +254,13 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -260,8 +281,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
 
 </div>
 </div>
-<a id="a9a369bb13d11048374f863c0604574dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a369bb13d11048374f863c0604574dd">&#9670;&nbsp;</a></span>set_position() <span class="overload">[2/2]</span></h2>
+<a id="a4318f16e520696d67d344a56c36d6d44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4318f16e520696d67d344a56c36d6d44">&#9670;&nbsp;</a></span>set_position() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -269,7 +290,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
         <tr>
           <td class="memname">void Entity::set_position </td>
           <td>(</td>
-          <td class="paramtype">Vec2&#160;</td>
+          <td class="paramtype">Vec3&#160;</td>
           <td class="paramname"><em>pos</em></td><td>)</td>
           <td></td>
         </tr>
@@ -277,7 +298,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
 </div><div class="memdoc">
 
 <p><a class="el" href="class_entity.html">Entity</a>'s position setter with vector. </p>
-<p>Sets the entity's scale with a Vec2</p>
+<p>Sets the entity's scale with a Vec3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scale</td><td>A vector that contains the entity's coordinates </td></tr>
@@ -287,8 +308,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
 
 </div>
 </div>
-<a id="a009617e9ce1453aa56b290b471e05e05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a009617e9ce1453aa56b290b471e05e05">&#9670;&nbsp;</a></span>set_rotation()</h2>
+<a id="ace41c19fab3349af8f237a6da7028064"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace41c19fab3349af8f237a6da7028064">&#9670;&nbsp;</a></span>set_rotation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -296,8 +317,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
         <tr>
           <td class="memname">void Entity::set_rotation </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td class="paramtype">Vec3&#160;</td>
+          <td class="paramname"><em>rotation</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -314,8 +335,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
 
 </div>
 </div>
-<a id="a3eb9d4ff46ca377176978f6d099f0d91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3eb9d4ff46ca377176978f6d099f0d91">&#9670;&nbsp;</a></span>set_scale() <span class="overload">[1/2]</span></h2>
+<a id="abfb2074dbc39ed505f4730441c55ac1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfb2074dbc39ed505f4730441c55ac1f">&#9670;&nbsp;</a></span>set_scale() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -330,7 +351,13 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -352,8 +379,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
 
 </div>
 </div>
-<a id="ae3cd4eabe4a23cdf9939e9ac9894b5ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3cd4eabe4a23cdf9939e9ac9894b5ef">&#9670;&nbsp;</a></span>set_scale() <span class="overload">[2/2]</span></h2>
+<a id="a2b0d5ba7b0f0d9344d5b2a086b55d32a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b0d5ba7b0f0d9344d5b2a086b55d32a">&#9670;&nbsp;</a></span>set_scale() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -361,7 +388,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
         <tr>
           <td class="memname">void Entity::set_scale </td>
           <td>(</td>
-          <td class="paramtype">Vec2&#160;</td>
+          <td class="paramtype">Vec3&#160;</td>
           <td class="paramname"><em>scale</em></td><td>)</td>
           <td></td>
         </tr>
@@ -369,7 +396,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
 </div><div class="memdoc">
 
 <p><a class="el" href="class_entity.html">Entity</a>'s scale setter with vector. </p>
-<p>Sets the entity's scale with a Vec2</p>
+<p>Sets the entity's scale with a Vec3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">scale</td><td>A vector that contains the entity's scale value </td></tr>
@@ -380,7 +407,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_</b></td></
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Usuario/Desktop/Programacion Avanzada/Particle_definitiv/2PA_TA_prietoro_alcazarlo-master/particle_system/include/<a class="el" href="entity_8h_source.html">entity.h</a></li>
+<li><a class="el" href="entity_8h_source.html">entity.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -3,7 +3,7 @@
 Inheritance diagram for Path\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_path}
+\includegraphics[height=3.000000cm]{class_path}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -12,9 +12,12 @@ Inheritance diagram for Path\+:\begin{figure}[H]
 \mbox{\Hypertarget{class_path_ac6f5eae372253d40e1450393ec023207}\label{class_path_ac6f5eae372253d40e1450393ec023207}} 
 {\bfseries Path} (const \mbox{\hyperlink{class_path}{Path}} \&copy)
 \item 
-void \mbox{\hyperlink{class_path_acb420895397d0e89ee5a29b5eaca2b70}{add\+\_\+vertices}} (float x, float y)
+\mbox{\Hypertarget{class_path_a448e761635f7a428cfe92cbb5b96ac64}\label{class_path_a448e761635f7a428cfe92cbb5b96ac64}} 
+void {\bfseries init} (Vec3 pos, Vec3 \mbox{\hyperlink{class_entity_ade37eb0f7e9d1f3f9a5cafb7180b773c}{scale}}) override
+\item 
+void \mbox{\hyperlink{class_path_a35770cfca11c81b21c0793cb9600cbb4}{add\+\_\+vertices}} (float x, float y, float z)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_path}{Path}} add vertices with values. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_path_ad7ac900ba93319caa49d330c804f8a82}{add\+\_\+vertices}} (const Vec2 \&vert)
+void \mbox{\hyperlink{class_path_adb65c7097f4d9332761df081ea5ff9a7}{add\+\_\+vertices}} (const Vec3 \&vert)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_path}{Path}} add vertices with a vector. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_path_a862b79d15ca9cee154b867ecfb9f9870}{load\+Square}} ()
 \begin{DoxyCompactList}\small\item\em Square shape loader. \end{DoxyCompactList}\item 
@@ -22,23 +25,29 @@ void \mbox{\hyperlink{class_path_aafb34e4da07a07c28d8c703e62c1c743}{load\+Circle
 \begin{DoxyCompactList}\small\item\em Circle shape loader. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_path_aeab306a1e7740f8e3dbd44118a8968b6}{load\+Star}} ()
 \begin{DoxyCompactList}\small\item\em Star shape loader. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_path_ab43ad706762a9e7759a10133fe241174}{set\+\_\+color}} (Vec4 \mbox{\hyperlink{class_path_a9039ee222845ceb63a64ffaf5383a872}{color}})
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_path}{Path}} color setter. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_path_a322c90c447c6b68346daa88664c41006}{draw}} (const \mbox{\hyperlink{class_window_controller}{Window\+Controller}} \&wc) override
+\mbox{\Hypertarget{class_path_ab43ad706762a9e7759a10133fe241174}\label{class_path_ab43ad706762a9e7759a10133fe241174}} 
+void {\bfseries set\+\_\+color} (Vec4 color)
+\item 
+void \mbox{\hyperlink{class_path_ad4396d1bc4a6414ffab22e21256678c3}{draw}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer) override
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_path}{Path}} Draw. \end{DoxyCompactList}\item 
-std\+::vector$<$ Vec2 $>$ \mbox{\hyperlink{class_path_aadee2080692caf3e6c5be72204d261d8}{vertices}} () const
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_path}{Path}} vertices getter. \end{DoxyCompactList}\item 
-Vec4 \mbox{\hyperlink{class_path_a9039ee222845ceb63a64ffaf5383a872}{color}} () const
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_path}{Path}} color getter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{class_path_a1c044893375c40f50d1169fe370045f4}\label{class_path_a1c044893375c40f50d1169fe370045f4}} 
+std\+::vector$<$ Vec3 $>$ {\bfseries vertices} () const
+\item 
+\mbox{\Hypertarget{class_path_a9039ee222845ceb63a64ffaf5383a872}\label{class_path_a9039ee222845ceb63a64ffaf5383a872}} 
+Vec4 {\bfseries color} () const
+\item 
+\mbox{\Hypertarget{class_path_a4b0c51d4d48ff96a865c2cecd76dc410}\label{class_path_a4b0c51d4d48ff96a865c2cecd76dc410}} 
+void {\bfseries update} () override
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_path_ad7ac900ba93319caa49d330c804f8a82}\label{class_path_ad7ac900ba93319caa49d330c804f8a82}} 
+\mbox{\Hypertarget{class_path_adb65c7097f4d9332761df081ea5ff9a7}\label{class_path_adb65c7097f4d9332761df081ea5ff9a7}} 
 \index{Path@{Path}!add\_vertices@{add\_vertices}}
 \index{add\_vertices@{add\_vertices}!Path@{Path}}
 \doxysubsubsection{\texorpdfstring{add\_vertices()}{add\_vertices()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Path\+::add\+\_\+vertices (\begin{DoxyParamCaption}\item[{const Vec2 \&}]{vert }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Path\+::add\+\_\+vertices (\begin{DoxyParamCaption}\item[{const Vec3 \&}]{vert }\end{DoxyParamCaption})}
 
 
 
@@ -51,11 +60,11 @@ Adds a new vertex with a vector
 {\em vert} & Coordinates values for X and Y axis \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_path_acb420895397d0e89ee5a29b5eaca2b70}\label{class_path_acb420895397d0e89ee5a29b5eaca2b70}} 
+\mbox{\Hypertarget{class_path_a35770cfca11c81b21c0793cb9600cbb4}\label{class_path_a35770cfca11c81b21c0793cb9600cbb4}} 
 \index{Path@{Path}!add\_vertices@{add\_vertices}}
 \index{add\_vertices@{add\_vertices}!Path@{Path}}
 \doxysubsubsection{\texorpdfstring{add\_vertices()}{add\_vertices()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Path\+::add\+\_\+vertices (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Path\+::add\+\_\+vertices (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})}
 
 
 
@@ -70,26 +79,11 @@ Adds a new vertex with values
 {\em x} & Coordinate value for Y axis \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_path_a9039ee222845ceb63a64ffaf5383a872}\label{class_path_a9039ee222845ceb63a64ffaf5383a872}} 
-\index{Path@{Path}!color@{color}}
-\index{color@{color}!Path@{Path}}
-\doxysubsubsection{\texorpdfstring{color()}{color()}}
-{\footnotesize\ttfamily Vec4 Path\+::color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-\mbox{\hyperlink{class_path}{Path}} color getter. 
-
-Returns the path\textquotesingle{}s color
-
-\begin{DoxyReturn}{Returns}
-The path\textquotesingle{}s color 
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_path_a322c90c447c6b68346daa88664c41006}\label{class_path_a322c90c447c6b68346daa88664c41006}} 
+\mbox{\Hypertarget{class_path_ad4396d1bc4a6414ffab22e21256678c3}\label{class_path_ad4396d1bc4a6414ffab22e21256678c3}} 
 \index{Path@{Path}!draw@{draw}}
 \index{draw@{draw}!Path@{Path}}
 \doxysubsubsection{\texorpdfstring{draw()}{draw()}}
-{\footnotesize\ttfamily void Path\+::draw (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_window_controller}{Window\+Controller}} \&}]{wc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Path\+::draw (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -99,7 +93,7 @@ Drawing of figures after applying the transformations (translate, scale and rota
 
 
 \begin{DoxyParams}{Parameters}
-{\em wc} & Window Controller object which contains all the variables used \\
+{\em renderer} & S\+DL renderer object \\
 \hline
 \end{DoxyParams}
 
@@ -136,40 +130,8 @@ Adds 4 vertices to create a square \mbox{\Hypertarget{class_path_aeab306a1e7740f
 
 Star shape loader. 
 
-Adds 10 vertices to create a star \mbox{\Hypertarget{class_path_ab43ad706762a9e7759a10133fe241174}\label{class_path_ab43ad706762a9e7759a10133fe241174}} 
-\index{Path@{Path}!set\_color@{set\_color}}
-\index{set\_color@{set\_color}!Path@{Path}}
-\doxysubsubsection{\texorpdfstring{set\_color()}{set\_color()}}
-{\footnotesize\ttfamily void Path\+::set\+\_\+color (\begin{DoxyParamCaption}\item[{Vec4}]{color }\end{DoxyParamCaption})}
-
-
-
-\mbox{\hyperlink{class_path}{Path}} color setter. 
-
-Sets the color for the path
-
-
-\begin{DoxyParams}{Parameters}
-{\em color} & A 4 dimensioned vector which contains the color\textquotesingle{}s values \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_path_aadee2080692caf3e6c5be72204d261d8}\label{class_path_aadee2080692caf3e6c5be72204d261d8}} 
-\index{Path@{Path}!vertices@{vertices}}
-\index{vertices@{vertices}!Path@{Path}}
-\doxysubsubsection{\texorpdfstring{vertices()}{vertices()}}
-{\footnotesize\ttfamily std\+::vector$<$Vec2$>$ Path\+::vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-\mbox{\hyperlink{class_path}{Path}} vertices getter. 
-
-Returns the path\textquotesingle{}s vertices
-
-\begin{DoxyReturn}{Returns}
-The path\textquotesingle{}s vertices 
-\end{DoxyReturn}
-
+Adds 10 vertices to create a star 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Usuario/\+Desktop/\+Programacion Avanzada/\+Particle\+\_\+definitiv/2\+P\+A\+\_\+\+T\+A\+\_\+prietoro\+\_\+alcazarlo-\/master/particle\+\_\+system/include/path.\+h\end{DoxyCompactItemize}
+path.\+h\end{DoxyCompactItemize}

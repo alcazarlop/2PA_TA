@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['draw_8',['draw',['../class_collider2_d.html#a8a3f19c3a17475de57f4c9b7fc32d4a2',1,'Collider2D::draw()'],['../class_emitter.html#a7ebdc99c0734683d4b8d4d1f30dbe077',1,'Emitter::draw()'],['../class_game_controller.html#a879991acce7afa58fe10f41ca6c625c3',1,'GameController::draw()'],['../class_particle.html#ad94951bf742b92bbc90fc215d9b50096',1,'Particle::draw()'],['../class_path.html#a322c90c447c6b68346daa88664c41006',1,'Path::draw()'],['../class_sprite.html#a0bce5ab3248cafd0616c55c18e7d9fd5',1,'Sprite::draw()'],['../class_texture.html#a86b0e5978c81f89c4eea1ca79641a06b',1,'Texture::draw()']]]
+  ['draw_6',['draw',['../class_cube.html#afd51f72adf081ab38422e4d131a6b31a',1,'Cube::draw()'],['../class_emitter.html#aa3313ae5ca25ebb53668daecaf22914d',1,'Emitter::draw()'],['../class_game_controller.html#a879991acce7afa58fe10f41ca6c625c3',1,'GameController::draw()'],['../class_path.html#ad4396d1bc4a6414ffab22e21256678c3',1,'Path::draw()'],['../class_sprite.html#ac8760a0d1d7720fd0a521535b162ca44',1,'Sprite::draw()']]]
 ];

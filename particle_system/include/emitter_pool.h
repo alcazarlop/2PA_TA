@@ -1,5 +1,4 @@
-///@author Manuel Alcazar Lopez
-
+///@author: Manuel Alcazar Lopez
 #ifndef __EMITTER_POOL_H__
 #define __EMITTER_POOL_H__ 1
 

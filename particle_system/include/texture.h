@@ -1,4 +1,4 @@
-///@author Pablo Prieto Rodriguez
+///@author: Pablo Prieto Rodriguez
 
 #ifndef __TEXTURE_H__
 #define __TEXTURE_H__ 1
@@ -33,20 +33,7 @@ public:
 
 	void loadFromBuffer(Uint32 width, Uint32 height, SDL_Renderer* renderer, Uint32* pixel_buffer, Uint32 pitch = 4);
 
-/** @brief Texture width getter
-*
-* Gets the Texture's width
-*
-*/
-
 	Uint32 width() const;
-
-/** @brief Texture height getter
-*
-* Gets the Texture's height
-*
-*/
-
 	Uint32 height() const;
 
 /** @brief Texture create

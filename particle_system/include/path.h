@@ -1,4 +1,4 @@
-///@author Pablo Prieto Rodriguez
+///@author: Pablo Prieto Rodriguez
 
 #ifndef __PATH_H__
 #define __PATH_H__ 1
@@ -63,13 +63,6 @@ public:
 
 	void loadStar();
 
-/** @brief Path color setter
-*
-* Sets the color for the path
-*
-* @param color A 4 dimensioned vector which contains the color's values
-*/
-
 	void set_color(Vec4 color);
 
 /** @brief Path Draw
@@ -78,28 +71,14 @@ public:
 * (translate, scale and rotate) using the entity's vertices_
 * variable
 *
-* @param wc Window Controller object which contains all the variables used
+@param renderer SDL renderer object
 */
 
 	void draw(SDL_Renderer* renderer) override;
 
-/** @brief Path vertices getter
-*
-* Returns the path's vertices
-*
-* @return The path's vertices
-*/
-
 	std::vector<Vec3> vertices() const;
 
-/** @brief Path color getter
-*
-* Returns the path's color
-*
-* @return The path's color
-*/
 	Vec4 color() const;
-
 	void update() override;
 
 private:

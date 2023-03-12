@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quit_33',['quit',['../class_game_controller.html#a82b414be11558c84b65e89e893bc143d',1,'GameController::quit()'],['../class_window_controller.html#ab051747be9f503206f7ac0cb8ed47e5b',1,'WindowController::quit()']]]
+  ['resize_28',['resize',['../class_emitter.html#a44da803beacc402f75c9aa0e51e0429f',1,'Emitter']]],
+  ['rotation_29',['rotation',['../class_entity.html#af4d917542d9beaf2bb8958983aa9abee',1,'Entity']]]
 ];

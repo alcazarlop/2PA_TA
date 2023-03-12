@@ -62,19 +62,21 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Entity Member List</div>  </div>
+<div class="title">Cube Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="class_entity.html">Entity</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="class_cube.html">Cube</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>draw</b>(SDL_Renderer *renderer)=0 (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Cube</b>() (defined in <a class="el" href="class_cube.html">Cube</a>)</td><td class="entry"><a class="el" href="class_cube.html">Cube</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>Cube</b>(const Cube &amp;other) (defined in <a class="el" href="class_cube.html">Cube</a>)</td><td class="entry"><a class="el" href="class_cube.html">Cube</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_cube.html#afd51f72adf081ab38422e4d131a6b31a">draw</a>(SDL_Renderer *render) override</td><td class="entry"><a class="el" href="class_cube.html">Cube</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>enabled</b>() const (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>enabled_</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>Entity</b>() (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Entity</b>(const Entity &amp;copy) (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_entity.html#a098ff568225a89f33b53da6c7ecf6105">id</a>() const</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>init</b>(Vec3 pos, Vec3 scale)=0 (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_cube.html#aad91a8f86e1c2ee6a7b879524730d040">init</a>(Vec3 pos, Vec3 scale) override</td><td class="entry"><a class="el" href="class_cube.html">Cube</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_entity.html#a6c379fad01050ee8773c64b8e1c7251d">position</a>() const</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>position_</b> (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_entity.html#af4d917542d9beaf2bb8958983aa9abee">rotation</a>() const</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
@@ -88,8 +90,9 @@ $(function() {
   <tr bgcolor="#f0f0f0"><td class="entry"><b>set_rotation</b>(float x, float y, float z) (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_entity.html#a2b0d5ba7b0f0d9344d5b2a086b55d32a">set_scale</a>(Vec3 scale)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_entity.html#abfb2074dbc39ed505f4730441c55ac1f">set_scale</a>(float x, float y, float z)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>update</b>()=0 (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~Entity</b>() (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_cube.html#a7be52236f05dcc653be04cdc3efc9458">update</a>() override</td><td class="entry"><a class="el" href="class_cube.html">Cube</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>~Cube</b>() (defined in <a class="el" href="class_cube.html">Cube</a>)</td><td class="entry"><a class="el" href="class_cube.html">Cube</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Entity</b>() (defined in <a class="el" href="class_entity.html">Entity</a>)</td><td class="entry"><a class="el" href="class_entity.html">Entity</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

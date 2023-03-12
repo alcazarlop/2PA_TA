@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Particle System: C:/Users/Usuario/Desktop/Programacion Avanzada/Particle_definitiv/2PA_TA_prietoro_alcazarlo-master/particle_system/include/path.h Source File</title>
+<title>Particle System: path.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,6 +45,7 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,72 +60,67 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">path.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef __PATH_H__</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define __PATH_H__ 1</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;vector_4.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;entity.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span>Vec2;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span>Mat3;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="class_window_controller.html">WindowController</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_path.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_path.html">Path</a> : <span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_path.html">Path</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_path.html">Path</a>(<span class="keyword">const</span> <a class="code" href="class_path.html">Path</a>&amp; copy);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_path.html">Path</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#acb420895397d0e89ee5a29b5eaca2b70">add_vertices</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#acb420895397d0e89ee5a29b5eaca2b70">add_vertices</a>(<span class="keyword">const</span> Vec2&amp; vert);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#a862b79d15ca9cee154b867ecfb9f9870">loadSquare</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#aafb34e4da07a07c28d8c703e62c1c743">loadCircle</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#aeab306a1e7740f8e3dbd44118a8968b6">loadStar</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#ab43ad706762a9e7759a10133fe241174">set_color</a>(Vec4 <a class="code" href="class_path.html#a9039ee222845ceb63a64ffaf5383a872">color</a>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#a322c90c447c6b68346daa88664c41006">draw</a>(<span class="keyword">const</span> <a class="code" href="class_window_controller.html">WindowController</a>&amp; wc) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    std::vector&lt;Vec2&gt; <a class="code" href="class_path.html#aadee2080692caf3e6c5be72204d261d8">vertices</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    Vec4 <a class="code" href="class_path.html#a9039ee222845ceb63a64ffaf5383a872">color</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    std::vector&lt;Vec2&gt; vertices_;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    Vec4 color_;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef __PATH_H__</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define __PATH_H__ 1</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;vector_4.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;entity.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span>Vec3;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span>Vec4;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span>Mat4;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_path.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_path.html">Path</a> : <span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_path.html">Path</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_path.html">Path</a>(<span class="keyword">const</span> <a class="code" href="class_path.html">Path</a>&amp; copy);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_path.html">Path</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> init(Vec3 pos, Vec3 <a class="code" href="class_entity.html#ade37eb0f7e9d1f3f9a5cafb7180b773c">scale</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#a35770cfca11c81b21c0793cb9600cbb4">add_vertices</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#a35770cfca11c81b21c0793cb9600cbb4">add_vertices</a>(<span class="keyword">const</span> Vec3&amp; vert);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#a862b79d15ca9cee154b867ecfb9f9870">loadSquare</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#aafb34e4da07a07c28d8c703e62c1c743">loadCircle</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#aeab306a1e7740f8e3dbd44118a8968b6">loadStar</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> set_color(Vec4 color);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_path.html#ad4396d1bc4a6414ffab22e21256678c3">draw</a>(SDL_Renderer* renderer) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    std::vector&lt;Vec3&gt; vertices() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    Vec4 color() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> update() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    std::vector&lt;Vec3&gt; vertices_;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    Vec4 color_;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;};</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_path_html_ab43ad706762a9e7759a10133fe241174"><div class="ttname"><a href="class_path.html#ab43ad706762a9e7759a10133fe241174">Path::set_color</a></div><div class="ttdeci">void set_color(Vec4 color)</div><div class="ttdoc">Path color setter.</div></div>
-<div class="ttc" id="aclass_window_controller_html"><div class="ttname"><a href="class_window_controller.html">WindowController</a></div><div class="ttdef"><b>Definition:</b> window_controller.h:7</div></div>
-<div class="ttc" id="aclass_path_html_acb420895397d0e89ee5a29b5eaca2b70"><div class="ttname"><a href="class_path.html#acb420895397d0e89ee5a29b5eaca2b70">Path::add_vertices</a></div><div class="ttdeci">void add_vertices(float x, float y)</div><div class="ttdoc">Path add vertices with values.</div></div>
 <div class="ttc" id="aclass_path_html_a862b79d15ca9cee154b867ecfb9f9870"><div class="ttname"><a href="class_path.html#a862b79d15ca9cee154b867ecfb9f9870">Path::loadSquare</a></div><div class="ttdeci">void loadSquare()</div><div class="ttdoc">Square shape loader.</div></div>
 <div class="ttc" id="aclass_path_html_aeab306a1e7740f8e3dbd44118a8968b6"><div class="ttname"><a href="class_path.html#aeab306a1e7740f8e3dbd44118a8968b6">Path::loadStar</a></div><div class="ttdeci">void loadStar()</div><div class="ttdoc">Star shape loader.</div></div>
-<div class="ttc" id="aclass_path_html_a9039ee222845ceb63a64ffaf5383a872"><div class="ttname"><a href="class_path.html#a9039ee222845ceb63a64ffaf5383a872">Path::color</a></div><div class="ttdeci">Vec4 color() const</div><div class="ttdoc">Path color getter.</div></div>
+<div class="ttc" id="aclass_path_html_ad4396d1bc4a6414ffab22e21256678c3"><div class="ttname"><a href="class_path.html#ad4396d1bc4a6414ffab22e21256678c3">Path::draw</a></div><div class="ttdeci">void draw(SDL_Renderer *renderer) override</div><div class="ttdoc">Path Draw.</div></div>
 <div class="ttc" id="aclass_path_html_aafb34e4da07a07c28d8c703e62c1c743"><div class="ttname"><a href="class_path.html#aafb34e4da07a07c28d8c703e62c1c743">Path::loadCircle</a></div><div class="ttdeci">void loadCircle()</div><div class="ttdoc">Circle shape loader.</div></div>
-<div class="ttc" id="aclass_path_html_aadee2080692caf3e6c5be72204d261d8"><div class="ttname"><a href="class_path.html#aadee2080692caf3e6c5be72204d261d8">Path::vertices</a></div><div class="ttdeci">std::vector&lt; Vec2 &gt; vertices() const</div><div class="ttdoc">Path vertices getter.</div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> entity.h:9</div></div>
-<div class="ttc" id="aclass_path_html"><div class="ttname"><a href="class_path.html">Path</a></div><div class="ttdef"><b>Definition:</b> path.h:14</div></div>
-<div class="ttc" id="aclass_path_html_a322c90c447c6b68346daa88664c41006"><div class="ttname"><a href="class_path.html#a322c90c447c6b68346daa88664c41006">Path::draw</a></div><div class="ttdeci">void draw(const WindowController &amp;wc) override</div><div class="ttdoc">Path Draw.</div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> entity.h:10</div></div>
+<div class="ttc" id="aclass_entity_html_ade37eb0f7e9d1f3f9a5cafb7180b773c"><div class="ttname"><a href="class_entity.html#ade37eb0f7e9d1f3f9a5cafb7180b773c">Entity::scale</a></div><div class="ttdeci">Vec3 scale() const</div><div class="ttdoc">Entity's scale getter.</div></div>
+<div class="ttc" id="aclass_path_html"><div class="ttname"><a href="class_path.html">Path</a></div><div class="ttdef"><b>Definition:</b> path.h:15</div></div>
+<div class="ttc" id="aclass_path_html_a35770cfca11c81b21c0793cb9600cbb4"><div class="ttname"><a href="class_path.html#a35770cfca11c81b21c0793cb9600cbb4">Path::add_vertices</a></div><div class="ttdeci">void add_vertices(float x, float y, float z)</div><div class="ttdoc">Path add vertices with values.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

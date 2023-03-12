@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['release_34',['release',['../class_collider2_d.html#a2153faf5bd9cfa896cdb7d3f44b93b08',1,'Collider2D::release()'],['../class_game_manager.html#a91a2972e2ee07041a6c355168f1dc01c',1,'GameManager::release()'],['../class_sprite.html#af339355dcf2af5b7d97f6a5d95f4a54b',1,'Sprite::release()'],['../class_texture.html#a16c096defe40a38d6f22bd08b63eb826',1,'Texture::release()']]],
-  ['renderer_35',['renderer',['../class_window_controller.html#a1fbff8952289ae37fdd558ea1364b79b',1,'WindowController']]],
-  ['reset_36',['reset',['../class_particle.html#a1a6f0f3820eb93b2edd4f1961839a40e',1,'Particle']]],
-  ['rotation_37',['rotation',['../class_entity.html#ac89bc7a3e2da66cd47f2d5c78e12d44b',1,'Entity::rotation()'],['../class_texture.html#a99f4c904fc209d534023b31571fdeac8',1,'Texture::rotation()']]]
+  ['scale_30',['scale',['../class_entity.html#ade37eb0f7e9d1f3f9a5cafb7180b773c',1,'Entity']]],
+  ['set_5fposition_31',['set_position',['../class_entity.html#a4318f16e520696d67d344a56c36d6d44',1,'Entity::set_position(Vec3 pos)'],['../class_entity.html#a16b33c677464e16ad8f590f3eabe52c9',1,'Entity::set_position(float x, float y, float z)']]],
+  ['set_5frotation_32',['set_rotation',['../class_entity.html#ace41c19fab3349af8f237a6da7028064',1,'Entity']]],
+  ['set_5fscale_33',['set_scale',['../class_entity.html#a2b0d5ba7b0f0d9344d5b2a086b55d32a',1,'Entity::set_scale(Vec3 scale)'],['../class_entity.html#abfb2074dbc39ed505f4730441c55ac1f',1,'Entity::set_scale(float x, float y, float z)']]],
+  ['smoke_34',['smoke',['../class_emitter.html#a2cc53afd6994e3cc8f608a57a681d18c',1,'Emitter']]],
+  ['sprite_35',['Sprite',['../class_sprite.html',1,'']]]
 ];

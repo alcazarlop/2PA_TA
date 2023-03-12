@@ -3,200 +3,229 @@
 Inheritance diagram for Emitter\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_emitter}
+\includegraphics[height=3.000000cm]{class_emitter}
 \end{center}
 \end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_emitter_1_1_emitter_params}{Emitter\+Params}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_emitter_aea8f2d74f6c39be1c7c4c66680ed3030}\label{class_emitter_aea8f2d74f6c39be1c7c4c66680ed3030}} 
 {\bfseries Emitter} (const \mbox{\hyperlink{class_emitter}{Emitter}} \&copy)
 \item 
-void \mbox{\hyperlink{class_emitter_a627a3d00fe4f550ed37b42acfdabfac7}{load\+Texture}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
-\begin{DoxyCompactList}\small\item\em Load \mbox{\hyperlink{class_texture}{Texture}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_emitter_a59108dcf35aa7b31f3cdd55078927fd6}{init}} (Uint32 size, Uint32 mode)
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_emitter}{Emitter}} Initialize. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_emitter_a2ece709498f9cbbb9d4f8cba2780b0e9}{update}} ()
-\begin{DoxyCompactList}\small\item\em Load \mbox{\hyperlink{class_texture}{Texture}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_emitter_a7ebdc99c0734683d4b8d4d1f30dbe077}{draw}} (const \mbox{\hyperlink{class_window_controller}{Window\+Controller}} \&wc) override
-\begin{DoxyCompactList}\small\item\em Load \mbox{\hyperlink{class_texture}{Texture}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_emitter_a31b1eadeeec5e802891504b7268f14c9}{firework}} ()
-\begin{DoxyCompactList}\small\item\em Load \mbox{\hyperlink{class_texture}{Texture}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_emitter_a3e25503a26422ecce1803087258bee31}{burst}} (Uint32 index)
-\begin{DoxyCompactList}\small\item\em Burst. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_emitter_a6b9208f8e0d6736fc7aab0643644d1ea}{custom}} ()
-\begin{DoxyCompactList}\small\item\em Custom. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_emitter_a575f96cb05a8c7eba6da102701c7435a}\label{class_emitter_a575f96cb05a8c7eba6da102701c7435a}} 
-\mbox{\hyperlink{struct_particle_1_1_particle_params}{Particle\+::\+Particle\+Params}} {\bfseries params} () const
+void \mbox{\hyperlink{class_emitter_ac22dd9d7393ae07e9bc8d09b0c70dfe7}{init}} (Vec3 pos, Vec3 \mbox{\hyperlink{class_entity_ade37eb0f7e9d1f3f9a5cafb7180b773c}{scale}}) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s Initializer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emitter_a44da803beacc402f75c9aa0e51e0429f}{resize}} (Uint32 new\+\_\+size, \mbox{\hyperlink{class_texture}{Texture}} $\ast$texture)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_emitter}{Emitter}} resizer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emitter_a1c303268607d05342d9ad01e5e82063a}{add\+\_\+particle}} (\mbox{\hyperlink{class_texture}{Texture}} $\ast$texture)
+\begin{DoxyCompactList}\small\item\em Add particle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emitter_a28db81cc9f4006ccc02ffbc4550ba7c5}{update}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emitter_aa3313ae5ca25ebb53668daecaf22914d}{draw}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_emitter}{Emitter}} Draw. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emitter_aec8445f385e0d29d7e30ae8fb528a628}{burst}} (\mbox{\hyperlink{class_particle}{Particle}} $\ast$particle, Uint32 index)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s burst mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emitter_a1abf4168538dc052eb1dc4bc13c68709}{firework}} (\mbox{\hyperlink{class_particle}{Particle}} $\ast$particle)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s firework mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emitter_a2cc53afd6994e3cc8f608a57a681d18c}{smoke}} (\mbox{\hyperlink{class_particle}{Particle}} $\ast$particle)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s smoke mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emitter_a114b5b75b8542d9134f369966b9f2c06}{waterfall}} (\mbox{\hyperlink{class_particle}{Particle}} $\ast$particle)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s waterfall mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_emitter_a8f19a718a6ce7630256c2ac1301bd6d7}\label{class_emitter_a8f19a718a6ce7630256c2ac1301bd6d7}} 
+void {\bfseries set\+\_\+mode} (Uint8 mode)
 \item 
-\mbox{\Hypertarget{class_emitter_afbbfe2d8de669ad5f9e04d6a7df86a5f}\label{class_emitter_afbbfe2d8de669ad5f9e04d6a7df86a5f}} 
-void {\bfseries set\+\_\+particle\+\_\+velocity\+\_\+x} (float min, float max)
+\mbox{\Hypertarget{class_emitter_af316426b37ce3936d32a563e60830dcf}\label{class_emitter_af316426b37ce3936d32a563e60830dcf}} 
+void {\bfseries set\+\_\+type} (Uint8 type)
 \item 
-\mbox{\Hypertarget{class_emitter_acdff2671bec62ba1167b2eeea7dc074c}\label{class_emitter_acdff2671bec62ba1167b2eeea7dc074c}} 
-void {\bfseries set\+\_\+particle\+\_\+velocity\+\_\+y} (float min, float max)
+\mbox{\Hypertarget{class_emitter_a89fed886e5de850571b8a7545aa59596}\label{class_emitter_a89fed886e5de850571b8a7545aa59596}} 
+Uint32 {\bfseries particle\+\_\+number} () const
 \item 
-\mbox{\Hypertarget{class_emitter_a552d533fe53e00a49da5c147fa447f19}\label{class_emitter_a552d533fe53e00a49da5c147fa447f19}} 
-void {\bfseries set\+\_\+particle\+\_\+speed} (float min, float max)
+\mbox{\Hypertarget{class_emitter_a0e46e638d58ec75038c722865a87460a}\label{class_emitter_a0e46e638d58ec75038c722865a87460a}} 
+Uint8 {\bfseries mode} () const
 \item 
-\mbox{\Hypertarget{class_emitter_a4817699d09877604da9ce2a9008723c3}\label{class_emitter_a4817699d09877604da9ce2a9008723c3}} 
-void {\bfseries set\+\_\+particle\+\_\+lifetime} (Uint32 time)
-\item 
-\mbox{\Hypertarget{class_emitter_a3c0325ffb3d8c1168e595b493e97e79a}\label{class_emitter_a3c0325ffb3d8c1168e595b493e97e79a}} 
-void {\bfseries set\+\_\+lerp\+Color} (bool b)
-\item 
-\mbox{\Hypertarget{class_emitter_a8199f6008223f9521d3028e445e8f01a}\label{class_emitter_a8199f6008223f9521d3028e445e8f01a}} 
-void {\bfseries set\+\_\+start\+Color} (Vec4 color)
-\item 
-\mbox{\Hypertarget{class_emitter_ad163cfa085f923d020a4062aad650412}\label{class_emitter_ad163cfa085f923d020a4062aad650412}} 
-void {\bfseries set\+\_\+end\+Color} (Vec4 color)
-\item 
-\mbox{\Hypertarget{class_emitter_ad94a01dc30a52e1bceebedac8168ffc1}\label{class_emitter_ad94a01dc30a52e1bceebedac8168ffc1}} 
-void {\bfseries set\+\_\+pool\+\_\+size} (Uint32 new\+\_\+size)
-\item 
-\mbox{\Hypertarget{class_emitter_a1e80a324185f9d17bc28749ee38ee7a6}\label{class_emitter_a1e80a324185f9d17bc28749ee38ee7a6}} 
-void {\bfseries set\+\_\+mode} (Uint32 mode)
-\item 
-\mbox{\Hypertarget{class_emitter_afdd4c9206374ea2f2809199e52e9299e}\label{class_emitter_afdd4c9206374ea2f2809199e52e9299e}} 
-void {\bfseries set\+\_\+random\+\_\+velocity\+\_\+x} ()
-\item 
-\mbox{\Hypertarget{class_emitter_a6fff5f794f66ad378a8e3fe06875f391}\label{class_emitter_a6fff5f794f66ad378a8e3fe06875f391}} 
-void {\bfseries set\+\_\+random\+\_\+velocity\+\_\+y} ()
-\item 
-\mbox{\Hypertarget{class_emitter_aa3c578faf52116eec34537dba45789ed}\label{class_emitter_aa3c578faf52116eec34537dba45789ed}} 
-void {\bfseries set\+\_\+random\+\_\+speed} ()
-\item 
-\mbox{\Hypertarget{class_emitter_a959d89f4eb15ca57e25fbf50e6964a8e}\label{class_emitter_a959d89f4eb15ca57e25fbf50e6964a8e}} 
-void {\bfseries set\+\_\+random\+\_\+lifetime} ()
-\item 
-\mbox{\Hypertarget{class_emitter_a8066711799498a11792933e48f7a1b88}\label{class_emitter_a8066711799498a11792933e48f7a1b88}} 
-void {\bfseries set\+\_\+random\+\_\+lerp\+Color} ()
-\item 
-\mbox{\Hypertarget{class_emitter_a55f3de4df7b09c2dcf22909659bb100c}\label{class_emitter_a55f3de4df7b09c2dcf22909659bb100c}} 
-void {\bfseries set\+\_\+random\+\_\+start\+Color} ()
-\item 
-\mbox{\Hypertarget{class_emitter_ad12cc64b5d30c5869d1b9b6d59fff04b}\label{class_emitter_ad12cc64b5d30c5869d1b9b6d59fff04b}} 
-void {\bfseries set\+\_\+random\+\_\+end\+Color} ()
+\mbox{\Hypertarget{class_emitter_a673e9371ab1ff6666328b797cdb79e4f}\label{class_emitter_a673e9371ab1ff6666328b797cdb79e4f}} 
+Uint8 {\bfseries type} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_emitter_a0a0b8c95028fac675ebacaadfd159a0e}\label{class_emitter_a0a0b8c95028fac675ebacaadfd159a0e}} 
-bool {\bfseries is\+Bound\+\_\+}
+\mbox{\Hypertarget{class_emitter_abb882652db8cd623618e99453e9c0686}\label{class_emitter_abb882652db8cd623618e99453e9c0686}} 
+struct \mbox{\hyperlink{struct_emitter_1_1_emitter_params}{Emitter\+::\+Emitter\+Params}} {\bfseries e\+\_\+params\+\_\+}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_emitter_a3e25503a26422ecce1803087258bee31}\label{class_emitter_a3e25503a26422ecce1803087258bee31}} 
+\mbox{\Hypertarget{class_emitter_a1c303268607d05342d9ad01e5e82063a}\label{class_emitter_a1c303268607d05342d9ad01e5e82063a}} 
+\index{Emitter@{Emitter}!add\_particle@{add\_particle}}
+\index{add\_particle@{add\_particle}!Emitter@{Emitter}}
+\doxysubsubsection{\texorpdfstring{add\_particle()}{add\_particle()}}
+{\footnotesize\ttfamily void Emitter\+::add\+\_\+particle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_texture}{Texture}} $\ast$}]{texture }\end{DoxyParamCaption})}
+
+
+
+Add particle. 
+
+Adds a new partcile
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & A texture reference object for the particle\textquotesingle{}s \mbox{\hyperlink{class_sprite}{Sprite}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_emitter_aec8445f385e0d29d7e30ae8fb528a628}\label{class_emitter_aec8445f385e0d29d7e30ae8fb528a628}} 
 \index{Emitter@{Emitter}!burst@{burst}}
 \index{burst@{burst}!Emitter@{Emitter}}
 \doxysubsubsection{\texorpdfstring{burst()}{burst()}}
-{\footnotesize\ttfamily void Emitter\+::burst (\begin{DoxyParamCaption}\item[{Uint32}]{index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Emitter\+::burst (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle}{Particle}} $\ast$}]{particle,  }\item[{Uint32}]{index }\end{DoxyParamCaption})}
 
 
 
-Burst. 
+\mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s burst mode. 
 
-Burst pattern particle mode
+Manages the emitter\textquotesingle{}s partciles for burst mode
 
 
 \begin{DoxyParams}{Parameters}
-{\em index} & \mbox{\hyperlink{class_particle}{Particle}}\textquotesingle{}s index \\
+{\em particle} & \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s particle object to be updated \\
+\hline
+{\em index} & \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s index ID \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_emitter_a6b9208f8e0d6736fc7aab0643644d1ea}\label{class_emitter_a6b9208f8e0d6736fc7aab0643644d1ea}} 
-\index{Emitter@{Emitter}!custom@{custom}}
-\index{custom@{custom}!Emitter@{Emitter}}
-\doxysubsubsection{\texorpdfstring{custom()}{custom()}}
-{\footnotesize\ttfamily void Emitter\+::custom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Custom. 
-
-Custom pattern particle mode \mbox{\Hypertarget{class_emitter_a7ebdc99c0734683d4b8d4d1f30dbe077}\label{class_emitter_a7ebdc99c0734683d4b8d4d1f30dbe077}} 
+\mbox{\Hypertarget{class_emitter_aa3313ae5ca25ebb53668daecaf22914d}\label{class_emitter_aa3313ae5ca25ebb53668daecaf22914d}} 
 \index{Emitter@{Emitter}!draw@{draw}}
 \index{draw@{draw}!Emitter@{Emitter}}
 \doxysubsubsection{\texorpdfstring{draw()}{draw()}}
-{\footnotesize\ttfamily void Emitter\+::draw (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_window_controller}{Window\+Controller}} \&}]{wc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Emitter\+::draw (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Load \mbox{\hyperlink{class_texture}{Texture}}. 
+\mbox{\hyperlink{class_emitter}{Emitter}} Draw. 
 
-Draws the emitter\textquotesingle{}s components
+Drawing of the emitter\textquotesingle{}s particles
 
 
 \begin{DoxyParams}{Parameters}
-{\em wc} & \mbox{\hyperlink{class_window_controller}{Window\+Controller}} object needed for drawing the emitter\textquotesingle{}s components \\
+{\em renderer} & S\+DL renderer object \\
 \hline
 \end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{class_entity}{Entity}}.
 
-\mbox{\Hypertarget{class_emitter_a31b1eadeeec5e802891504b7268f14c9}\label{class_emitter_a31b1eadeeec5e802891504b7268f14c9}} 
+\mbox{\Hypertarget{class_emitter_a1abf4168538dc052eb1dc4bc13c68709}\label{class_emitter_a1abf4168538dc052eb1dc4bc13c68709}} 
 \index{Emitter@{Emitter}!firework@{firework}}
 \index{firework@{firework}!Emitter@{Emitter}}
 \doxysubsubsection{\texorpdfstring{firework()}{firework()}}
-{\footnotesize\ttfamily void Emitter\+::firework (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Emitter\+::firework (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle}{Particle}} $\ast$}]{particle }\end{DoxyParamCaption})}
 
 
 
-Load \mbox{\hyperlink{class_texture}{Texture}}. 
+\mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s firework mode. 
 
-Releases the emitter\textquotesingle{}s components
+Manages the emitter\textquotesingle{}s partciles for firework mode
 
-Firework
 
-Firework pattern particle mode \mbox{\Hypertarget{class_emitter_a59108dcf35aa7b31f3cdd55078927fd6}\label{class_emitter_a59108dcf35aa7b31f3cdd55078927fd6}} 
+\begin{DoxyParams}{Parameters}
+{\em particle} & \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s particle object to be updated \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_emitter_ac22dd9d7393ae07e9bc8d09b0c70dfe7}\label{class_emitter_ac22dd9d7393ae07e9bc8d09b0c70dfe7}} 
 \index{Emitter@{Emitter}!init@{init}}
 \index{init@{init}!Emitter@{Emitter}}
 \doxysubsubsection{\texorpdfstring{init()}{init()}}
-{\footnotesize\ttfamily void Emitter\+::init (\begin{DoxyParamCaption}\item[{Uint32}]{size,  }\item[{Uint32}]{mode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Emitter\+::init (\begin{DoxyParamCaption}\item[{Vec3}]{pos,  }\item[{Vec3}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-\mbox{\hyperlink{class_emitter}{Emitter}} Initialize. 
+\mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s Initializer. 
 
-Initializes all the emitter\textquotesingle{}s parameters
-
-
-\begin{DoxyParams}{Parameters}
-{\em size} & Value that determines the size of the particle\textquotesingle{}s pool \\
-\hline
-{\em mode} & Value that determines the emitter\textquotesingle{}s mode \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_emitter_a627a3d00fe4f550ed37b42acfdabfac7}\label{class_emitter_a627a3d00fe4f550ed37b42acfdabfac7}} 
-\index{Emitter@{Emitter}!loadTexture@{loadTexture}}
-\index{loadTexture@{loadTexture}!Emitter@{Emitter}}
-\doxysubsubsection{\texorpdfstring{loadTexture()}{loadTexture()}}
-{\footnotesize\ttfamily void Emitter\+::load\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
-
-
-
-Load \mbox{\hyperlink{class_texture}{Texture}}. 
-
-Creates a texture for the emitter
+Initializes a \mbox{\hyperlink{class_emitter}{Emitter}}
 
 
 \begin{DoxyParams}{Parameters}
-{\em renderer} & A S\+DL renderer object necessary to create the texture \\
+{\em pos} & A vec3 which indicates the \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s position \\
+\hline
+{\em scale} & A vec3 which contains the \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s scale \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_emitter_a2ece709498f9cbbb9d4f8cba2780b0e9}\label{class_emitter_a2ece709498f9cbbb9d4f8cba2780b0e9}} 
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+\mbox{\Hypertarget{class_emitter_a44da803beacc402f75c9aa0e51e0429f}\label{class_emitter_a44da803beacc402f75c9aa0e51e0429f}} 
+\index{Emitter@{Emitter}!resize@{resize}}
+\index{resize@{resize}!Emitter@{Emitter}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void Emitter\+::resize (\begin{DoxyParamCaption}\item[{Uint32}]{new\+\_\+size,  }\item[{\mbox{\hyperlink{class_texture}{Texture}} $\ast$}]{texture }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_emitter}{Emitter}} resizer. 
+
+Resizes a emitter
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+size} & A integer value for the new emitter\textquotesingle{}s size \\
+\hline
+{\em texture} & A texture reference object for the particle\textquotesingle{}s \mbox{\hyperlink{class_sprite}{Sprite}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_emitter_a2cc53afd6994e3cc8f608a57a681d18c}\label{class_emitter_a2cc53afd6994e3cc8f608a57a681d18c}} 
+\index{Emitter@{Emitter}!smoke@{smoke}}
+\index{smoke@{smoke}!Emitter@{Emitter}}
+\doxysubsubsection{\texorpdfstring{smoke()}{smoke()}}
+{\footnotesize\ttfamily void Emitter\+::smoke (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle}{Particle}} $\ast$}]{particle }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s smoke mode. 
+
+Manages the emitter\textquotesingle{}s partciles for smoke mode
+
+
+\begin{DoxyParams}{Parameters}
+{\em particle} & \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s particle object to be updated \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_emitter_a28db81cc9f4006ccc02ffbc4550ba7c5}\label{class_emitter_a28db81cc9f4006ccc02ffbc4550ba7c5}} 
 \index{Emitter@{Emitter}!update@{update}}
 \index{update@{update}!Emitter@{Emitter}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void Emitter\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Emitter\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Load \mbox{\hyperlink{class_texture}{Texture}}. 
+\mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s update. 
 
-Updates the emitter\textquotesingle{}s components 
+Updates the emitter\textquotesingle{}s particles 
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+\mbox{\Hypertarget{class_emitter_a114b5b75b8542d9134f369966b9f2c06}\label{class_emitter_a114b5b75b8542d9134f369966b9f2c06}} 
+\index{Emitter@{Emitter}!waterfall@{waterfall}}
+\index{waterfall@{waterfall}!Emitter@{Emitter}}
+\doxysubsubsection{\texorpdfstring{waterfall()}{waterfall()}}
+{\footnotesize\ttfamily void Emitter\+::waterfall (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_particle}{Particle}} $\ast$}]{particle }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s waterfall mode. 
+
+Manages the emitter\textquotesingle{}s partciles for waterfall mode
+
+
+\begin{DoxyParams}{Parameters}
+{\em particle} & \mbox{\hyperlink{class_emitter}{Emitter}}\textquotesingle{}s particle object to be updated \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Usuario/\+Desktop/\+Programacion Avanzada/\+Particle\+\_\+definitiv/2\+P\+A\+\_\+\+T\+A\+\_\+prietoro\+\_\+alcazarlo-\/master/particle\+\_\+system/include/emitter.\+h\end{DoxyCompactItemize}
+emitter.\+h\end{DoxyCompactItemize}

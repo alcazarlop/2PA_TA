@@ -1,0 +1,95 @@
+\hypertarget{class_cube}{}\doxysection{Cube Class Reference}
+\label{class_cube}\index{Cube@{Cube}}
+
+
+{\ttfamily \#include $<$cube.\+h$>$}
+
+Inheritance diagram for Cube\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_cube}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_cube_ae794773a56e3305f5d1265e513b6798b}\label{class_cube_ae794773a56e3305f5d1265e513b6798b}} 
+{\bfseries Cube} (const \mbox{\hyperlink{class_cube}{Cube}} \&other)
+\item 
+void \mbox{\hyperlink{class_cube_aad91a8f86e1c2ee6a7b879524730d040}{init}} (Vec3 pos, Vec3 \mbox{\hyperlink{class_entity_ade37eb0f7e9d1f3f9a5cafb7180b773c}{scale}}) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_cube}{Cube}}\textquotesingle{}s initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_afd51f72adf081ab38422e4d131a6b31a}{draw}} (S\+D\+L\+\_\+\+Renderer $\ast$render) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_cube}{Cube}} draw. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cube_a7be52236f05dcc653be04cdc3efc9458}{update}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_cube}{Cube}}\textquotesingle{}s update. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Manuel Alcázar López 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_cube_afd51f72adf081ab38422e4d131a6b31a}\label{class_cube_afd51f72adf081ab38422e4d131a6b31a}} 
+\index{Cube@{Cube}!draw@{draw}}
+\index{draw@{draw}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Cube\+::draw (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{render }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_cube}{Cube}} draw. 
+
+Drawing of the cube after applying the transformations (translate, scale and rotate).
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & S\+DL renderer object \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+\mbox{\Hypertarget{class_cube_aad91a8f86e1c2ee6a7b879524730d040}\label{class_cube_aad91a8f86e1c2ee6a7b879524730d040}} 
+\index{Cube@{Cube}!init@{init}}
+\index{init@{init}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Cube\+::init (\begin{DoxyParamCaption}\item[{Vec3}]{pos,  }\item[{Vec3}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_cube}{Cube}}\textquotesingle{}s initialization. 
+
+Initializes all the cube\textquotesingle{}s parameters for it to start correctly
+
+\begin{DoxyReturn}{Returns}
+pos A vec3 which contains the cube\textquotesingle{}s position 
+
+scale which contains the cube\textquotesingle{}s scale 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+\mbox{\Hypertarget{class_cube_a7be52236f05dcc653be04cdc3efc9458}\label{class_cube_a7be52236f05dcc653be04cdc3efc9458}} 
+\index{Cube@{Cube}!update@{update}}
+\index{update@{update}!Cube@{Cube}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Cube\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_cube}{Cube}}\textquotesingle{}s update. 
+
+Updates the cube\textquotesingle{}s rotation animation 
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cube.\+h\end{DoxyCompactItemize}

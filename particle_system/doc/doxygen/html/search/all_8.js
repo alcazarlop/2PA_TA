@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['id_18',['id',['../class_entity.html#a098ff568225a89f33b53da6c7ecf6105',1,'Entity']]],
-  ['init_19',['init',['../class_collider2_d.html#a8293c592167c07ca1798e6f15429dc68',1,'Collider2D::init()'],['../class_emitter.html#a59108dcf35aa7b31f3cdd55078927fd6',1,'Emitter::init()'],['../class_game_controller.html#a57ed1e5dff714037a2cefeb7d9015078',1,'GameController::init()'],['../class_game_manager.html#a849df8c09486d7c84f368d52716b56d2',1,'GameManager::init()'],['../class_particle.html#aa2c868a0e168dea2f32caf62ed3b0bbf',1,'Particle::init()'],['../class_window_controller.html#a00f6b2feab4972aea7166aa28ed1b96f',1,'WindowController::init()']]],
-  ['input_20',['input',['../class_game_controller.html#a014f4dd0155d822742998dbcc62f9226',1,'GameController']]]
+  ['loadcircle_17',['loadCircle',['../class_path.html#aafb34e4da07a07c28d8c703e62c1c743',1,'Path']]],
+  ['loadfrombuffer_18',['loadFromBuffer',['../class_texture.html#a1d708ceeeb1b102bf7c4c5f02894edf8',1,'Texture']]],
+  ['loadfromfile_19',['loadFromFile',['../class_texture.html#ad04f3857d1317f69b080b4cad1a44cbc',1,'Texture']]],
+  ['loadsquare_20',['loadSquare',['../class_path.html#a862b79d15ca9cee154b867ecfb9f9870',1,'Path']]],
+  ['loadstar_21',['loadStar',['../class_path.html#aeab306a1e7740f8e3dbd44118a8968b6',1,'Path']]],
+  ['loop_22',['loop',['../class_game_controller.html#a45f6a537dc39668143813d91dd07e80e',1,'GameController']]]
 ];

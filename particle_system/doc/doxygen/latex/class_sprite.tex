@@ -1,9 +1,13 @@
 \hypertarget{class_sprite}{}\doxysection{Sprite Class Reference}
 \label{class_sprite}\index{Sprite@{Sprite}}
+
+
+{\ttfamily \#include $<$sprite.\+h$>$}
+
 Inheritance diagram for Sprite\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_sprite}
+\includegraphics[height=3.000000cm]{class_sprite}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -12,92 +16,88 @@ Inheritance diagram for Sprite\+:\begin{figure}[H]
 \mbox{\Hypertarget{class_sprite_aa1adea044142bc451a3a4b497ce1bc87}\label{class_sprite_aa1adea044142bc451a3a4b497ce1bc87}} 
 {\bfseries Sprite} (const \mbox{\hyperlink{class_sprite}{Sprite}} \&copy)
 \item 
-void \mbox{\hyperlink{class_sprite_a32e6178072fe09dfb51fa6790dca5c23}{load\+From\+File}} (const char $\ast$path, S\+D\+L\+\_\+\+Window $\ast$window)
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_sprite}{Sprite}} load. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_sprite_a0bce5ab3248cafd0616c55c18e7d9fd5}{draw}} (const \mbox{\hyperlink{class_window_controller}{Window\+Controller}} \&wc) override
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_sprite}{Sprite}} draw. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_sprite_af339355dcf2af5b7d97f6a5d95f4a54b}{release}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_sprite}{Sprite}} release. \end{DoxyCompactList}\item 
-Uint32 \mbox{\hyperlink{class_sprite_a1360c5f2e82d4f4939460de77da8f36e}{width}} () const
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_sprite}{Sprite}} width getter. \end{DoxyCompactList}\item 
-Uint32 \mbox{\hyperlink{class_sprite_a6a1bc4211d82ffd994a7bc7207b6198c}{height}} () const
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_sprite}{Sprite}} height getter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_sprite_a3d0f51d17b1b13cf58bb51d6245bfcac}{init}} (Vec3 pos, Vec3 \mbox{\hyperlink{class_entity_ade37eb0f7e9d1f3f9a5cafb7180b773c}{scale}}) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_sprite}{Sprite}} Initializer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sprite_ac8760a0d1d7720fd0a521535b162ca44}{draw}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_sprite}{Sprite}} Draw. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sprite_a7ad75ce20bf33f41036ae65f1aa0801a}{update}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_particle}{Particle}}\textquotesingle{}s update. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_sprite_a46bfcc4dadd4210af227f33818370283}\label{class_sprite_a46bfcc4dadd4210af227f33818370283}} 
+void {\bfseries set\+\_\+texture} (\mbox{\hyperlink{class_texture}{Texture}} $\ast$tex)
+\item 
+\mbox{\Hypertarget{class_sprite_a7772c5fa1c3e9f5176b73662aa46db8a}\label{class_sprite_a7772c5fa1c3e9f5176b73662aa46db8a}} 
+\mbox{\hyperlink{class_texture}{Texture}} $\ast$ {\bfseries texture} () const
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\+: Manuel Alcazar Lopez 
+\end{DoxyAuthor}
+
+
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_sprite_a0bce5ab3248cafd0616c55c18e7d9fd5}\label{class_sprite_a0bce5ab3248cafd0616c55c18e7d9fd5}} 
+\mbox{\Hypertarget{class_sprite_ac8760a0d1d7720fd0a521535b162ca44}\label{class_sprite_ac8760a0d1d7720fd0a521535b162ca44}} 
 \index{Sprite@{Sprite}!draw@{draw}}
 \index{draw@{draw}!Sprite@{Sprite}}
 \doxysubsubsection{\texorpdfstring{draw()}{draw()}}
-{\footnotesize\ttfamily void Sprite\+::draw (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_window_controller}{Window\+Controller}} \&}]{wc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Sprite\+::draw (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-\mbox{\hyperlink{class_sprite}{Sprite}} draw. 
+\mbox{\hyperlink{class_sprite}{Sprite}} Draw. 
 
-Drawing of a \mbox{\hyperlink{class_sprite}{Sprite}} using S\+DL
+Drawing of the \mbox{\hyperlink{class_sprite}{Sprite}} on the screen using S\+DL
 
 
 \begin{DoxyParams}{Parameters}
-{\em wc} & \mbox{\hyperlink{class_window_controller}{Window\+Controller}} object used to draw the \mbox{\hyperlink{class_sprite}{Sprite}} \\
+{\em renderer} & S\+DL renderer object \\
 \hline
 \end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{class_entity}{Entity}}.
 
-\mbox{\Hypertarget{class_sprite_a6a1bc4211d82ffd994a7bc7207b6198c}\label{class_sprite_a6a1bc4211d82ffd994a7bc7207b6198c}} 
-\index{Sprite@{Sprite}!height@{height}}
-\index{height@{height}!Sprite@{Sprite}}
-\doxysubsubsection{\texorpdfstring{height()}{height()}}
-{\footnotesize\ttfamily Uint32 Sprite\+::height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\mbox{\Hypertarget{class_sprite_a3d0f51d17b1b13cf58bb51d6245bfcac}\label{class_sprite_a3d0f51d17b1b13cf58bb51d6245bfcac}} 
+\index{Sprite@{Sprite}!init@{init}}
+\index{init@{init}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Sprite\+::init (\begin{DoxyParamCaption}\item[{Vec3}]{pos,  }\item[{Vec3}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-\mbox{\hyperlink{class_sprite}{Sprite}} height getter. 
+\mbox{\hyperlink{class_sprite}{Sprite}} Initializer. 
 
-Gets the \mbox{\hyperlink{class_sprite}{Sprite}}\textquotesingle{}s height \mbox{\Hypertarget{class_sprite_a32e6178072fe09dfb51fa6790dca5c23}\label{class_sprite_a32e6178072fe09dfb51fa6790dca5c23}} 
-\index{Sprite@{Sprite}!loadFromFile@{loadFromFile}}
-\index{loadFromFile@{loadFromFile}!Sprite@{Sprite}}
-\doxysubsubsection{\texorpdfstring{loadFromFile()}{loadFromFile()}}
-{\footnotesize\ttfamily void Sprite\+::load\+From\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path,  }\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window }\end{DoxyParamCaption})}
-
-
-
-\mbox{\hyperlink{class_sprite}{Sprite}} load. 
-
-Loads a \mbox{\hyperlink{class_sprite}{Sprite}} from memory
+Initializes a \mbox{\hyperlink{class_sprite}{Sprite}}
 
 
 \begin{DoxyParams}{Parameters}
-{\em path} & The loaded image address in the system \\
+{\em pos} & A vec3 which indicates the \mbox{\hyperlink{class_sprite}{Sprite}}\textquotesingle{}s position \\
 \hline
-{\em window} & A S\+DL window object to get the screen\+Surface\+\_\+ \\
+{\em scale} & A vec3 which contains the \mbox{\hyperlink{class_sprite}{Sprite}}\textquotesingle{}s scale \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_sprite_af339355dcf2af5b7d97f6a5d95f4a54b}\label{class_sprite_af339355dcf2af5b7d97f6a5d95f4a54b}} 
-\index{Sprite@{Sprite}!release@{release}}
-\index{release@{release}!Sprite@{Sprite}}
-\doxysubsubsection{\texorpdfstring{release()}{release()}}
-{\footnotesize\ttfamily void Sprite\+::release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+\mbox{\Hypertarget{class_sprite_a7ad75ce20bf33f41036ae65f1aa0801a}\label{class_sprite_a7ad75ce20bf33f41036ae65f1aa0801a}} 
+\index{Sprite@{Sprite}!update@{update}}
+\index{update@{update}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Sprite\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-\mbox{\hyperlink{class_sprite}{Sprite}} release. 
+\mbox{\hyperlink{class_particle}{Particle}}\textquotesingle{}s update. 
 
-\mbox{\hyperlink{class_sprite}{Sprite}} release using S\+DL \mbox{\Hypertarget{class_sprite_a1360c5f2e82d4f4939460de77da8f36e}\label{class_sprite_a1360c5f2e82d4f4939460de77da8f36e}} 
-\index{Sprite@{Sprite}!width@{width}}
-\index{width@{width}!Sprite@{Sprite}}
-\doxysubsubsection{\texorpdfstring{width()}{width()}}
-{\footnotesize\ttfamily Uint32 Sprite\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+Updates the \mbox{\hyperlink{class_sprite}{Sprite}} 
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
 
 
-
-\mbox{\hyperlink{class_sprite}{Sprite}} width getter. 
-
-Gets the \mbox{\hyperlink{class_sprite}{Sprite}}\textquotesingle{}s width 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Usuario/\+Desktop/\+Programacion Avanzada/\+Particle\+\_\+definitiv/2\+P\+A\+\_\+\+T\+A\+\_\+prietoro\+\_\+alcazarlo-\/master/particle\+\_\+system/include/sprite.\+h\end{DoxyCompactItemize}
+sprite.\+h\end{DoxyCompactItemize}

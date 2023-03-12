@@ -1,9 +1,13 @@
 \hypertarget{class_entity}{}\doxysection{Entity Class Reference}
 \label{class_entity}\index{Entity@{Entity}}
+
+
+{\ttfamily \#include $<$entity.\+h$>$}
+
 Inheritance diagram for Entity\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_entity}
+\includegraphics[height=3.000000cm]{class_entity}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -12,24 +16,33 @@ Inheritance diagram for Entity\+:\begin{figure}[H]
 \mbox{\Hypertarget{class_entity_a59decaeeea522b7128a19e1bbc3e1321}\label{class_entity_a59decaeeea522b7128a19e1bbc3e1321}} 
 {\bfseries Entity} (const \mbox{\hyperlink{class_entity}{Entity}} \&copy)
 \item 
-\mbox{\Hypertarget{class_entity_a89fe30f3ed95d3c815d484d6504b58d1}\label{class_entity_a89fe30f3ed95d3c815d484d6504b58d1}} 
-virtual void {\bfseries draw} (const \mbox{\hyperlink{class_window_controller}{Window\+Controller}} \&wc)=0
+\mbox{\Hypertarget{class_entity_ac94df40a06ea7636e1226c29e5538722}\label{class_entity_ac94df40a06ea7636e1226c29e5538722}} 
+virtual void {\bfseries init} (Vec3 pos, Vec3 \mbox{\hyperlink{class_entity_ade37eb0f7e9d1f3f9a5cafb7180b773c}{scale}})=0
 \item 
-void \mbox{\hyperlink{class_entity_a9a369bb13d11048374f863c0604574dd}{set\+\_\+position}} (Vec2 pos)
+\mbox{\Hypertarget{class_entity_a59a29d9b7474baf13c9c76859242287d}\label{class_entity_a59a29d9b7474baf13c9c76859242287d}} 
+virtual void {\bfseries update} ()=0
+\item 
+\mbox{\Hypertarget{class_entity_a9300a4faf82591e8f4a95101a92885a8}\label{class_entity_a9300a4faf82591e8f4a95101a92885a8}} 
+virtual void {\bfseries draw} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)=0
+\item 
+void \mbox{\hyperlink{class_entity_a4318f16e520696d67d344a56c36d6d44}{set\+\_\+position}} (Vec3 pos)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s position setter with vector. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_entity_a26c0e2e59a6a0a803d005eff4eab29ba}{set\+\_\+position}} (float x, float y)
+void \mbox{\hyperlink{class_entity_a16b33c677464e16ad8f590f3eabe52c9}{set\+\_\+position}} (float x, float y, float z)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s position setter with values. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_entity_ae3cd4eabe4a23cdf9939e9ac9894b5ef}{set\+\_\+scale}} (Vec2 \mbox{\hyperlink{class_entity_a670434507dce26abfb80f84d3c63cb59}{scale}})
+void \mbox{\hyperlink{class_entity_a2b0d5ba7b0f0d9344d5b2a086b55d32a}{set\+\_\+scale}} (Vec3 \mbox{\hyperlink{class_entity_ade37eb0f7e9d1f3f9a5cafb7180b773c}{scale}})
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s scale setter with vector. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_entity_a3eb9d4ff46ca377176978f6d099f0d91}{set\+\_\+scale}} (float x, float y)
+void \mbox{\hyperlink{class_entity_abfb2074dbc39ed505f4730441c55ac1f}{set\+\_\+scale}} (float x, float y, float z)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s scale setter with values. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_entity_a009617e9ce1453aa56b290b471e05e05}{set\+\_\+rotation}} (float angle)
+void \mbox{\hyperlink{class_entity_ace41c19fab3349af8f237a6da7028064}{set\+\_\+rotation}} (Vec3 \mbox{\hyperlink{class_entity_af4d917542d9beaf2bb8958983aa9abee}{rotation}})
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s rotation setter. \end{DoxyCompactList}\item 
-Vec2 \mbox{\hyperlink{class_entity_a3987cef1ec4f973d94f45c56a4615cb9}{position}} () const
+\mbox{\Hypertarget{class_entity_af028cd75bb268f6ae951d2096ae3127f}\label{class_entity_af028cd75bb268f6ae951d2096ae3127f}} 
+void {\bfseries set\+\_\+rotation} (float x, float y, float z)
+\item 
+Vec3 \mbox{\hyperlink{class_entity_a6c379fad01050ee8773c64b8e1c7251d}{position}} () const
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s position getter. \end{DoxyCompactList}\item 
-Vec2 \mbox{\hyperlink{class_entity_a670434507dce26abfb80f84d3c63cb59}{scale}} () const
+Vec3 \mbox{\hyperlink{class_entity_ade37eb0f7e9d1f3f9a5cafb7180b773c}{scale}} () const
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s scale getter. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{class_entity_ac89bc7a3e2da66cd47f2d5c78e12d44b}{rotation}} () const
+Vec3 \mbox{\hyperlink{class_entity_af4d917542d9beaf2bb8958983aa9abee}{rotation}} () const
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s rotation getter. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_entity_a9c58a9fb354998fe65259ee8361da7a8}\label{class_entity_a9c58a9fb354998fe65259ee8361da7a8}} 
 void {\bfseries set\+\_\+enable} (bool b)
@@ -45,15 +58,21 @@ Uint32 \mbox{\hyperlink{class_entity_a098ff568225a89f33b53da6c7ecf6105}{id}} () 
 \mbox{\Hypertarget{class_entity_a6af257141d53a18aa447ceec24d475ca}\label{class_entity_a6af257141d53a18aa447ceec24d475ca}} 
 bool {\bfseries enabled\+\_\+}
 \item 
-\mbox{\Hypertarget{class_entity_a0e2649bfbba941460cd9354193fd46ad}\label{class_entity_a0e2649bfbba941460cd9354193fd46ad}} 
-Vec2 {\bfseries position\+\_\+}
+\mbox{\Hypertarget{class_entity_a4a7c198012467f49ec33b0d65dfa9392}\label{class_entity_a4a7c198012467f49ec33b0d65dfa9392}} 
+Vec3 {\bfseries position\+\_\+}
 \item 
-\mbox{\Hypertarget{class_entity_a169b63891bd5e9d9cc4eba253a1eb33e}\label{class_entity_a169b63891bd5e9d9cc4eba253a1eb33e}} 
-Vec2 {\bfseries scale\+\_\+}
+\mbox{\Hypertarget{class_entity_af8fabe83c2927af42cf08e3f3b42bd04}\label{class_entity_af8fabe83c2927af42cf08e3f3b42bd04}} 
+Vec3 {\bfseries scale\+\_\+}
 \item 
-\mbox{\Hypertarget{class_entity_afef865e740edb19fa9ed87a55404d2e6}\label{class_entity_afef865e740edb19fa9ed87a55404d2e6}} 
-float {\bfseries rotation\+\_\+}
+\mbox{\Hypertarget{class_entity_a8ba47cbb28a584dcec187935e5ec1293}\label{class_entity_a8ba47cbb28a584dcec187935e5ec1293}} 
+Vec3 {\bfseries rotation\+\_\+}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\+: Pablo Prieto Rodriguez 
+\end{DoxyAuthor}
 
 
 \doxysubsection{Member Function Documentation}
@@ -72,11 +91,11 @@ Gets the entity\textquotesingle{}s id
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s id 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_entity_a3987cef1ec4f973d94f45c56a4615cb9}\label{class_entity_a3987cef1ec4f973d94f45c56a4615cb9}} 
+\mbox{\Hypertarget{class_entity_a6c379fad01050ee8773c64b8e1c7251d}\label{class_entity_a6c379fad01050ee8773c64b8e1c7251d}} 
 \index{Entity@{Entity}!position@{position}}
 \index{position@{position}!Entity@{Entity}}
 \doxysubsubsection{\texorpdfstring{position()}{position()}}
-{\footnotesize\ttfamily Vec2 Entity\+::position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Vec3 Entity\+::position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -87,11 +106,11 @@ Gets the entity\textquotesingle{}s position
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s actual position 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_entity_ac89bc7a3e2da66cd47f2d5c78e12d44b}\label{class_entity_ac89bc7a3e2da66cd47f2d5c78e12d44b}} 
+\mbox{\Hypertarget{class_entity_af4d917542d9beaf2bb8958983aa9abee}\label{class_entity_af4d917542d9beaf2bb8958983aa9abee}} 
 \index{Entity@{Entity}!rotation@{rotation}}
 \index{rotation@{rotation}!Entity@{Entity}}
 \doxysubsubsection{\texorpdfstring{rotation()}{rotation()}}
-{\footnotesize\ttfamily float Entity\+::rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Vec3 Entity\+::rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -102,11 +121,11 @@ Gets the entity\textquotesingle{}s angle rotation
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s actual angle rotation 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_entity_a670434507dce26abfb80f84d3c63cb59}\label{class_entity_a670434507dce26abfb80f84d3c63cb59}} 
+\mbox{\Hypertarget{class_entity_ade37eb0f7e9d1f3f9a5cafb7180b773c}\label{class_entity_ade37eb0f7e9d1f3f9a5cafb7180b773c}} 
 \index{Entity@{Entity}!scale@{scale}}
 \index{scale@{scale}!Entity@{Entity}}
 \doxysubsubsection{\texorpdfstring{scale()}{scale()}}
-{\footnotesize\ttfamily Vec2 Entity\+::scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Vec3 Entity\+::scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -117,11 +136,11 @@ Gets the entity\textquotesingle{}s scale
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s actual scale 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_entity_a26c0e2e59a6a0a803d005eff4eab29ba}\label{class_entity_a26c0e2e59a6a0a803d005eff4eab29ba}} 
+\mbox{\Hypertarget{class_entity_a16b33c677464e16ad8f590f3eabe52c9}\label{class_entity_a16b33c677464e16ad8f590f3eabe52c9}} 
 \index{Entity@{Entity}!set\_position@{set\_position}}
 \index{set\_position@{set\_position}!Entity@{Entity}}
 \doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Entity\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Entity\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})}
 
 
 
@@ -134,28 +153,28 @@ Sets the entity\textquotesingle{}s X and Y coordinates
 {\em y} & Coordinate value for Y axis \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_entity_a9a369bb13d11048374f863c0604574dd}\label{class_entity_a9a369bb13d11048374f863c0604574dd}} 
+\mbox{\Hypertarget{class_entity_a4318f16e520696d67d344a56c36d6d44}\label{class_entity_a4318f16e520696d67d344a56c36d6d44}} 
 \index{Entity@{Entity}!set\_position@{set\_position}}
 \index{set\_position@{set\_position}!Entity@{Entity}}
 \doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Entity\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{Vec2}]{pos }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Entity\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{Vec3}]{pos }\end{DoxyParamCaption})}
 
 
 
 \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s position setter with vector. 
 
-Sets the entity\textquotesingle{}s scale with a Vec2
+Sets the entity\textquotesingle{}s scale with a Vec3
 
 
 \begin{DoxyParams}{Parameters}
 {\em scale} & A vector that contains the entity\textquotesingle{}s coordinates \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_entity_a009617e9ce1453aa56b290b471e05e05}\label{class_entity_a009617e9ce1453aa56b290b471e05e05}} 
+\mbox{\Hypertarget{class_entity_ace41c19fab3349af8f237a6da7028064}\label{class_entity_ace41c19fab3349af8f237a6da7028064}} 
 \index{Entity@{Entity}!set\_rotation@{set\_rotation}}
 \index{set\_rotation@{set\_rotation}!Entity@{Entity}}
 \doxysubsubsection{\texorpdfstring{set\_rotation()}{set\_rotation()}}
-{\footnotesize\ttfamily void Entity\+::set\+\_\+rotation (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Entity\+::set\+\_\+rotation (\begin{DoxyParamCaption}\item[{Vec3}]{rotation }\end{DoxyParamCaption})}
 
 
 
@@ -168,11 +187,11 @@ Sets the entity\textquotesingle{}s rotation angle
 {\em angle} & The angle\textquotesingle{}s value \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_entity_a3eb9d4ff46ca377176978f6d099f0d91}\label{class_entity_a3eb9d4ff46ca377176978f6d099f0d91}} 
+\mbox{\Hypertarget{class_entity_abfb2074dbc39ed505f4730441c55ac1f}\label{class_entity_abfb2074dbc39ed505f4730441c55ac1f}} 
 \index{Entity@{Entity}!set\_scale@{set\_scale}}
 \index{set\_scale@{set\_scale}!Entity@{Entity}}
 \doxysubsubsection{\texorpdfstring{set\_scale()}{set\_scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Entity\+::set\+\_\+scale (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Entity\+::set\+\_\+scale (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})}
 
 
 
@@ -187,17 +206,17 @@ Sets the entity\textquotesingle{}s scale with values
 {\em y} & Scale value in the Y axis \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_entity_ae3cd4eabe4a23cdf9939e9ac9894b5ef}\label{class_entity_ae3cd4eabe4a23cdf9939e9ac9894b5ef}} 
+\mbox{\Hypertarget{class_entity_a2b0d5ba7b0f0d9344d5b2a086b55d32a}\label{class_entity_a2b0d5ba7b0f0d9344d5b2a086b55d32a}} 
 \index{Entity@{Entity}!set\_scale@{set\_scale}}
 \index{set\_scale@{set\_scale}!Entity@{Entity}}
 \doxysubsubsection{\texorpdfstring{set\_scale()}{set\_scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Entity\+::set\+\_\+scale (\begin{DoxyParamCaption}\item[{Vec2}]{scale }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Entity\+::set\+\_\+scale (\begin{DoxyParamCaption}\item[{Vec3}]{scale }\end{DoxyParamCaption})}
 
 
 
 \mbox{\hyperlink{class_entity}{Entity}}\textquotesingle{}s scale setter with vector. 
 
-Sets the entity\textquotesingle{}s scale with a Vec2
+Sets the entity\textquotesingle{}s scale with a Vec3
 
 
 \begin{DoxyParams}{Parameters}
@@ -208,4 +227,4 @@ Sets the entity\textquotesingle{}s scale with a Vec2
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Usuario/\+Desktop/\+Programacion Avanzada/\+Particle\+\_\+definitiv/2\+P\+A\+\_\+\+T\+A\+\_\+prietoro\+\_\+alcazarlo-\/master/particle\+\_\+system/include/entity.\+h\end{DoxyCompactItemize}
+entity.\+h\end{DoxyCompactItemize}

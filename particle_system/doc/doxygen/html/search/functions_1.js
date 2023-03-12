@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['burst_71',['burst',['../class_emitter.html#a3e25503a26422ecce1803087258bee31',1,'Emitter']]]
+  ['burst_53',['burst',['../class_emitter.html#aec8445f385e0d29d7e30ae8fb528a628',1,'Emitter']]]
 ];

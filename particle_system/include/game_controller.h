@@ -1,4 +1,4 @@
-///@author Manuel Alcazar Lopez
+//Author: Manuel Alcazar Lopez
 #ifndef __GAME_CONTROLLER_H__
 #define __GAME_CONTROLLER_H__ 1
 

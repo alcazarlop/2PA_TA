@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['collider2d_57',['Collider2D',['../class_collider2_d.html',1,'']]]
+  ['cube_39',['Cube',['../class_cube.html',1,'']]]
 ];
