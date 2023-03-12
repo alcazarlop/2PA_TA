@@ -1,4 +1,4 @@
-///@author: Manuel Alcazar Lopez
+///@author Manuel Alcazar Lopez
 
 #ifndef __SPRITE_H__
 #define __SPRITE_H__ 1

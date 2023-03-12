@@ -1,4 +1,4 @@
-///@author: Pablo Prieto Rodriguez
+///@author Pablo Prieto Rodriguez
 
 #ifndef __IMGUI_CONTROLLER_H__
 #define __IMGUI_CONTROLLER_H__ 1

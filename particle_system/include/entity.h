@@ -1,4 +1,4 @@
-///@author: Pablo Prieto Rodriguez
+///@author Pablo Prieto Rodriguez
 
 #ifndef __ENTITY_H__
 #define __ENTITY_H__ 1

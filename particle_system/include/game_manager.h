@@ -1,4 +1,4 @@
-//Author: Pablo Prieto Rodriguez
+///@author Pablo Prieto Rodriguez
 
 #ifndef __GAME_MANAGER_H__
 #define __GAME_MANAGER_H__ 1

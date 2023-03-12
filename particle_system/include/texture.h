@@ -1,4 +1,4 @@
-///@author: Pablo Prieto Rodriguez
+///@author Pablo Prieto Rodriguez
 
 #ifndef __TEXTURE_H__
 #define __TEXTURE_H__ 1

@@ -6,18 +6,20 @@ void SceneManager(int* scene, EmitterPool* emitter_pool, Texture* texture){
 
 	GameManager& gm = GameManager::Instance();
 
-	if(ImGui::Button("Create Emitter")){
-		if(Texture::avaliableTextures() >= 1){
-			Emitter* new_emitter = new Emitter();
-			new_emitter->init(Vec3((float)gm.mouseX(), (float)gm.mouseY(), 0.0f), Vec3(10.0f, 10.0f, 0.0f));
-			for(Uint32 i = 0; i < new_emitter->particle_number(); ++i){
-				new_emitter->add_particle(texture);
-			}	
-			emitter_pool->pool_.push_back(new_emitter);
-			emitter_pool->isBinded_ = true;
-		}
-		else {
-			ImGui::OpenPopup("Texture");
+	if(*scene == 0){
+		if(ImGui::Button("Create Emitter")){
+			if(Texture::avaliableTextures() >= 1){
+				Emitter* new_emitter = new Emitter();
+				new_emitter->init(Vec3((float)gm.mouseX(), (float)gm.mouseY(), 0.0f), Vec3(10.0f, 10.0f, 0.0f));
+				for(Uint32 i = 0; i < new_emitter->particle_number(); ++i){
+					new_emitter->add_particle(texture);
+				}	
+				emitter_pool->pool_.push_back(new_emitter);
+				emitter_pool->isBinded_ = true;
+			}
+			else {
+				ImGui::OpenPopup("Texture");
+			}
 		}
 	}
 

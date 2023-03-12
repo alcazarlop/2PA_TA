@@ -1,4 +1,4 @@
-///@author: Pablo Prieto Rodriguez
+///@author Pablo Prieto Rodriguez
 
 #ifndef __PATH_H__
 #define __PATH_H__ 1
