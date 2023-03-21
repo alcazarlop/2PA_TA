@@ -111,6 +111,7 @@ public:
 private:
 	std::vector<Entity*> pool_;
 
+  // GUSTAVO: This should probably be an enum.
 	Uint8 currentMode_;
 	Uint32 totalParticles_;
 };

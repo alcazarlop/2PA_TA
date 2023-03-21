@@ -13,6 +13,8 @@ Sprite::Sprite(const Sprite& copy){
 }
 
 Sprite::~Sprite(){
+  // GUSTAVO: CAREFUL! Do not ever explicitly call a destructor.
+  // It is already being called by the runtime and this is causing a double destruction.
 	Entity::~Entity();
 }
 

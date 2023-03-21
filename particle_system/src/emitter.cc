@@ -20,6 +20,7 @@ Emitter::~Emitter(){
 		delete pool_[i];
 	}
 	pool_.clear();
+  // GUSTAVO: CAREFUL! Do not explicitly call destructors!
 	Path::~Path();
 }
 
